@@ -30,12 +30,12 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         {/* Quick Actions - En haut */}
-        <div className="flex items-center justify-between w-full max-w-4xl mx-auto mb-10">
+        <div className="absolute top-6 left-0 right-0 flex items-center justify-between w-full px-4 sm:px-6 lg:px-12 xl:px-20">
           {/* Je veux - Dropdown - Gauche */}
           <div className="relative">
             <button
               onClick={() => setShowJeVeuxMenu(!showJeVeuxMenu)}
-              className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-6 py-2.5 font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg"
+              className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-5 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg text-sm sm:text-base"
               data-testid="je-veux-button"
             >
               <span>Je veux...</span>
@@ -62,7 +62,7 @@ export const Hero = () => {
           {/* Je suis nouveau - Centre */}
           <Link
             to="/equipe-pastorale"
-            className="bg-white/95 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
+            className="bg-white/95 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-5 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 shadow-lg text-sm sm:text-base"
             data-testid="nouveau-button"
           >
             Je suis nouveau
@@ -71,7 +71,7 @@ export const Hero = () => {
           {/* Don - Droite */}
           <Link
             to="/vie-economique"
-            className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
+            className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-5 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 shadow-lg text-sm sm:text-base"
             data-testid="don-button"
           >
             Faire un don
