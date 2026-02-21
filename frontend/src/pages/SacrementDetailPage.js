@@ -6,7 +6,7 @@ const sacrementsData = {
     title: 'Le Baptême',
     subtitle: 'Devenir enfant de Dieu',
     icon: Droplets,
-    image: 'https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=1200',
+    image: 'https://customer-assets.emergentagent.com/job_c9a89358-b983-4f0b-8ec4-b48d0db621c4/artifacts/gj75c74d_Bapteme.png',
     intro: 'Le baptême est le premier des sacrements. Il nous fait entrer dans la famille de Dieu et nous ouvre les portes de la vie éternelle.',
     sections: [
       {
@@ -146,7 +146,7 @@ const sacrementsData = {
     title: 'Le Sacrement des Malades',
     subtitle: 'Force et réconfort',
     icon: Cross,
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
+    image: 'https://customer-assets.emergentagent.com/job_c9a89358-b983-4f0b-8ec4-b48d0db621c4/artifacts/3dt57dtp_Sacreement-des-malades.png',
     intro: 'Le sacrement des malades apporte réconfort, force et paix aux personnes gravement malades, âgées ou en fin de vie.',
     sections: [
       {
