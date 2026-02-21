@@ -21,6 +21,7 @@ import EquipePastoralePage from '@/pages/EquipePastoralePage';
 import NosClochersPage from '@/pages/NosClochersPage';
 import DemanderSacrementPage from '@/pages/DemanderSacrementPage';
 import SacrementDetailPage from '@/pages/SacrementDetailPage';
+import JeSuisNouveauPage from '@/pages/JeSuisNouveauPage';
 
 function App() {
   return (
