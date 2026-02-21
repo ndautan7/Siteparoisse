@@ -1,6 +1,10 @@
+import { Users, Heart, BookOpen, Church, GraduationCap, Baby, Cross, MessagesSquare, Flower2, HandHeart, Stethoscope, HelpingHand, Home, Building2, Sparkles } from 'lucide-react';
+
 const contentData = {
   equipe: {
     title: 'Équipe Pastorale',
+    description: 'Une équipe au service de la communauté pour l\'accompagner dans sa vie de foi.',
+    icon: Users,
     content: `Notre équipe pastorale est au service de la communauté paroissiale.
 
 **Curé :** Père [Nom]
