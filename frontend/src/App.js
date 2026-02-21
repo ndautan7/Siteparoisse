@@ -44,6 +44,7 @@ function App() {
                       <Route path="/" element={<HomePage />} />
                       <Route path="/horaires-messes" element={<HorairesMesses />} />
                       <Route path="/secretariat" element={<Secretariat />} />
+                      <Route path="/je-suis-nouveau" element={<JeSuisNouveauPage />} />
                       
                       {/* Pillar landing pages with cards */}
                       <Route path="/notre-dame-autan" element={<NotreDameAutanPage />} />
