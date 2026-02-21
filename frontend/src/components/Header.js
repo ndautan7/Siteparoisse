@@ -35,11 +35,10 @@ export const Header = () => {
       ],
     },
     {
-      title: 'Vie Spirituelle & Sacrements',
+      title: 'Demander un Sacrement',
       icon: Heart,
-      path: '/vie-spirituelle',
+      path: '/demander-sacrement',
       items: [
-        { label: 'Demander un sacrement', path: '/demander-sacrement' },
         { label: 'Baptême', path: '/sacrements/bapteme' },
         { label: 'Première Communion', path: '/sacrements/premiere-communion' },
         { label: 'Confirmation', path: '/sacrements/confirmation' },
