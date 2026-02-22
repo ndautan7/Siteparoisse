@@ -30,6 +30,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Routes>
             {/* Admin routes without header/footer */}
