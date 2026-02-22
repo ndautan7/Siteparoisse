@@ -8,6 +8,20 @@ export const Header = () => {
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [showJeVeuxMenu, setShowJeVeuxMenu] = useState(false);
 
+  // Block body scroll when mobile menu is open
+  React.useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const jeVeuxOptions = [
     { label: 'Aller à la messe', path: '/horaires-messes' },
     { label: 'Demander le baptême', path: '/sacrements/bapteme' },
@@ -225,7 +239,11 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-slate-100" data-testid="mobile-menu">
+          <div 
+            className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white border-t border-slate-100 overflow-y-auto z-50" 
+            data-testid="mobile-menu"
+          >
+            <div className="py-4 px-4"
             {/* Je veux... menu on mobile */}
             <div className="mb-4">
               <div className="font-medium text-gold mb-2">Je veux...</div>
