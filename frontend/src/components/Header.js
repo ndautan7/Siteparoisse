@@ -307,7 +307,7 @@ export const Header = () => {
                 to="/vie-economique"
                 className="px-3 py-2 bg-gold hover:bg-gold-dark text-white rounded-full text-sm font-medium transition-colors"
               >
-                Faire un don
+                Donner
               </Link>
 
               {/* Horaires button - mobile */}
