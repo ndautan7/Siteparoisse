@@ -359,6 +359,43 @@ const ContentPage = ({ section }) => {
         {/* Detailed Content Section - for pages with detailed content like funerailles */}
         {config.detailedContent && (
           <div className="mb-12 space-y-8">
+            {/* Phone Contacts - First */}
+            {config.detailedContent.contacts && (
+              <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-xl p-8 border border-gold/20">
+                <h3 className="font-serif text-xl text-slate-deep mb-6 text-center">
+                  Numéros de contact pour les obsèques
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  {config.detailedContent.contacts.map((contact, idx) => (
+                    <div key={idx} className="bg-white rounded-lg p-6 text-center shadow-sm">
+                      <p className="font-medium text-slate-deep mb-2">{contact.sector}</p>
+                      <a 
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        className="text-gold hover:text-gold-dark text-lg font-semibold flex items-center justify-center gap-2"
+                      >
+                        <Phone className="w-5 h-5" />
+                        {contact.phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+                {config.detailedContent.contactNote && (
+                  <p className="text-slate-600 text-sm text-center italic">
+                    {config.detailedContent.contactNote}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Offrande - After contacts */}
+            {config.detailedContent.offrande && (
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
+                <p className="text-slate-700 font-medium">
+                  {config.detailedContent.offrande}
+                </p>
+              </div>
+            )}
+
             {/* Introduction */}
             {config.detailedContent.intro && (
               <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100">
@@ -407,43 +444,6 @@ const ContentPage = ({ section }) => {
                     {config.detailedContent.important}
                   </p>
                 </div>
-              </div>
-            )}
-
-            {/* Phone Contacts */}
-            {config.detailedContent.contacts && (
-              <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-xl p-8 border border-gold/20">
-                <h3 className="font-serif text-xl text-slate-deep mb-6 text-center">
-                  Numéros de contact pour les obsèques
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {config.detailedContent.contacts.map((contact, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-6 text-center shadow-sm">
-                      <p className="font-medium text-slate-deep mb-2">{contact.sector}</p>
-                      <a 
-                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                        className="text-gold hover:text-gold-dark text-lg font-semibold flex items-center justify-center gap-2"
-                      >
-                        <Phone className="w-5 h-5" />
-                        {contact.phone}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-                {config.detailedContent.contactNote && (
-                  <p className="text-slate-600 text-sm text-center italic">
-                    {config.detailedContent.contactNote}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Offrande */}
-            {config.detailedContent.offrande && (
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
-                <p className="text-slate-700 font-medium">
-                  {config.detailedContent.offrande}
-                </p>
               </div>
             )}
           </div>
