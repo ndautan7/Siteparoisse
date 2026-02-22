@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { FloatingDonateButton } from '@/components/FloatingDonateButton';
 import { FloatingContactButton } from '@/components/FloatingContactButton';
 import HomePage from '@/pages/HomePage';
 import HorairesMesses from '@/pages/HorairesMesses';
