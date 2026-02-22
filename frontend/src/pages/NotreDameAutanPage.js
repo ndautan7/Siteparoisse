@@ -101,8 +101,8 @@ const NotreDameAutanPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* Sections Grid - 4 colonnes pour ligne 1, 3 colonnes centrées pour ligne 2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Sections Grid - Première ligne: 4 colonnes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {sections.slice(0, 4).map((section, index) => {
             const IconComponent = section.icon;
             const isEven = index % 2 === 0;
@@ -138,8 +138,10 @@ const NotreDameAutanPage = () => {
               </Link>
             );
           })}
-          
-          {/* Ligne 2: 3 dernières vignettes centrées */}
+        </div>
+        
+        {/* Deuxième ligne: 3 colonnes centrées */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 lg:max-w-4xl lg:mx-auto">
           {sections.slice(4, 7).map((section, idx) => {
             const index = idx + 4;
             const IconComponent = section.icon;
@@ -148,7 +150,7 @@ const NotreDameAutanPage = () => {
               <Link
                 key={section.id}
                 to={section.path}
-                className={`group ${idx === 0 ? 'lg:col-start-2' : ''}`}
+                className="group"
                 data-testid={`section-card-${section.id}`}
               >
                 <article className={`${isEven ? 'bg-white' : 'bg-gold/5'} rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 h-full border ${isEven ? 'border-slate-100' : 'border-gold/20'} flex flex-col hover:-translate-y-1`}>
