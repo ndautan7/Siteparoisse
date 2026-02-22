@@ -399,6 +399,91 @@ export const Header = () => {
         </div>
       )}
       </header>
+
+      {/* Search Button - Overlapping the header */}
+      <div className="fixed left-1/2 transform -translate-x-1/2 top-[56px] z-[60]" data-testid="search-button-container">
+        <button
+          onClick={() => setIsSearchOpen(!isSearchOpen)}
+          className="w-14 h-14 rounded-full bg-gold hover:bg-gold-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5"
+          data-testid="search-button"
+          aria-label="Rechercher sur le site"
+        >
+          <Search className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Search Modal */}
+      {isSearchOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/30 z-[55]"
+            onClick={() => setIsSearchOpen(false)}
+          />
+          
+          {/* Search Panel */}
+          <div className="fixed left-1/2 transform -translate-x-1/2 top-[120px] z-[60] w-full max-w-lg px-4">
+            <div className="bg-white rounded-2xl shadow-2xl p-4 border border-slate-200">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Rechercher une page, un service..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-slate-700"
+                  autoFocus
+                  data-testid="search-input"
+                />
+              </div>
+              
+              {/* Search Results */}
+              {filteredResults.length > 0 && (
+                <div className="mt-4 space-y-1">
+                  {filteredResults.map((result, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSearchSelect(result.path)}
+                      className="w-full text-left px-4 py-3 rounded-lg hover:bg-gold/10 transition-colors flex items-center gap-3"
+                      data-testid={`search-result-${idx}`}
+                    >
+                      <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
+                        <Search className="w-4 h-4 text-gold" />
+                      </div>
+                      <span className="text-slate-700">{result.title}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* No Results */}
+              {searchQuery.length > 1 && filteredResults.length === 0 && (
+                <div className="mt-4 text-center py-6 text-slate-500">
+                  Aucun résultat pour "{searchQuery}"
+                </div>
+              )}
+
+              {/* Quick Links when empty */}
+              {searchQuery.length < 2 && (
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <p className="text-sm text-slate-500 mb-3">Recherches populaires</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Horaires', 'Baptême', 'Mariage', 'Contact'].map((term) => (
+                      <button
+                        key={term}
+                        onClick={() => setSearchQuery(term)}
+                        className="px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm hover:bg-gold/10 hover:text-gold transition-colors"
+                      >
+                        {term}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
