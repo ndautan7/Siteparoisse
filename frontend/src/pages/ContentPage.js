@@ -474,6 +474,8 @@ const ContentPage = ({ section }) => {
               );
             })}
           </div>
+            )}
+          </>
         )}
 
         {/* Detailed Content Section - for pages with detailed content like funerailles */}
