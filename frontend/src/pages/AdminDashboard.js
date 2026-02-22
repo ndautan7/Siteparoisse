@@ -491,6 +491,140 @@ const AdminDashboard = () => {
             </div>
           </div>
         )}
+
+        {/* FUNERALS TAB */}
+        {activeTab === 'funerals' && (
+          <div className="space-y-8">
+            {/* Form */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+              <h3 className="font-serif text-xl text-slate-deep mb-6">
+                {editingFuneral ? 'Modifier la cérémonie' : 'Ajouter une cérémonie'}
+              </h3>
+              <form onSubmit={handleSubmitFuneral} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Nom du défunt *</label>
+                    <input
+                      type="text"
+                      required
+                      value={funeralForm.deceased_name}
+                      onChange={(e) => setFuneralForm({ ...funeralForm, deceased_name: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      placeholder="M. Jean Dupont"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Lieu *</label>
+                    <input
+                      type="text"
+                      required
+                      value={funeralForm.location}
+                      onChange={(e) => setFuneralForm({ ...funeralForm, location: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      placeholder="Église Saint-Orens"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <input
+                      type="date"
+                      required
+                      value={funeralForm.funeral_date}
+                      onChange={(e) => setFuneralForm({ ...funeralForm, funeral_date: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure *</label>
+                    <input
+                      type="time"
+                      required
+                      value={funeralForm.funeral_time}
+                      onChange={(e) => setFuneralForm({ ...funeralForm, funeral_time: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Type de cérémonie</label>
+                    <select
+                      value={funeralForm.ceremony_type}
+                      onChange={(e) => setFuneralForm({ ...funeralForm, ceremony_type: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    >
+                      <option value="Messe de funérailles">Messe de funérailles</option>
+                      <option value="Célébration de la Parole">Célébration de la Parole</option>
+                      <option value="Bénédiction">Bénédiction</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex space-x-3 pt-4">
+                  <button
+                    type="submit"
+                    className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{editingFuneral ? 'Modifier' : 'Ajouter'}</span>
+                  </button>
+                  {editingFuneral && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditingFuneral(null);
+                        setFuneralForm({ deceased_name: '', funeral_date: '', funeral_time: '', location: '', ceremony_type: 'Messe de funérailles' });
+                      }}
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                    >
+                      Annuler
+                    </button>
+                  )}
+                </div>
+              </form>
+            </div>
+
+            {/* Funerals List */}
+            <div className="space-y-4">
+              <h3 className="font-serif text-xl text-slate-deep">Cérémonies programmées</h3>
+              {loading ? (
+                <p>Chargement...</p>
+              ) : funerals.length === 0 ? (
+                <p className="text-slate-500">Aucune cérémonie</p>
+              ) : (
+                funerals.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-lg p-4 border border-slate-100 flex justify-between items-center"
+                    data-testid={`funeral-item-${item.id}`}
+                  >
+                    <div>
+                      <h4 className="font-medium text-slate-900">{item.deceased_name}</h4>
+                      <p className="text-sm text-slate-600">
+                        {new Date(item.funeral_date).toLocaleDateString('fr-FR')} à {item.funeral_time} • {item.location}
+                      </p>
+                      <p className="text-xs text-gold mt-1">{item.ceremony_type}</p>
+                    </div>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => handleEditFuneral(item)}
+                        className="text-slate-600 hover:text-gold transition-colors"
+                        data-testid={`funeral-edit-${item.id}`}
+                      >
+                        <Edit2 className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteFuneral(item.id)}
+                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        data-testid={`funeral-delete-${item.id}`}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
