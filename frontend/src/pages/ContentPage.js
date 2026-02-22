@@ -240,7 +240,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     description: 'Vivre la charité du Christ au service des plus fragiles.',
     icon: HandHeart,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/qcuurzop_Entraide.png',
-    heroPosition: 'object-[center_30%]',
+    heroPosition: 'object-top',
     items: [
       { title: 'Secours Catholique', description: 'Aide matérielle et accompagnement', icon: HandHeart },
       { title: 'Café Amitié', description: 'Lieu de rencontre convivial', icon: Coffee },
