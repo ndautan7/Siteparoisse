@@ -7,6 +7,7 @@ import {
   Palmtree, Smile, Mic, PenTool, DoorOpen, FileText, Wallet, Gift, 
   CircleDollarSign, Wrench, Megaphone, UserPlus, Lightbulb, MessageCircle
 } from 'lucide-react';
+import FuneralsAgenda from '@/components/FuneralsAgenda';
 
 // Citations bibliques pour chaque section
 const biblicalQuotes = {
