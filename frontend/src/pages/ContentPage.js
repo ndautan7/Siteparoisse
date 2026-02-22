@@ -128,7 +128,31 @@ const contentConfig = {
       { title: 'Équipe funérailles', description: 'Préparation de la célébration', icon: Users },
       { title: 'Accompagnement du deuil', description: 'Soutien et écoute', icon: Heart },
       { title: 'Messes anniversaire', description: 'Se souvenir des défunts', icon: CalendarHeart },
-    ]
+    ],
+    detailedContent: {
+      intro: `Les obsèques ne sont pas un sacrement. Mais c'est un moment fort de prière avec la famille et les amis de la personne décédée. Il est des circonstances d'âge, de souffrances, de situations particulières de décès qui pèsent durement sur l'entourage du défunt.
+
+L'animation de la célébration est assurée par des membres de la Communauté chrétienne catholique. Cela suppose aussi une formation des personnes. Cette formation existe au niveau diocésain. Merci à toutes les personnes du Secteur de Saint-Orens qui ont suivi et continuent à suivre cette formation.
+
+Dans la célébration d'obsèques, nous faisons mémoire de toute la vie de la personne décédée pour laquelle nous sommes rassemblés. Nous nous unissons profondément à la douleur de toute la famille et des proches par la prière de toute l'Église.
+
+Dans la foi en la résurrection du Christ, nous exprimons notre espérance de partager un jour, en plénitude, la vie du Christ mort et ressuscité.`,
+      contact: `La famille est invitée à prendre contact, le plus tôt possible, avec l'équipe des funérailles de son secteur (numéro de mobile ci-dessous) ou indirectement par les pompes funèbres. Ainsi le jour et l'heure possibles pour la célébration à l'église pourront être fixés en concertation. Si la famille souhaite une eucharistie, elle est invitée à prendre contact très rapidement avec le prêtre.`,
+      equipeTitle: 'L\'équipe liturgique se charge…',
+      equipeTasks: [
+        'de visiter la famille pour une prière à la maison',
+        'de retracer les faits importants de la vie familiale, professionnelle ou associative du défunt (normalement au cours de la visite préalable)',
+        'de préparer les grandes lignes de la célébration',
+        'd\'inviter expressément la famille dans tous les cas à rejoindre la communauté paroissiale du secteur, pour la messe mensuelle célébrée dans une prière commune pour les défunts du mois, le premier samedi du mois suivant, à 9 h à Saint-Orens'
+      ],
+      important: `Pour qu'il n'y ait pas de surprise et de malentendu sur l'horaire de la célébration, il est important que la famille ou les pompes funèbres ne fixent pas le jour et l'heure des obsèques religieuses sans concertation avec l'équipe des funérailles et le prêtre.`,
+      contacts: [
+        { sector: 'Secteur Saint-Orens', phone: '06 04 04 15 77' },
+        { sector: 'Secteur Castanet-Tolosan', phone: '06 71 15 55 14' }
+      ],
+      contactNote: 'Nous vous conseillons d\'utiliser ces numéros plutôt que celui du presbytère où le prêtre ne sera pas forcément présent.',
+      offrande: 'Il faut prévoir une offrande à la paroisse de 180 € pour la célébration des funérailles.'
+    }
   },
   alpha: {
     title: 'Parcours Alpha & Catéchuménat',
