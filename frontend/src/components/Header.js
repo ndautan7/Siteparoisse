@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown } from 'lucide-react';
 
@@ -9,7 +9,7 @@ export const Header = () => {
   const [showJeVeuxMenu, setShowJeVeuxMenu] = useState(false);
 
   // Block body scroll when mobile menu is open
-  React.useEffect(() => {
+  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
