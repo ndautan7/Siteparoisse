@@ -18,7 +18,7 @@ const sections = [
     subtitle: 'Recevoir le Corps du Christ',
     description: 'Recevoir pour la première fois l\'Eucharistie',
     icon: Heart,
-    image: 'https://customer-assets.emergentagent.com/job_957f9676-dd26-4dee-97f5-494fc015f420/artifacts/qqm1rjkh_Premiere-communion.png',
+    image: 'https://customer-assets.emergentagent.com/job_5166d458-aa97-495f-97c0-2fdcfaf2d885/artifacts/jrek2lhj_Premiere-communion.png',
     path: '/sacrements/premiere-communion',
     color: 'from-gold to-amber-600'
   },
