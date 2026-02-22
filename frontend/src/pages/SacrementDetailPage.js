@@ -1,6 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { Droplets, Heart, Sparkles, HandHeart, Cross, ArrowLeft, Phone, Mail } from 'lucide-react';
 
+// Citations bibliques pour chaque sacrement
+const biblicalQuotes = {
+  'bapteme': { quote: "Tu es mon fils bien-aimé ; en toi, j'ai mis tout mon amour.", reference: "Marc 1, 11" },
+  'premiere-communion': { quote: "Moi, je suis le pain de la vie. Celui qui vient à moi n'aura jamais faim.", reference: "Jean 6, 35" },
+  'confirmation': { quote: "L'Esprit Saint descendra sur vous, et vous recevrez une force.", reference: "Actes 1, 8" },
+  'reconciliation': { quote: "Tes péchés sont pardonnés, va en paix.", reference: "Luc 7, 48" },
+  'mariage': { quote: "Que l'homme ne sépare pas ce que Dieu a uni.", reference: "Matthieu 19, 6" },
+  'sacrement-malades': { quote: "Le Seigneur est mon berger : je ne manque de rien.", reference: "Psaume 22, 1" }
+};
+
 const sacrementsData = {
   'bapteme': {
     title: 'Le Baptême',
