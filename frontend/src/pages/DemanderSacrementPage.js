@@ -151,7 +151,7 @@ const DemanderSacrementPage = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20">
+        <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 mb-16">
           <div className="text-center">
             <h2 className="font-serif text-2xl text-slate-deep mb-4">Comment faire une demande ?</h2>
             <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
@@ -173,6 +173,14 @@ const DemanderSacrementPage = () => {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Citation */}
+        <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
+          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+            "Si tu savais le don de Dieu..."
+          </blockquote>
+          <p className="text-gold font-medium">Jean 4, 10</p>
         </div>
       </div>
     </div>
