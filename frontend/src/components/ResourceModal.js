@@ -589,7 +589,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {/* Délégation */}
               {entraideContent.delegation && (
-                <div className="rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 p-5 text-white">
+                <div className="rounded-2xl bg-gradient-to-br from-[#93B5B7] to-[#7da4a6] p-5 text-white">
                   <div className="flex items-center space-x-2 mb-4">
                     <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
                       <Info className="w-4 h-4 text-white" />
