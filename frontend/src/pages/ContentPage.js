@@ -230,15 +230,76 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
   },
   groupes: {
     title: 'Groupes de Partage',
-    subtitle: 'Fraternités & groupes',
+    subtitle: 'Fraternités & groupes de prière',
     description: 'Échanger, prier et grandir ensemble autour de la Parole.',
     icon: Users,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/i4j1hof6_Groupes-partage.png',
     items: [
-      { title: 'Fraternités', description: 'Partage de la Parole et de la vie', icon: Users },
-      { title: 'Groupes Pros', description: 'Foi et monde du travail', icon: Building2 },
-      { title: 'Groupe Biblique', description: 'Étude approfondie de la Bible', icon: BookOpen },
-      { title: 'Groupe de prière', description: 'Prière et louange', icon: Heart },
+      { 
+        title: 'Fraternités', 
+        description: 'Partage de la Parole et de la vie', 
+        icon: Users,
+        linkTo: '/entraide',
+        scrollToContent: true
+      },
+      { 
+        title: 'Prière des Mères', 
+        description: 'Prier ensemble pour nos enfants', 
+        icon: Heart,
+        modalTitle: 'La Prière des Mères',
+        modalDescription: 'Lancée en 1995, la Prière des Mères s\'adresse et soutient toutes les mères qui désirent prier ensemble pour leurs enfants, petits-enfants et tous les enfants du monde.',
+        groupeContent: {
+          description: 'Depuis le mouvement de la Prière des Mères a fait des émules. Dans le monde entier, des groupes de mamans se réunissent, une fois par semaine, pour prier pour leurs enfants et ceux du monde.',
+          spiritualite: 'Cette prière est basée sur la certitude que Dieu nous aime et sur notre confiance en Lui et en son action dans nos vies. Sa spiritualité est celle de l\'abandon et du lâcher prise.',
+          citation: 'Demandez et vous recevrez ! Les prières sont toutes simples mais les grâces nombreuses !',
+          horaires: [
+            'Le mardi à 9h30 à la Maison de la Fraternité à Castanet',
+            'Le lundi à 10h30 chez une paroissienne'
+          ]
+        }
+      },
+      { 
+        title: 'La Prière du Chapelet', 
+        description: 'Une prière simple à l\'école de Marie', 
+        icon: Star,
+        modalTitle: 'La Prière du Chapelet',
+        modalDescription: 'Le chapelet, une prière toute simple à l\'école de Marie : En contemplant, avec Marie, les moments de la vie de Jésus, ce que nous appelons « les mystères », nous comprenons mieux ce que Dieu fait pour nous. Nous y associons des intentions de prière que nous confions à Marie.',
+        groupeContent: {
+          citation: '« Accrochez-vous au chapelet comme la plante grimpante s\'accroche à l\'arbre. Sans Notre-Dame, nous ne pouvons pas tenir ! » — Sainte Teresa de Calcutta',
+          mysteres: [
+            { titre: 'Les 5 mystères joyeux', contenu: 'L\'annonciation, la visitation, la nativité, la présentation au temple, le recouvrement au temple.' },
+            { titre: 'Les 5 mystères lumineux', contenu: 'Le baptême de Jésus, les noces de Cana, l\'annonce du royaume, la transfiguration, la cène.' },
+            { titre: 'Les 5 mystères douloureux', contenu: 'L\'agonie de Jésus, la flagellation, le couronnement d\'épines, le portement de la croix, la crucifixion.' },
+            { titre: 'Les 5 mystères glorieux', contenu: 'La résurrection, l\'ascension, la pentecôte, l\'assomption, le couronnement de Marie.' }
+          ],
+          explication: 'Un chapelet comporte 5 « dizaines » correspondant à une série de mystères. Le rosaire est un ensemble de chapelets regroupant 20 mystères.',
+          rejoindre: 'Concrètement, vous pouvez rejoindre celles et ceux qui se retrouvent pour prier le chapelet :',
+          antennes: [
+            'Antenne Castanet',
+            'Antenne Saint-Orens'
+          ]
+        }
+      },
+      { 
+        title: 'Les Équipes du Rosaire', 
+        description: 'Un mouvement missionnaire autour de chez soi', 
+        icon: Users,
+        modalTitle: 'Les Équipes du Rosaire',
+        modalDescription: 'Créées en 1955, les équipes du Rosaire sont un Mouvement d\'Apostolat des Laïcs reconnu en 1967 par les évêques de France et en 1972 par l\'Ordre des Prêcheurs (Dominicains).',
+        groupeContent: {
+          principe: 'Leur principe est simple : regrouper des personnes pour former une équipe de prière. Chaque équipe a pour champ d\'action son quartier, sa rue, son immeuble ou son village.',
+          mission: 'C\'est donc un mouvement missionnaire… autour de chez soi ! Un mouvement pour vivre l\'Évangile avec Marie !',
+          temps_priere: [
+            { titre: 'Chaque mois', contenu: 'La prière ensemble "à la maison", chez l\'un ou l\'autre des membres de l\'équipe, pour méditer la Parole de Dieu en s\'appuyant sur le feuillet mensuel "Le Rosaire en équipe".' },
+            { titre: 'Chaque jour', contenu: 'La prière personnelle, méditation d\'un mystère de la vie de Jésus-Christ en lien avec les autres membres des équipes, grâce au "Livret de Prière Quotidienne".' }
+          ],
+          antennes: [
+            'Antenne Saint-Orens',
+            'Antenne Castanet'
+          ],
+          url: 'https://equipes-rosaire.org/'
+        }
+      },
     ]
   },
   meditation: {
