@@ -230,7 +230,15 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
         title: 'Librairie religieuse', 
         description: 'Livres, chapelets, icônes', 
         icon: BookOpen,
-        modalDescription: 'Découvrez notre librairie religieuse à Toulouse avec un large choix de livres, chapelets, icônes et objets de piété.',
+        modalTitle: 'Siloë-Carmel : Le nouveau souffle de la librairie chrétienne',
+        modalDescription: 'Bonne nouvelle pour Toulouse ! La librairie Siloë-Carmel comble enfin le manque d\'un lieu dédié à la culture catholique et chrétienne dans notre ville. Plus qu\'une simple boutique, c\'est un véritable espace de mission et d\'échange au service de tous.',
+        features: [
+          { title: 'Un lieu de débat', description: 'Des ouvrages variés en phase avec les orientations pastorales de notre diocèse.' },
+          { title: 'Un partenaire vivant', description: 'Présence d\'auteurs, conférences et participation aux temps forts (comme le prochain rassemblement de la Pentecôte).' },
+          { title: 'Une offre complémentaire', description: 'En lien fraternel avec la Maison Mathieu et l\'Artisanat Monastique pour enrichir la culture locale.' }
+        ],
+        quote: 'Un lieu de culture et de foi pour faire rayonner l\'Évangile au cœur de la cité.',
+        horaires: 'Du mardi au vendredi de 10h à 12h30 et de 14h à 19h • Samedi de 9h à 12h30 et de 14h à 18h',
         url: 'https://librairiesiloecarmeltoulouse.com/'
       },
       { 
