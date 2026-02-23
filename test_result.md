@@ -206,7 +206,6 @@ test_plan:
   current_focus:
     - "Entraide Page - Layout and Tiles"
     - "Entraide Modals - Functionality"
-    - "Entraide Modals - Styled Components"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
