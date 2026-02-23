@@ -27,6 +27,9 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
   // Check if this is an entraide content
   const entraideContent = resource.entraideContent;
+  
+  // Check if this is an alpha content
+  const alphaContent = resource.alphaContent;
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/30" onClick={onClose}>
