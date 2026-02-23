@@ -14,7 +14,7 @@ const sections = [
   },
   {
     id: 'groupes',
-    title: 'Groupes de Partage',
+    title: 'Groupes de Partage et de Prière',
     subtitle: 'Fraternités & groupes',
     description: 'Échanger, prier et grandir ensemble autour de la Parole de Dieu',
     icon: Users,
