@@ -308,9 +308,79 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     icon: Sparkles,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/v8c5x8z1_Meditation.png',
     items: [
-      { title: 'Méditation silencieuse', description: 'Temps de silence hebdomadaire', icon: Sparkles },
-      { title: 'Lectio Divina', description: 'Méditation de la Parole', icon: BookOpen },
-      { title: 'Adoration', description: 'Temps devant le Saint-Sacrement', icon: Star },
+      { 
+        title: 'Méditation silencieuse', 
+        description: 'Temps de silence hebdomadaire', 
+        icon: Sparkles,
+        modalTitle: 'Le Silence en Partage : Un Espace pour Soi',
+        modalDescription: 'Dans le tourbillon de nos vies quotidiennes, où trouver un refuge pour simplement respirer ? Notre église vous ouvre ses portes pour une parenthèse de paix : une invitation à la méditation silencieuse.',
+        meditationContent: {
+          paragraphes: [
+            'Ici, sous les voûtes séculaires, loin du bruit de la ville et du flux des notifications, le temps semble s\'arrêter. Ce n\'est ni un office, ni une activité dirigée, mais une proposition de liberté. Que vous soyez habitué à la prière, en quête de sérénité ou simplement désireux de faire une pause dans votre journée, cet espace est le vôtre.',
+            'Venez comme vous êtes, sans attente ni jugement. Laissez le silence de la pierre et la lumière des vitraux vous envelopper. Dans ce face-à-face avec vous-même, le calme devient un chemin vers l\'essentiel et, pour ceux qui le désirent, un espace de rencontre intérieure.'
+          ],
+          conclusion: 'Poussez la porte, installez-vous quelques minutes ou une heure, et retrouvez le goût du silence.',
+          boutonClochers: true
+        }
+      },
+      { 
+        title: 'Lectio Divina', 
+        description: 'Méditation de la Parole', 
+        icon: BookOpen,
+        modalTitle: 'La Lectio Divina',
+        modalDescription: 'La Lectio Divina (littéralement « lecture divine » ou « lecture sainte ») est une pratique ancestrale de lecture méditative de la Bible. Elle ne consiste pas à étudier le texte de manière intellectuelle ou historique, mais à l\'écouter comme une parole vivante adressée personnellement au lecteur.',
+        meditationContent: {
+          intro: 'Popularisée par les moines (notamment l\'ordre des Bénédictins), elle se décompose traditionnellement en quatre étapes clés.',
+          piliers: {
+            titre: 'Les 4 piliers de la Lectio Divina',
+            sousTitre: 'Imaginez ces étapes comme les phases d\'un repas spirituel :',
+            etapes: [
+              { nom: 'Lectio (La lecture)', description: 'Vous lisez le passage biblique lentement, plusieurs fois. On cherche ici à comprendre ce que le texte dit en lui-même. C\'est le moment de « mordre » dans le texte.' },
+              { nom: 'Meditatio (La méditation)', description: 'Vous ruminez une phrase ou un mot qui a retenu votre attention. Pourquoi cela résonne-t-il en vous aujourd\'hui ? C\'est le moment de la « mastication ».' },
+              { nom: 'Oratio (La prière)', description: 'Le texte devient un dialogue. Vous répondez à ce que vous avez entendu par une prière spontanée : merci, pardon, s\'il te plaît... C\'est le moment de « savourer ».' },
+              { nom: 'Contemplatio (La contemplation)', description: 'Vous restez simplement dans le silence et la présence de Dieu, au-delà des mots. C\'est la « digestion » et le repos.' }
+            ]
+          },
+          pourquoi: {
+            titre: 'Pourquoi la pratiquer ?',
+            description: 'Contrairement à une lecture rapide de l\'actualité ou d\'un roman, la Lectio Divina vise à :',
+            points: [
+              'Ralentir le rythme dans un monde ultra-connecté.',
+              'Trouver un sens personnel dans des textes anciens.',
+              'Développer l\'intériorité et l\'écoute de soi.'
+            ]
+          },
+          anecdote: 'Au XIIe siècle, un moine nommé Guigues le Chartreux a comparé ces quatre étapes à une échelle montant de la terre vers le ciel.',
+          commencer: {
+            titre: 'Comment commencer ?',
+            description: 'Pas besoin d\'être un expert en théologie. Voici une méthode simple pour essayer :',
+            conseils: [
+              'Choisissez un texte court (un Psaume ou un passage des Évangiles).',
+              'Trouvez un endroit calme et fixez un temps (10 à 15 minutes suffisent).',
+              'Gardez un carnet pour noter le mot ou la phrase qui vous a "mordu" le cœur.'
+            ]
+          }
+        }
+      },
+      { 
+        title: 'Adoration', 
+        description: 'Temps devant le Saint-Sacrement', 
+        icon: Star,
+        modalTitle: 'L\'Adoration Eucharistique',
+        modalDescription: '« Venez à moi, vous tous qui peinez sous le poids du fardeau, et moi, je vous procurerai le repos… car je suis doux et humble de cœur, et vous trouverez le repos pour votre âme. » (Mt 11, 28-29)',
+        meditationContent: {
+          paragraphes: [
+            'C\'est ce que le Seigneur nous invite à vivre dans l\'adoration eucharistique.',
+            'Prolongement de la célébration de la messe dans laquelle elle s\'enracine, l\'adoration eucharistique devient dialogue intime avec le Christ Jésus qui nous a promis : « Moi, je suis avec vous jusqu\'à la fin des temps ! »',
+            'L\'Eucharistie est un signe de cette présence. Exposée sur l\'autel, cette présence eucharistique est offerte à notre adoration.',
+            'Cette rencontre avec Jésus Eucharistie est source de nombreuses grâces pour nous, nos familles, notre paroisse…'
+          ],
+          horaires: [
+            { lieu: 'À Castanet - Église St Gervais et Saint Protais', horaire: 'Le vendredi de 19h à 20h (après la messe de 18h30)' },
+            { lieu: 'À Saint-Orens - Église St Orens', horaire: 'Du lundi au jeudi de 11h à 12h (avant la messe de midi) et le vendredi de 19h à 20h (après la messe de 18h30)' }
+          ]
+        }
+      },
     ]
   },
   ressources: {
