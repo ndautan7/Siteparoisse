@@ -1,4 +1,4 @@
-import { X, ExternalLink, Clock, Tv, Film, Award } from 'lucide-react';
+import { X, ExternalLink, Clock, Tv, Film, Award, Headphones } from 'lucide-react';
 import { useEffect } from 'react';
 
 const ResourceModal = ({ isOpen, onClose, resource }) => {
