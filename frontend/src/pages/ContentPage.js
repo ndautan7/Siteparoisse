@@ -220,16 +220,84 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     ]
   },
   ressources: {
-    title: 'Ressources',
-    subtitle: 'Livres, médias, liens',
-    description: 'Livres, médias et outils pour nourrir votre vie spirituelle.',
+    title: 'Ressources Spirituelles',
+    subtitle: 'Pour nourrir sa foi',
+    description: 'Livres, médias et outils pour approfondir votre vie spirituelle.',
     icon: BookOpen,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/h90bs88d_Ressources.png',
     items: [
-      { title: 'Librairie religieuse', description: 'Livres, chapelets, icônes', icon: BookOpen },
-      { title: 'Médiathèque', description: 'DVD, CD, revues', icon: Tv },
-      { title: 'Sites recommandés', description: 'Ressources en ligne', icon: Globe },
-      { title: 'Podcasts', description: 'Émissions spirituelles', icon: Radio },
+      { 
+        title: 'Librairie religieuse', 
+        description: 'Livres, chapelets, icônes', 
+        icon: BookOpen,
+        modalDescription: 'Découvrez notre librairie religieuse à Toulouse avec un large choix de livres, chapelets, icônes et objets de piété.',
+        url: 'https://librairiesiloecarmeltoulouse.com/'
+      },
+      { 
+        title: 'Médiathèque', 
+        description: 'Films, séries, revues', 
+        icon: Tv,
+        modalDescription: 'Notre médiathèque propose une sélection de films, séries et revues spirituelles disponibles pour enrichir votre foi et votre réflexion.',
+      },
+      { 
+        title: 'Sites recommandés', 
+        description: 'Ressources en ligne', 
+        icon: Globe,
+        modalDescription: 'Une sélection de sites web de qualité pour accompagner votre cheminement spirituel et celui de votre famille.',
+        items: [
+          {
+            name: 'Théobule',
+            subtitle: 'Le chouchou des enfants (et des parents)',
+            concept: 'Des vidéos courtes où des enfants commentent la Parole de Dieu, complétées par des dessins animés sur les textes bibliques.',
+            why: 'C\'est très bien produit, joyeux, et visuellement très propre. C\'est parfait pour l\'éveil à la foi et le primaire.',
+            url: 'https://www.theobule.org'
+          },
+          {
+            name: 'KT42',
+            subtitle: 'La "caverne d\'Alibaba" des catéchistes',
+            concept: 'Un blog immense qui répertorie des milliers de ressources (jeux, montages vidéo, textes, bricolages).',
+            why: 'C\'est ultra-complet. C\'est la boîte à outils idéale pour les animateurs de Catéchisme et d\'Aumônerie.',
+            url: 'https://www.kt42.fr'
+          },
+          {
+            name: 'Idées-KT',
+            subtitle: 'L\'approche ludique et créative',
+            concept: 'Des propositions très concrètes pour "faire" du KT autrement : jeux de l\'oie bibliques, escape games spi, bricolages.',
+            why: 'Très utile pour les Mouvements de jeunesse ou le Patronage.',
+            url: 'https://www.idees-kt.fr'
+          },
+          {
+            name: 'SNCC',
+            subtitle: 'La référence officielle',
+            concept: 'Le site du Service National de la Catéchèse et du Catéchuménat de la Conférence des Évêques de France.',
+            why: 'Pour le Catéchuménat des adultes. C\'est ici que vous trouverez les orientations officielles et des articles de fond très sérieux.',
+            url: 'https://catechese.catholique.fr'
+          },
+          {
+            name: 'ThéoDom',
+            subtitle: 'Pour les ados et adultes (Format vidéo)',
+            concept: 'Des mini-séries de vidéos de 5 minutes pour expliquer les grands concepts de la foi (Le Credo, les Sacrements, la Bible).',
+            why: 'C\'est moderne, percutant et très bien monté. Idéal pour approfondir sa foi.',
+            url: 'https://www.theodom.org'
+          }
+        ]
+      },
+      { 
+        title: 'Podcasts', 
+        description: 'Émissions spirituelles', 
+        icon: Radio,
+        modalDescription: 'Écoutez des podcasts spirituels pour nourrir votre foi au quotidien.',
+        items: [
+          {
+            name: 'Podcast spirituel 1',
+            url: 'https://open.spotify.com/show/0y98FVWtmiUFDw5eOMw5hI?si=fff43db9eff94ab4'
+          },
+          {
+            name: 'Podcast spirituel 2',
+            url: 'https://open.spotify.com/show/5HOEUv0F3rc4ONsOsQ0N51?si=87c3a253304a4ef1'
+          }
+        ]
+      },
     ]
   },
   ecoute: {
