@@ -467,7 +467,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               MEJ CONTENT
           ══════════════════════════════════════ */}
           {mejContent && (
-            <div className="space-y-5">
+            <div className="space-y-6">
 
               {/* Paragraphes */}
               {mejContent.paragraphes && mejContent.paragraphes.map((para, idx) => (
@@ -478,17 +478,17 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {/* Tranches d'âge */}
               {mejContent.tranches && (
-                <div className="space-y-3">
+                <div className="space-y-4 mt-6">
                   <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-serif text-base text-slate-deep">{mejContent.tranches.titre}</h4>
+                    <Users className="w-5 h-5 text-[#93B5B7]" />
+                    <h4 className="font-serif text-lg text-slate-deep">{mejContent.tranches.titre}</h4>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {mejContent.tranches.groupes.map((groupe, idx) => (
                       <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                        <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-5 py-3 flex items-center justify-between">
-                          <span className="font-semibold text-slate-deep text-sm">{groupe.nom}</span>
-                          <span className="text-[#7da4a6] text-sm font-medium">{groupe.age}</span>
+                        <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-6 py-4 flex items-center justify-between">
+                          <span className="font-semibold text-slate-deep">{groupe.nom}</span>
+                          <span className="text-[#7da4a6] font-medium bg-white px-3 py-1 rounded-full text-sm">{groupe.age}</span>
                         </div>
                       </div>
                     ))}
@@ -498,15 +498,17 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {/* Lien externe */}
               {mejContent.lienExterne && (
-                <a 
-                  href={mejContent.lienExterne.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] hover:opacity-90 text-white px-6 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-                >
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  {mejContent.lienExterne.texte}
-                </a>
+                <div className="pt-4">
+                  <a 
+                    href={mejContent.lienExterne.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] hover:opacity-90 text-white px-6 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  >
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    {mejContent.lienExterne.texte}
+                  </a>
+                </div>
               )}
             </div>
           )}
