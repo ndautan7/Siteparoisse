@@ -63,6 +63,37 @@ Refonte complète du site web de la paroisse "Notre Dame d'Autan" avec une appro
 
 ---
 
+## Déploiement Railway (Décembre 2025)
+
+L'application est prête pour le déploiement sur Railway avec :
+
+### Fichiers de configuration créés
+- `/app/railway.json` - Configuration globale
+- `/app/backend/railway.toml` - Configuration backend FastAPI
+- `/app/backend/Procfile` - Procfile alternatif
+- `/app/backend/.env.example` - Variables d'environnement requises
+- `/app/frontend/railway.toml` - Configuration frontend React
+- `/app/frontend/Procfile` - Procfile alternatif
+- `/app/frontend/.env.example` - Variables d'environnement requises
+- `/app/README_RAILWAY.md` - Guide de déploiement complet
+
+### Variables d'environnement requises
+
+**Backend:**
+| Variable | Description |
+|----------|-------------|
+| `MONGO_URL` | URI MongoDB (Atlas ou local) |
+| `DB_NAME` | Nom de la base de données |
+| `JWT_SECRET` | Clé secrète pour JWT |
+| `CORS_ORIGINS` | URL du frontend |
+
+**Frontend:**
+| Variable | Description |
+|----------|-------------|
+| `REACT_APP_BACKEND_URL` | URL de l'API backend |
+
+---
+
 ## URLs des Images des Sacrements
 - Baptême: `https://customer-assets.emergentagent.com/job_c9a89358-b983-4f0b-8ec4-b48d0db621c4/artifacts/gj75c74d_Bapteme.png`
 - Première Communion: `https://customer-assets.emergentagent.com/job_5166d458-aa97-495f-97c0-2fdcfaf2d885/artifacts/jrek2lhj_Premiere-communion.png`
