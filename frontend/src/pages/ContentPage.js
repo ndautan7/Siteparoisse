@@ -7,7 +7,7 @@ import {
   HeartHandshake, Glasses, Landmark, CalendarHeart, UserCircle, Shield,
   Palmtree, Smile, Mic, PenTool, DoorOpen, FileText, Wallet, Gift, 
   CircleDollarSign, Wrench, Megaphone, UserPlus, Lightbulb, MessageCircle,
-  ExternalLink
+  ExternalLink, MapPin, Clock
 } from 'lucide-react';
 import FuneralsAgenda from '@/components/FuneralsAgenda';
 import { SocialIcons } from '@/components/SocialIcons';
