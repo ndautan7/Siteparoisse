@@ -38,11 +38,10 @@ const pretresData = {
   ]
 };
 
-const PriestDetailPage = () => {
-  const { memberId } = useParams();
+const PriestDetailPage = ({ type }) => {
   
   // Page du curé
-  if (memberId === 'cure') {
+  if (type === 'cure') {
     return (
       <div className="min-h-screen bg-paper" data-testid="cure-detail-page">
         {/* Hero Section */}
