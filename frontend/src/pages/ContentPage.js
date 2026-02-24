@@ -66,41 +66,40 @@ const contentConfig = {
     icon: Baby,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/6dnxwubq_Eveil-foi.png',
     items: [
-      { 
-        title: 'Éveil à la Foi', 
-        description: 'Enfants de 3 à 7 ans et leurs parents', 
-        icon: Baby,
-        modalTitle: 'L\'Éveil à la Foi',
-        modalDescription: 'L\'Éveil à la Foi s\'adresse aux enfants de 3 à 7 ans et à leurs parents. Il a pour but de découvrir l\'amour de Dieu dans nos vies et d\'apprendre à connaître Jésus, la prière et la vie en Église.',
-        eveilContent: {
-          paragraphes: [
-            'Nous travaillons pour que cette première expérience de Dieu soit ressentie comme une source de joie et un appel à grandir. Ainsi, nos chants et prières sont accompagnés de gestes et les lectures bibliques sont souvent « animées » afin de rendre la parole plus vivante aux enfants.',
-            'La séance se termine toujours par une activité manuelle ou un mime lié au thème traité puis une prière.'
-          ],
-          contact: 'Pour tout renseignement, merci de vous adresser au secrétariat.',
-          lieux: [
-            {
-              ville: 'Castanet',
-              horaire: 'Un samedi par mois entre 10h15 et 11h30',
-              adresse: 'Maison de la Fraternité, 10 avenue de Toulouse',
-              dates: '11/10, 15/11, 13/12, 14/02, 28/03 et 30/05'
-            },
-            {
-              ville: 'Saint-Orens',
-              horaire: 'Un dimanche par mois entre 9h30 et 10h15',
-              adresse: 'Centre paroissial, place du Souvenir',
-              dates: '23/11, 11/01, 8/02, 15/03 et 12/04'
-            },
-            {
-              ville: 'Escalquens',
-              horaire: 'Un mercredi par mois entre 18h00 et 18h45',
-              adresse: 'Presbytère, chemin des églises',
-              dates: '15/10, 19/11, 17/12, 21/01, 18/02, 18/03, 15/04 et 27/05'
-            }
-          ]
+      { title: 'Rencontres mensuelles', description: 'Le dimanche après la messe', icon: CalendarHeart },
+      { title: 'Contes et histoires', description: 'Découvrir la Bible en s\'amusant', icon: BookOpen },
+      { title: 'Chants et prières', description: 'Apprendre à prier ensemble', icon: Music },
+      { title: 'Activités manuelles', description: 'Créations et bricolages', icon: PenTool },
+    ],
+    // Contenu détaillé affiché directement sur la page
+    detailedContent: {
+      intro: 'L\'Éveil à la Foi s\'adresse aux enfants de 3 à 7 ans et à leurs parents. Il a pour but de découvrir l\'amour de Dieu dans nos vies et d\'apprendre à connaître Jésus, la prière et la vie en Église.',
+      paragraphes: [
+        'Nous travaillons pour que cette première expérience de Dieu soit ressentie comme une source de joie et un appel à grandir. Ainsi, nos chants et prières sont accompagnés de gestes et les lectures bibliques sont souvent « animées » afin de rendre la parole plus vivante aux enfants.',
+        'La séance se termine toujours par une activité manuelle ou un mime lié au thème traité puis une prière.'
+      ],
+      contact: 'Pour tout renseignement, merci de vous adresser au secrétariat.',
+      lieux: [
+        {
+          ville: 'Castanet',
+          horaire: 'Un samedi par mois entre 10h15 et 11h30',
+          adresse: 'Maison de la Fraternité, 10 avenue de Toulouse',
+          dates: '11/10, 15/11, 13/12, 14/02, 28/03 et 30/05'
+        },
+        {
+          ville: 'Saint-Orens',
+          horaire: 'Un dimanche par mois entre 9h30 et 10h15',
+          adresse: 'Centre paroissial, place du Souvenir',
+          dates: '23/11, 11/01, 8/02, 15/03 et 12/04'
+        },
+        {
+          ville: 'Escalquens',
+          horaire: 'Un mercredi par mois entre 18h00 et 18h45',
+          adresse: 'Presbytère, chemin des églises',
+          dates: '15/10, 19/11, 17/12, 21/01, 18/02, 18/03, 15/04 et 27/05'
         }
-      },
-    ]
+      ]
+    }
   },
   catechisme: {
     title: 'Catéchisme',
