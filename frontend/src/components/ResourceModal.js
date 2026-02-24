@@ -112,21 +112,21 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               GROUPE CONTENT
           ══════════════════════════════════════ */}
           {groupeContent && (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {groupeContent.description && (
                 <div className="relative pl-5 border-l-[3px] border-[#93B5B7]/60">
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{groupeContent.description}</p>
+                  <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.description}</p>
                 </div>
               )}
 
               {groupeContent.spiritualite && (
-                <p className="text-slate-600 leading-relaxed text-[15px]">{groupeContent.spiritualite}</p>
+                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.spiritualite}</p>
               )}
 
               {groupeContent.points && groupeContent.points.length > 0 && (
-                <ul className="space-y-2 pl-1">
+                <ul className="space-y-3 pl-1">
                   {groupeContent.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start space-x-2.5 text-slate-600 text-[15px]">
+                    <li key={idx} className="flex items-start space-x-3 text-slate-600 text-[15px] leading-[1.75]">
                       <span className="text-[#93B5B7] mt-1 flex-shrink-0">✦</span>
                       <span>{point}</span>
                     </li>
@@ -135,41 +135,41 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.principe && (
-                <p className="text-slate-600 leading-relaxed text-[15px]">{groupeContent.principe}</p>
+                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.principe}</p>
               )}
 
               {groupeContent.mission && (
-                <div className="rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 flex items-start space-x-4">
+                <div className="rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 flex items-start space-x-4">
                   <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#93B5B7]/15 flex items-center justify-center mt-0.5">
                     <Star className="w-4 h-4 text-[#7da4a6]" />
                   </div>
-                  <p className="text-slate-700 font-medium leading-relaxed">{groupeContent.mission}</p>
+                  <p className="text-slate-700 font-medium leading-[1.85]">{groupeContent.mission}</p>
                 </div>
               )}
 
               {groupeContent.paragraphes && groupeContent.paragraphes.map((para, idx) => (
-                <p key={idx} className="text-slate-600 leading-relaxed text-[15px]">{para}</p>
+                <p key={idx} className="text-slate-600 leading-[1.85] text-[15px]">{para}</p>
               ))}
 
               {groupeContent.invitation && (
-                <div className="rounded-xl bg-white border-l-4 border-[#93B5B7] border border-slate-100 p-4 shadow-sm">
-                  <p className="text-slate-600 italic text-[15px] leading-relaxed">{groupeContent.invitation}</p>
+                <div className="rounded-xl bg-white border-l-4 border-[#93B5B7] border border-slate-100 p-5 shadow-sm">
+                  <p className="text-slate-600 italic text-[15px] leading-[1.85]">{groupeContent.invitation}</p>
                 </div>
               )}
 
               {groupeContent.explication && (
-                <p className="text-slate-600 leading-relaxed text-[15px]">{groupeContent.explication}</p>
+                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.explication}</p>
               )}
 
               {groupeContent.mysteres && groupeContent.mysteres.length > 0 && (
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {groupeContent.mysteres.map((mystere, idx) => (
                     <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
+                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-3">
                         <h4 className="font-semibold text-slate-deep text-sm">{mystere.titre}</h4>
                       </div>
-                      <div className="bg-white px-4 py-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{mystere.contenu}</p>
+                      <div className="bg-white px-4 py-4">
+                        <p className="text-slate-600 text-sm leading-[1.75]">{mystere.contenu}</p>
                       </div>
                     </div>
                   ))}
@@ -177,18 +177,18 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.temps_priere && groupeContent.temps_priere.length > 0 && (
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2 mb-1">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4 text-[#93B5B7]" />
                     <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Les temps de prière</h4>
                   </div>
                   {groupeContent.temps_priere.map((temps, idx) => (
                     <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
+                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-3">
                         <h5 className="font-semibold text-slate-deep text-sm">{temps.titre}</h5>
                       </div>
-                      <div className="bg-white px-4 py-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{temps.contenu}</p>
+                      <div className="bg-white px-4 py-4">
+                        <p className="text-slate-600 text-sm leading-[1.75]">{temps.contenu}</p>
                       </div>
                     </div>
                   ))}
@@ -197,14 +197,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {groupeContent.horaires && groupeContent.horaires.length > 0 && (
                 <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                  <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
+                  <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Nous rejoindre</span>
                   </div>
-                  <div className="bg-white px-5 py-4">
-                    <ul className="space-y-2">
+                  <div className="bg-white px-5 py-5">
+                    <ul className="space-y-3">
                       {groupeContent.horaires.map((horaire, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-slate-600 text-[15px]">
+                        <li key={idx} className="flex items-start space-x-2 text-slate-600 text-[15px] leading-[1.75]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#93B5B7] flex-shrink-0 mt-2"></span>
                           <span>{horaire}</span>
                         </li>
@@ -215,17 +215,17 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.rejoindre && (
-                <p className="text-slate-600 font-medium text-[15px]">{groupeContent.rejoindre}</p>
+                <p className="text-slate-600 font-medium text-[15px] leading-[1.85]">{groupeContent.rejoindre}</p>
               )}
 
               {groupeContent.antennes && groupeContent.antennes.length > 0 && (
                 <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                  <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
+                  <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-2">
                     <MapPin className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Contacts locaux</span>
                   </div>
-                  <div className="bg-white px-5 py-4">
-                    <ul className="space-y-2">
+                  <div className="bg-white px-5 py-5">
+                    <ul className="space-y-3">
                       {groupeContent.antennes.map((antenne, idx) => (
                         <li key={idx} className="flex items-center space-x-2 text-slate-600 text-[15px]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#93B5B7] flex-shrink-0"></span>
@@ -238,12 +238,12 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.contact && (
-                <div className="rounded-xl bg-white border border-slate-100 shadow-sm p-4 flex items-center space-x-4">
+                <div className="rounded-xl bg-white border border-slate-100 shadow-sm p-5 flex items-center space-x-4">
                   <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-[#7da4a6]" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-400 font-semibold uppercase tracking-wide mb-0.5">Contact</p>
+                    <p className="text-xs text-slate-400 font-semibold uppercase tracking-wide mb-1">Contact</p>
                     <a href={`mailto:${groupeContent.contact}`} className="text-[#7da4a6] hover:text-[#93B5B7] font-medium text-[15px] transition-colors">
                       {groupeContent.contact}
                     </a>
@@ -252,16 +252,16 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.citation && (
-                <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
+                <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-3">{groupeContent.citation}</p>
+                  <p className="relative z-10 text-slate-700 italic leading-[1.85] text-[15px] pl-3">{groupeContent.citation}</p>
                 </div>
               )}
 
               {groupeContent.citations && groupeContent.citations.map((cit, idx) => (
-                <div key={idx} className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
+                <div key={idx} className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-3">{cit}</p>
+                  <p className="relative z-10 text-slate-700 italic leading-[1.85] text-[15px] pl-3">{cit}</p>
                 </div>
               ))}
 
