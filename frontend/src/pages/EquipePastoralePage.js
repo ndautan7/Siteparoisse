@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, X, Phone } from 'lucide-react';
+import { Users, Phone } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 // Données du curé
 const cureData = {
-  id: 'cure',
   name: 'Père Daniel',
   role: 'Curé de la paroisse',
   image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp',
@@ -94,23 +97,17 @@ const teamMembers = [
 
 const EquipePastoralePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalType, setModalType] = useState(null); // 'cure' or 'pretres'
+  const [modalType, setModalType] = useState(null);
 
   const openModal = (type) => {
     setModalType(type);
     setModalOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-    setModalType(null);
-  };
-
   return (
     <div className="min-h-screen bg-paper" data-testid="equipe-pastorale-page">
       {/* Hero Section with Image */}
       <section className="relative h-[55vh] flex items-center justify-center">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/x8y0e2d8_Equipe-pastorale.png"
@@ -122,7 +119,6 @@ const EquipePastoralePage = () => {
 
         <SocialIcons />
 
-        {/* Content */}
         <div className="relative z-10 text-center text-white px-4 pt-8">
           <div className="flex justify-center mb-6">
             <div className="w-20 h-20 rounded-full bg-gold/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
@@ -140,8 +136,7 @@ const EquipePastoralePage = () => {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
-        {/* Team Grid - 5 colonnes */}
+        {/* Team Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
           {teamMembers.map((member) => {
             const CardWrapper = member.hasModal ? 'button' : Link;
@@ -157,9 +152,7 @@ const EquipePastoralePage = () => {
                 data-testid={`team-card-${member.id}`}
               >
                 <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
-                  {/* Photo(s) */}
                   {member.images ? (
-                    // Multiple photos for "Les Prêtres"
                     <div className="grid grid-cols-3 gap-0.5 bg-slate-100">
                       {member.images.map((img, idx) => (
                         <div key={idx} className="aspect-square overflow-hidden">
@@ -172,7 +165,6 @@ const EquipePastoralePage = () => {
                       ))}
                     </div>
                   ) : (
-                    // Single photo
                     <div className="aspect-square overflow-hidden">
                       <img 
                         src={member.image} 
@@ -182,7 +174,6 @@ const EquipePastoralePage = () => {
                     </div>
                   )}
 
-                  {/* Content */}
                   <div className="p-4 flex flex-col flex-grow">
                     <span className="text-gold text-xs font-medium mb-1 uppercase tracking-wide">{member.role}</span>
                     <h3 className="font-serif text-base text-slate-deep mb-1 group-hover:text-gold transition-colors">
@@ -228,146 +219,104 @@ const EquipePastoralePage = () => {
         </div>
       </div>
 
-      {/* Modal */}
-      <Transition appear show={modalOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
-          </Transition.Child>
+      {/* Modal Curé */}
+      <Dialog open={modalOpen && modalType === 'cure'} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] -m-6 mb-0 px-6 py-4">
+            <DialogTitle className="font-serif text-xl text-white">Le Curé</DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6 pt-6">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="sm:w-1/3 flex-shrink-0">
+                <img 
+                  src={cureData.image} 
+                  alt={cureData.name}
+                  className="w-full aspect-square object-cover rounded-xl"
+                />
+              </div>
+              <div className="sm:w-2/3">
+                <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-sm font-medium mb-3">
+                  Curé de la paroisse
+                </span>
+                <h3 className="font-serif text-2xl text-slate-deep mb-2">{cureData.name}</h3>
+                <p className="text-[#93B5B7] font-medium">{cureData.role}</p>
+              </div>
+            </div>
 
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
+            <div className="space-y-4">
+              {cureData.description.split('\n\n').map((para, idx) => (
+                <p key={idx} className="text-slate-600 leading-relaxed">
+                  {para}
+                </p>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-slate-100">
+              <p className="text-slate-600 mb-4">
+                Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
+              </p>
+              <Link
+                to="/secretariat"
+                onClick={() => setModalOpen(false)}
+                className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
               >
-                <Dialog.Panel className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
-                  
-                  {/* Modal Header */}
-                  <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-6 py-4 flex items-center justify-between flex-shrink-0">
-                    <Dialog.Title className="font-serif text-xl text-white">
-                      {modalType === 'cure' ? 'Le Curé' : 'Les Prêtres'}
-                    </Dialog.Title>
-                    <button
-                      onClick={closeModal}
-                      className="text-white/80 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
-
-                  {/* Modal Content */}
-                  <div className="p-6 overflow-y-auto flex-grow">
-                    {modalType === 'cure' && (
-                      <div className="space-y-6">
-                        {/* Photo + Info */}
-                        <div className="flex flex-col sm:flex-row gap-6">
-                          <div className="sm:w-1/3 flex-shrink-0">
-                            <img 
-                              src={cureData.image} 
-                              alt={cureData.name}
-                              className="w-full aspect-square object-cover rounded-xl"
-                            />
-                          </div>
-                          <div className="sm:w-2/3">
-                            <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-sm font-medium mb-3">
-                              Curé de la paroisse
-                            </span>
-                            <h3 className="font-serif text-2xl text-slate-deep mb-2">{cureData.name}</h3>
-                            <p className="text-[#93B5B7] font-medium">{cureData.role}</p>
-                          </div>
-                        </div>
-
-                        {/* Description */}
-                        <div className="space-y-4">
-                          {cureData.description.split('\n\n').map((para, idx) => (
-                            <p key={idx} className="text-slate-600 leading-relaxed">
-                              {para}
-                            </p>
-                          ))}
-                        </div>
-
-                        {/* Contact */}
-                        <div className="pt-4 border-t border-slate-100">
-                          <p className="text-slate-600 mb-4">
-                            Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
-                          </p>
-                          <Link
-                            to="/secretariat"
-                            onClick={closeModal}
-                            className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
-                          >
-                            <Phone className="w-4 h-4 mr-2" />
-                            Contacter le secrétariat
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-
-                    {modalType === 'pretres' && (
-                      <div className="space-y-6">
-                        {/* Intro */}
-                        <p className="text-slate-600 leading-relaxed">
-                          {pretresData.intro}
-                        </p>
-
-                        {/* Priests */}
-                        <div className="space-y-6">
-                          {pretresData.priests.map((priest, idx) => (
-                            <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-xl">
-                              <div className="w-20 h-20 flex-shrink-0">
-                                <img 
-                                  src={priest.image} 
-                                  alt={priest.name}
-                                  className="w-full h-full object-cover rounded-lg"
-                                />
-                              </div>
-                              <div className="flex-grow">
-                                <h4 className="font-serif text-lg text-slate-deep mb-2">{priest.name}</h4>
-                                <p className="text-slate-600 text-sm leading-relaxed">
-                                  {priest.description}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Contact */}
-                        <div className="pt-4 border-t border-slate-100">
-                          <p className="text-slate-600 mb-4">
-                            Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
-                          </p>
-                          <Link
-                            to="/secretariat"
-                            onClick={closeModal}
-                            className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
-                          >
-                            <Phone className="w-4 h-4 mr-2" />
-                            Contacter le secrétariat
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
+                <Phone className="w-4 h-4 mr-2" />
+                Contacter le secrétariat
+              </Link>
             </div>
           </div>
-        </Dialog>
-      </Transition>
+        </DialogContent>
+      </Dialog>
+
+      {/* Modal Prêtres */}
+      <Dialog open={modalOpen && modalType === 'pretres'} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] -m-6 mb-0 px-6 py-4">
+            <DialogTitle className="font-serif text-xl text-white">Les Prêtres</DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6 pt-6">
+            <p className="text-slate-600 leading-relaxed">
+              {pretresData.intro}
+            </p>
+
+            <div className="space-y-5">
+              {pretresData.priests.map((priest, idx) => (
+                <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-xl">
+                  <div className="w-20 h-20 flex-shrink-0">
+                    <img 
+                      src={priest.image} 
+                      alt={priest.name}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <h4 className="font-serif text-lg text-slate-deep mb-2">{priest.name}</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {priest.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-slate-100">
+              <p className="text-slate-600 mb-4">
+                Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
+              </p>
+              <Link
+                to="/secretariat"
+                onClick={() => setModalOpen(false)}
+                className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Contacter le secrétariat
+              </Link>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
