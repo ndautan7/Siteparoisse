@@ -14,8 +14,9 @@ Elle ne comprend qu'une nef. La sacristie fut construite en 1734, grâce à une 
 En 1870, les murs de l'église furent surélevés, et le plafond, plat d'origine, fut remplacé par une voûte. Cette surélévation entraîna la suppression des deux plus grosses cloches dans le clocher-mur.
 
 Les vitraux de St Jean et de St Laurent furent offerts en 1870 par la famille Escot, tandis que ceux de Ste Philomène, Ste Catherine de Sienne et de St Charles Borromée furent placés en 1875, lors de la mission jubilaire.`,
-    address: 'Place de l\'Église, 31320 Auzeville-Tolosane',
-    coordinates: { lat: 43.5283, lng: 1.4833 },
+    address: 'Église Saint-Séverin, 31320 Auzeville-Tolosane',
+    coordinates: { lat: 43.5261467, lng: 1.4871858 },
+    placeId: 'ChIJy_Y94luu6hIRU69BAYA3McI',
     // Les horaires seront gérés via le CMS
     massSchedule: [],
     openingHours: null
@@ -49,8 +50,9 @@ Au XVe siècle, Bernard DE ROQUETTE s'installe à la tête de la Seigneurie et �
 
 **Légende du château**
 À l'origine, le château est entouré de douves franchissables au sud et au nord par des ponts dormants et à l'est par un pont-levis. Au XVIe siècle, les angles du château sont flanqués de deux tours rondes au sud et carrées au nord, au XVIIe siècle le rez-de-chaussée et le premier étage sont remaniés, sur la façade principale, l'avant corps central est surmonté d'un fronton. Au XVIIIe siècle, construction du deuxième étage qui condamne les fenêtres des tours.`,
-    address: 'Place de l\'Église, 31650 Auzielle',
-    coordinates: { lat: 43.5333, lng: 1.5500 },
+    address: 'Église Saint-Pierre, 31650 Auzielle',
+    coordinates: { lat: 43.5417021, lng: 1.5658417 },
+    placeId: 'ChIJ1aMFaS6U6hIRJvnNn1sNcTE',
     massSchedule: [],
     openingHours: null
   },
@@ -64,8 +66,9 @@ Au XVe siècle, Bernard DE ROQUETTE s'installe à la tête de la Seigneurie et �
 L'église est située sur une colline. Crépie à l'extérieur et enduite ou peinte à l'intérieur, elle est bâtie en briques. Le portail en pierre est un reste de l'ancienne église romane. La plus grande partie de l'édifice est de style gothique. Au XVIe siècle, le bâtiment a souffert des troubles liées aux guerres de Religion. Il n'a pu se relever de ses ruines qu'en 1596. Le clocher est beaucoup plus tardif : il date de 1892. Les vitraux sont modernes (XIXe s.) ou contemporains (XXe s.).
 
 Cette église est très intéressante par sa diversité : styles architecturaux divers, sculpture du portail roman, peintures sous forme de fresques. La fresque de la chapelle de la Vierge est remarquable. Sur chacun des cinq pans de mur, sont figurées des scènes décorées, animées par la présence d'anges ou de visages. Trouverez-vous la colombe représentant l'Esprit saint, le couronnement de la Vierge, sainte Marie-Madeleine versant du parfum sur les pieds du Christ ou encore saint Jean-Baptiste ?`,
-    address: 'Place de l\'Église, 31450 Belberaud',
-    coordinates: { lat: 43.4983, lng: 1.5517 },
+    address: 'Église Saint-Jean-Baptiste, 31450 Belberaud',
+    coordinates: { lat: 43.500993, lng: 1.5752377 },
+    placeId: 'ChIJsW3x7O2U6hIR3cx4P3yDvco',
     massSchedule: [],
     openingHours: null
   },
@@ -81,8 +84,9 @@ Les corps seront en effet retrouvés intacts à l'endroit indiqué. S'inscrivant
 Six chapelles latérales s'ouvrent sur la nef flanquée dans les contreforts de l'édifice. L'orgue, créé et installé par Théodore Puget en 1867, a été restauré en 1995 ; il a 17 jeux. La restauration extérieure de l'édifice fut réalisée en 2007, sa restauration intérieure terminée en 2010.
 
 L'église est ouverte du mardi au Samedi de 8 h 30 à 19 h et dimanche de 8 h 30 à 12 h h 30 (l'été jusqu'à 18 h).`,
-    address: 'Place du Fort, 31320 Castanet-Tolosan',
-    coordinates: { lat: 43.5167, lng: 1.4989 },
+    address: 'Église Saint-Gervais-et-Saint-Protais, 31320 Castanet-Tolosan',
+    coordinates: { lat: 43.516274, lng: 1.49807 },
+    placeId: 'ChIJTSi5wUuu6hIRRbgNPmAXmKI',
     massSchedule: [],
     openingHours: 'Du mardi au samedi de 8h30 à 19h, dimanche de 8h30 à 12h30 (l\'été jusqu\'à 18h)'
   },
@@ -103,8 +107,9 @@ La voûte est de style ogival du XVIe siècle. Le chœur est pentagonal. Les pei
 L'ancien autel tridentin est une table de marbre d'époque Restauration. Les tableaux : St Sébastien, Ste Élisabeth de Hongrie, Ste Germaine, et une crucifixion du XVIIe siècle ornent l'église ; dans la nef, quatre statues représentent les évangélistes.
 
 On peut être frappé par le mauvais état de l'intérieur de cette église qui a subi au long des siècles d'importantes déprédations. Cependant elle ne manque pas d'attraits et une restauration réfléchie devrait voir le jour.`,
-    address: 'Place de l\'Église, 31450 Corronsac',
-    coordinates: { lat: 43.4650, lng: 1.4783 },
+    address: 'Église de la Nativité-de-la-Vierge, 31450 Corronsac',
+    coordinates: { lat: 43.4736134, lng: 1.4945057 },
+    placeId: 'ChIJIWUiM1LB6hIRD96k0g1a6rg',
     massSchedule: [],
     openingHours: null
   },
@@ -125,8 +130,9 @@ L'aspect intérieur de l'église date de 1841 où l'on note le remplacement du p
 Depuis plusieurs années, l'association des amis de l'église de Deyme s'active à la restauration du patrimoine : tableaux de Despax, de Marguerite de Michel et de Frédeau, le Maitre Autel et dernièrement, les chapelles du Sacré cœur et de St Joseph. Ils sont aussi plein d'imagination pour la mise en place d'une crèche animée, chaque année différente. Deyme a eu la chance d'abriter un facteur d'orgue reconnu, Bernard Thourel, qui a fabriqué complètement et offert, l'orgue niché sur la galerie à l'étage.
 
 Pour visiter cette église en dehors des heures d'ouverture, vous pouvez vous adresser au secrétariat.`,
-    address: 'Place de l\'Église, 31450 Deyme',
-    coordinates: { lat: 43.4817, lng: 1.5100 },
+    address: 'Église Sainte-Marie-Madeleine, 31450 Deyme',
+    coordinates: { lat: 43.4783503, lng: 1.5268817 },
+    placeId: 'ChIJnWVtmfuV6hIR7Uov8uwe_xs',
     massSchedule: [],
     openingHours: null
   },
