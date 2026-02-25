@@ -346,14 +346,24 @@ Dans les fonts baptismaux a été découverte lors de la dernière restauration,
   'rebigue': {
     id: 'rebigue',
     name: 'Rebigue',
-    churchName: 'Chapelle de Rebigue',
-    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg',
-    description: `La chapelle de Rebigue est un lieu de recueillement intimiste, nichée dans ce petit village du Lauragais.
+    churchName: 'Église Saint-Lizier',
+    image: 'https://customer-assets.emergentagent.com/job_50e05542-f2db-4ce4-aafc-6abaa8a7ea3e/artifacts/k6wmhqj1_Eglise-Rebigue.jpg',
+    description: `Fenêtre ouverte sur la chaîne des Pyrénées, Rebigue est un petit village des coteaux du Lauragais. Dans un paysage façonné par l'agriculture se côtoient des anciens et de nouveaux arrivants (504 habitants en 2009).
 
-Son atmosphère paisible en fait un lieu propice à la prière et à la méditation.
+**Saint Lizier**
+Sa petite église dont la construction remonte au XVe siècle est placée « de toute ancienneté » sous le patronage de Saint Lizier (ce saint, originaire d'Espagne, devint évêque du Couserans, actuel diocèse de Pamiers au Ve siècle).
 
-*Informations détaillées à venir via le CMS.*`,
-    address: 'Rebigue, 31320 Rebigue',
+Une relique du saint évêque fut transférée de la cathédrale St-Lizier d'Ariège à l'église de Rebigue. Une dévotion populaire se développa rapidement (Saint-Lizier est invoqué pour la guérison des enfants malades) et perdure encore aujourd'hui.
+
+**Architecture**
+L'édifice a deux particularités : son clocher-mur (percé de trois baies campanaires) et son chevet plat. L'intérieur de l'église a été restauré en 1994. Le ravalement des murs a permis de remettre au jour l'appareillage en briques plates et galets de Garonne, la présence d'un ancien porche et la réouverture, dans le chevet, de deux petits fenestrous (dans lesquels ont été installés des vitraux créés par l'abbaye d'En Calcat).
+
+**Les chapelles**
+Dans la chapelle St-Lizier, le buste en bois doré et un gisant polychrome entourent le tabernacle. Une deuxième chapelle est dédiée à ND de Lourdes. Dans la troisième, les fonts baptismaux portent une inscription : Ramond Veyrede, recteur, 1578.
+
+**La stèle pour la paix**
+Dans le cimetière qui entoure l'église, une stèle pour la paix a été érigée en 1986, sculptée par M. Monier.`,
+    address: 'Église Saint-Lizier, 31320 Rebigue',
     coordinates: { lat: 43.4750, lng: 1.5083 },
     massSchedule: [],
     openingHours: null
