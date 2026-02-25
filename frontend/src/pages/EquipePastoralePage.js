@@ -86,11 +86,10 @@ const teamMembers = [
   {
     id: 'diacres',
     title: 'Les Diacres',
-    name: 'Diacres permanents',
+    name: 'Jean-Luc Hartmann, Philippe Rodier',
     role: 'Service de la charité',
     description: 'Au service de la communauté et des plus fragiles',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
-    path: '/equipe-pastorale/diacres'
+    hasModal: true
   },
   {
     id: 'seminaristes',
