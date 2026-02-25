@@ -319,14 +319,26 @@ Sur le mur qui fait face à l'entrée de l'église, une plaque de marbre porte l
   'pompertuzat': {
     id: 'pompertuzat',
     name: 'Pompertuzat',
-    churchName: 'Église Saint-Pierre',
-    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg',
-    description: `L'église Saint-Pierre de Pompertuzat se distingue par son beau clocher-mur typique de l'architecture religieuse du sud-ouest de la France.
+    churchName: 'Église Saint-André Saint-Cloud',
+    image: 'https://customer-assets.emergentagent.com/job_50e05542-f2db-4ce4-aafc-6abaa8a7ea3e/artifacts/evzwprpl_Eglise-Pompertuzat.jpg',
+    description: `Pompertuzat possède une seule église sous le double patronage de saint André-saint Cloud. Autrefois il y avait 2 églises distinctes : l'église St Cloud encastrée dans la muraille du fort et l'église saint André sur le coteau à environ 500m du fort.
 
-Elle est le cœur spirituel de cette commune paisible située aux portes de Toulouse.
+**Histoire**
+Les premières mentions de l'église se situent vers 1538. Elle a été construite sur un bâtiment beaucoup plus ancien. En 1570, comme l'église St Cloud, l'église saint André a été pillée et incendiée par les Huguenots.
 
-*Informations détaillées à venir via le CMS.*`,
-    address: 'Place de l\'Église, 31450 Pompertuzat',
+La visite paroissiale faite par le cardinal de Joyeuse en 1593 indique que l'église était paroissiale. Il indique que « l'église est à demi couverte, les verrières rompues et quasi toutes ruinées et pillées par les politiques ». Il y avait eu ce jour là environ 250 communiants.
+
+**La restauration de 1855**
+Plusieurs visites ont démontré le mauvais état de cette église. En 1855 la restauration a été confiée par le conseil de fabrique à des peintres d'église italiens, les frères Pedoya, moyennant la somme de 3650 francs. Ils ont entièrement redécoré l'église et plus particulièrement la voûte.
+
+**Les décors de la voûte**
+La première travée représente les vertus théologales : la Foi, l'Espérance et la Charité. Le dernier voutain représente la Religion. Les quatre panneaux de la deuxième travée représentent les quatre évangélistes et leurs symboles. La troisième travée : quatre apôtres et leurs symboles. La quatrième travée : les prophètes d'Israël.
+
+Les croisées d'ogives sont richement décorées ainsi que la voûte constituées de feuilles d'acanthes, d'anges et phylactères, le tout en camaïeu gris sur fond bleu. Les décors sont en trompe l'œil.
+
+**Découverte archéologique**
+Dans les fonts baptismaux a été découverte lors de la dernière restauration, une pierre datée du premier siècle après Jésus Christ représentant une gorgone, monstre de la mythologie grecque.`,
+    address: 'Église Saint-André Saint-Cloud, 31450 Pompertuzat',
     coordinates: { lat: 43.4917, lng: 1.5000 },
     massSchedule: [],
     openingHours: null
