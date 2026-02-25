@@ -174,7 +174,18 @@ const JeSuisNouveauPage = () => {
 
         {/* Mot de bienvenue du Père Daniel */}
         <div className="mt-12 mb-4 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-          <div className="px-8 py-10 md:px-12 md:py-12">
+          <div className="flex flex-col md:flex-row">
+            {/* Photo gauche */}
+            <div className="md:w-64 lg:w-72 flex-shrink-0 relative">
+              <img
+                src="https://customer-assets.emergentagent.com/job_church-community-16/artifacts/qxrgws2a_Bienvenue.png"
+                alt="Bienvenue dans notre paroisse"
+                className="w-full h-56 md:h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-white/10"></div>
+            </div>
+            {/* Texte */}
+            <div className="flex-1 px-8 py-10 md:py-12 flex flex-col justify-center">
               {/* En-tête */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1 h-12 bg-gradient-to-b from-[#d0ada6] to-[#c49a93] rounded-full"></div>
@@ -223,6 +234,7 @@ const JeSuisNouveauPage = () => {
                   <p className="text-[#d0ada6] text-xs">Curé de Notre Dame d'Autan</p>
                 </div>
               </div>
+            </div>
           </div>
         </div>
 
