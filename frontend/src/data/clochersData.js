@@ -181,13 +181,28 @@ Plusieurs hypothèses sont avancées concernant l'étymologie d'Escalquens : esc
     id: 'labege',
     name: 'Labège',
     churchName: 'Église Saint-Barthélemy',
-    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg',
-    description: `L'église Saint-Barthélemy de Labège est située au cœur du village historique. Malgré le développement technologique de la commune avec sa célèbre Innopole, l'église reste un lieu de rassemblement et de prière pour la communauté paroissiale.
+    image: 'https://customer-assets.emergentagent.com/job_50e05542-f2db-4ce4-aafc-6abaa8a7ea3e/artifacts/yy19e64k_Eglise-Lab%C3%A8ge.JPG',
+    description: `**Deux pôles**
+La commune est constituée de deux pôles complètement différents. Au nord-ouest vers Toulouse, se trouve Labège Innopole, le centre économique de la commune avec des centres commerciaux (centre commercial Carrefour Labège 2), un cinéma Gaumont, des restaurants et de nombreuses entreprises dont Sanofi-Aventis. Au sud-est se trouve le pôle résidentiel avec Labège-village qui est le village avec sa crèche, sa salle de sport, ses commerces de proximité et la plupart de ses habitants ainsi que le plus grand club de pétanque de la région. Ces deux zones sont séparées par une zone verte.
 
-Son architecture traditionnelle en briques roses témoigne du patrimoine languedocien de la région.
+**Étymologie**
+L'origine du nom de Labège donne lieu à deux interprétations que rien ne confirme : pour les uns, ce toponyme viendrait de « La Berge », village construit sur les berges de l'Hers ; pour les autres, du nom d'une abbaye qui se trouvait sur ces lieux au Moyen Âge. Labège se trouvait sur le tracé de la voie romaine qui conduisait de Toulouse à Narbonne en passant par Baziège. Des monnaies romaines ont été retrouvées sur la commune.
 
-*Informations détaillées à venir via le CMS.*`,
-    address: 'Place de l\'Église, 31670 Labège',
+**Origine**
+Quelques traces romaines sont visibles à Labège. Mais aucun village n'était présent sur cette commune. Il s'agissait d'un lieu de passage entre Baziège et Toulouse. Même au Moyen Âge, l'habitat est dispersé. Au XIVe siècle, une seigneurie de Labège existe dans des documents d'époque. Elle appartenait alors au collège Saint Front de Périgord qui en restera propriétaire pendant quatre siècles. Le village se forme alors autour de l'église dès la fin de la Renaissance.
+
+Pendant la grande époque du pastel, Labège comptait deux moulins pastelliers. Ces moulins disparurent comme la plupart de ceux du Lauragais vers 1730. À partir de 1960, Labège accueille de nombreux bureaux et laboratoires sur le site de Labège Innopole.
+
+**La fontaine Saint-Sernin**
+Un chemin balisé (boucle des deux fontaines) au départ de la mairie de Labège permet de découvrir la fontaine Saint-Sernin. Au XVIIIe siècle, les registres communaux du village attestent que cette fontaine faisait l'objet d'un pèlerinage. Ses eaux étant réputées pour guérir certaines maladies (fièvres ou maladies de peau).
+
+**Église Saint-Barthélemy**
+En 1232, une première église est mentionnée comme annexe de la paroisse de Belberaud dans un accord entre l'évêque de Toulouse et le Chapitre de Saint Etienne qui en perçoit la dîme. Elle appartient à l'archiprêtre de Caraman. À Labège, il n'y a alors ni village ni paroisse.
+
+La deuxième église est construite en 1518. Elle est détruite par les Huguenots en 1570. Elle est reconstruite tout de suite. En 1794, il n'y a plus de curé à Labège. Les cloches, sauf une, sont données au district de Toulouse pour être fondues. Cette deuxième église durera jusqu'à la fin du XIXe siècle. Elle brûle un soir de Noël.
+
+L'église actuelle date de 1860. M. Sixte TOULZA, maire de l'époque, a offert le clocher. L'ancienne cloche de 1597 siècle a été remplacée en 2013 par une cloche baptisée « Pape François ».`,
+    address: 'Église Saint-Barthélemy, 31670 Labège',
     coordinates: { lat: 43.5333, lng: 1.5333 },
     massSchedule: [],
     openingHours: null
