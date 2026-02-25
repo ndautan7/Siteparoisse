@@ -145,14 +145,34 @@ Pour visiter cette église en dehors des heures d'ouverture, vous pouvez vous ad
   'escalquens': {
     id: 'escalquens',
     name: 'Escalquens',
-    churchName: 'Église Saint-Pierre',
-    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg',
-    description: `L'église Saint-Pierre d'Escalquens est un édifice remarquable du patrimoine religieux local. Son architecture témoigne de l'histoire riche de la commune et de la foi de ses habitants à travers les siècles.
+    churchName: 'Église Saint-Martin',
+    image: 'https://customer-assets.emergentagent.com/job_50e05542-f2db-4ce4-aafc-6abaa8a7ea3e/artifacts/dcul9x0t_Eglise-Escalquens.jpg',
+    description: `Située aux portes du Lauragais, encore à la campagne mais déjà à la ville, Escalquens est aujourd'hui une petite bourgade de 5477 habitants qui s'étend dans un vaste massif de collines. Diffus ou divisé en hameaux, l'habitat est essentiellement constitué de pavillons dans un cadre champêtre agréable. Bien que sa population ait fortement progressé de 1970 à nos jours, Escalquens a gardé toute sa dimension humaine et souhaite développer son centre. Ce qui est frappant à première vue lorsque l'on arrive à Escalquens, c'est l'absence d'un cœur de village ancien tel qu'on le retrouve dans les communes environnantes.
 
-Le bâtiment actuel présente des éléments architecturaux caractéristiques de la région toulousaine, avec son clocher élancé visible de loin dans la campagne environnante.
+**Une commune rurale**
+Vers l'an 860, Escalquens était une commune faite de hameaux et couverte de bois. Son territoire était compris dans la Gallia Transalpina et les premiers habitants se nommaient les Volques Tectosages.
 
-*Informations détaillées à venir via le CMS.*`,
-    address: 'Place de l\'Église, 31750 Escalquens',
+Escalquens était une commune très rurale avec d'importantes fermes appelées en occitan borda. C'est pourquoi certains quartiers portent le nom de Borde Haute ou Grande Borde. D'autres domaines tels que Cap de Biau, La Grave, Cugnol, La Caprice, La Tour, La Mercadale prêtent aujourd'hui leur nom à certains quartiers.
+
+Dans les années cinquante le remembrement a permis aux propriétaires de disposer de grands lopins de terre, aménagés ensuite en lotissements.
+
+La Cousquille (altitude : 163 mètres), autrefois hameau de la commune, constitue le pôle d'attraction, d'animation principal par la présence de commerces de proximité et comme lieu de festivités et de rencontres.
+
+**Le château**
+De 1568 à la Révolution, la famille des Delpuech occupa le château de père en fils pendant plus de 200 ans. Vers 1900, le château fut la propriété de la famille de Pouzargues puis des Gauthier qui l'ont ensuite vendu à la Commune. Il abrite aujourd'hui la mairie.
+
+Il s'agit d'un édifice classique toulousain de briques, quadrangulaire avec tours carrées aux angles, en encorbellement. La construction date de la fin XVIe, début XVIIe dans l'ensemble. Toutefois, une étude plus approfondie fait apparaître des traces d'un édifice plus ancien, probablement d'époque romane (XIe – XIIe siècles).
+
+**L'église Saint-Martin**
+L'église Saint-Martin date du XIVe siècle. Son clocher est une réplique, dans des proportions plus modestes, de celui de Saint-Sernin de Toulouse. On la surnomme le « petit Saint-Sernin ».
+
+Le portail de cette église de style roman dénote que cet édifice remonte au Xe – XIe siècle. L'église a été en partie incendiée durant les guerres de religions. Elle fut reconstruite dans le style gothique comme l'indiquent les cinq ogives qui la décorent.
+
+Le bas côté de droite et la sacristie sont postérieurs à l'église. Le bas côté de gauche est récent ainsi que la voûte ogivale qui date de 1865 et le clocher de 1873. Un petit bas relief (à gauche du grand portail façade ouest) représentant la lapidation de saint Étienne remonterait au Xe siècle.
+
+**Étymologie**
+Plusieurs hypothèses sont avancées concernant l'étymologie d'Escalquens : escalis, celui qui se met à table, du latin esca, aliment ; aesculus, chêne consacré au dieu Jupiter ; ou escal désignant en occitan une coque de noix.`,
+    address: 'Église Saint-Martin, 31750 Escalquens',
     coordinates: { lat: 43.5167, lng: 1.5500 },
     massSchedule: [],
     openingHours: null
