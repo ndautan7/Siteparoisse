@@ -60,6 +60,61 @@ const diacresData = {
   ]
 };
 
+// Données de l'EAP
+const eapData = {
+  intro: `L'Équipe d'Animation Pastorale (EAP) est composée de laïcs engagés qui, en lien avec le curé, participent à l'animation et à la coordination de la vie paroissiale. L'EAP se réunit régulièrement pour réfléchir aux orientations pastorales et accompagner les différents services de la paroisse.`,
+  castanet: {
+    title: 'Secteur Castanet',
+    members: [
+      {
+        name: 'P. Daniel BROUARD-DERVAL',
+        role: 'Curé',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp'
+      },
+      {
+        name: 'Marie-Pierre PAWLAK',
+        role: 'Membre EAP',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/ov4xlacu_mariepierre.webp'
+      },
+      {
+        name: 'Julien BOURDIEU',
+        role: 'Membre EAP',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izl5m6vm_Julien.webp'
+      },
+      {
+        name: 'François BERÇOT',
+        role: 'Membre EAP',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/lmqsw3m9_francois.webp'
+      }
+    ]
+  },
+  saintOrens: {
+    title: 'Secteur Saint-Orens',
+    members: [
+      {
+        name: 'Anne POUSSINES',
+        role: 'Membre EAP',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/dzxc4z93_anne.webp'
+      },
+      {
+        name: 'Jean-Michel DEROIN',
+        role: 'Membre EAP',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/caj7zc9q_jean-michel.webp'
+      },
+      {
+        name: 'Carole MATTHIA',
+        role: 'Membre EAP',
+        image: null // Photo à venir
+      },
+      {
+        name: 'Arnaud CEYTE',
+        role: 'Membre EAP',
+        image: null // Photo à venir
+      }
+    ]
+  }
+};
+
 const teamMembers = [
   {
     id: 'cure',
