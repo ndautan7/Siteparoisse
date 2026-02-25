@@ -24,6 +24,22 @@ Refonte complète du site web de la paroisse "Notre Dame d'Autan" avec une appro
 
 ## Fonctionnalités Implémentées
 
+### Février 2025
+- [x] **Pages Clochers refondues** : Structure complète pour les 16 églises
+  - Hero avec photo spécifique de l'église
+  - Section "Prochaines messes" (préparée pour CMS)
+  - Description historique riche et formatée
+  - Carte Google Maps avec bouton "Itinéraire"
+  - Citation biblique
+- [x] **Photos des églises** : 6 photos uniques ajoutées
+  - Auzeville-Tolosane (Saint-Séverin)
+  - Auzielle (Saint-Pierre) 
+  - Belberaud (Saint-Jean-Baptiste)
+  - Castanet-Tolosan (Saint-Gervais-et-Saint-Protais)
+  - Corronsac (Nativité-de-la-Vierge)
+  - Deyme (Sainte-Marie-Madeleine)
+- [x] **Données centralisées** : Fichier `clochersData.js` avec toutes les informations des 16 clochers
+
 ### Décembre 2025
 - [x] Page d'accueil avec section Hero et carrousel d'actualités
 - [x] Navigation avec 5 piliers principaux
