@@ -712,17 +712,17 @@ const EquipePastoralePage = () => {
               {/* Secteur Saint-Orens */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#d0ada6]"></div>
                   <h3 className="font-serif text-lg text-slate-deep">{eapData.saintOrens.title}</h3>
                 </div>
                 {eapData.saintOrens.members.map((member, idx) => (
                   <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
-                    <div className="w-24 h-24 flex-shrink-0">
+                    <div className="w-32 h-32 flex-shrink-0">
                       {member.image ? (
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover rounded-full border-4 border-amber-400/20"
+                          className="w-full h-full object-cover rounded-full border-4 border-[#d0ada6]/20"
                         />
                       ) : (
                         <div className="w-full h-full rounded-full bg-slate-200 flex items-center justify-center">
