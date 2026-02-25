@@ -323,6 +323,44 @@ const EquipePastoralePage = () => {
                         ))}
                       </div>
                     </div>
+                  ) : member.id === 'eap' ? (
+                    // Double carousel for EAP (Castanet + Saint-Orens)
+                    <div className="aspect-square overflow-hidden relative flex flex-col">
+                      {/* Row 1: Castanet */}
+                      <div className="h-1/2 relative overflow-hidden">
+                        {eapCastanetImages.map((img, idx) => (
+                          <img 
+                            key={idx}
+                            src={img} 
+                            alt={`EAP Castanet ${idx + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                              idx === currentEapCastanetIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
+                          />
+                        ))}
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-black/30 px-2 py-0.5 rounded text-[10px] text-white">
+                          Castanet
+                        </div>
+                      </div>
+                      {/* Separator line */}
+                      <div className="h-0.5 bg-white/80 relative z-10"></div>
+                      {/* Row 2: Saint-Orens */}
+                      <div className="h-1/2 relative overflow-hidden">
+                        {eapSaintOrensImages.map((img, idx) => (
+                          <img 
+                            key={idx}
+                            src={img} 
+                            alt={`EAP Saint-Orens ${idx + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                              idx === currentEapSaintOrensIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
+                          />
+                        ))}
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-black/30 px-2 py-0.5 rounded text-[10px] text-white">
+                          Saint-Orens
+                        </div>
+                      </div>
+                    </div>
                   ) : member.images ? (
                     // Multiple photos grid (fallback)
                     <div className="grid grid-cols-3 gap-0.5 bg-slate-100">
