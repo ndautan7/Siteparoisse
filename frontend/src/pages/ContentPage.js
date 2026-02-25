@@ -1202,7 +1202,7 @@ const ContentPage = ({ section }) => {
 
         {/* Detailed Content Section - for other pages like eveil */}
         {config.detailedContent && section !== 'funerailles' && (
-          <div className="mb-12 space-y-8">
+          <div className="mb-12 space-y-12">
             {/* Phone Contacts - First */}
             {config.detailedContent.contacts && (
               <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-xl p-8 border border-gold/20">
