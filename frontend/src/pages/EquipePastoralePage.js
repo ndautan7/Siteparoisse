@@ -161,8 +161,7 @@ const teamMembers = [
     name: "Équipe d'Animation Pastorale",
     role: 'Coordination pastorale',
     description: 'Laïcs engagés au service de la mission paroissiale',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400',
-    path: '/equipe-pastorale/eap'
+    hasModal: true
   }
 ];
 
