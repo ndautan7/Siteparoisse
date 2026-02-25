@@ -281,7 +281,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               MEDITATION CONTENT
           ══════════════════════════════════════ */}
           {meditationContent && (
-            <div className="space-y-4">
+            <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
 
               {/* Paragraphes — avec léger accent gauche */}
               {meditationContent.paragraphes && meditationContent.paragraphes.map((para, idx) => (
