@@ -92,6 +92,11 @@ const eapData = {
     title: 'Secteur Saint-Orens',
     members: [
       {
+        name: 'P. Daniel BROUARD-DERVAL',
+        role: 'Curé',
+        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp'
+      },
+      {
         name: 'Anne POUSSINES',
         role: 'Membre EAP',
         image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/dzxc4z93_anne.webp'
