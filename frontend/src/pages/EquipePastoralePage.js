@@ -687,64 +687,120 @@ const EquipePastoralePage = () => {
               </p>
 
               {/* Secteur Castanet */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-[#93B5B7]"></div>
                   <h3 className="font-serif text-lg text-slate-deep">{eapData.castanet.title}</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {eapData.castanet.members.map((member, idx) => (
-                    <div key={idx} className="flex gap-3 p-3 bg-slate-50 rounded-xl items-center">
-                      <div className="w-14 h-14 flex-shrink-0">
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-full h-full object-cover rounded-full border-2 border-[#93B5B7]/20"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-slate-deep text-sm">{member.name}</h4>
-                        <p className="text-slate-500 text-xs">{member.role}</p>
-                      </div>
+                {eapData.castanet.members.map((member, idx) => (
+                  <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
+                    <div className="w-24 h-24 flex-shrink-0">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover rounded-full border-4 border-[#93B5B7]/20"
+                      />
                     </div>
-                  ))}
-                </div>
+                    <div className="flex-grow">
+                      <h4 className="font-serif text-lg text-slate-deep mb-1">{member.name}</h4>
+                      <p className="text-slate-500 text-sm">{member.role}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Secteur Saint-Orens */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-gold"></div>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                   <h3 className="font-serif text-lg text-slate-deep">{eapData.saintOrens.title}</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {eapData.saintOrens.members.map((member, idx) => (
-                    <div key={idx} className="flex gap-3 p-3 bg-slate-50 rounded-xl items-center">
-                      <div className="w-14 h-14 flex-shrink-0">
-                        {member.image ? (
-                          <img 
-                            src={member.image} 
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full border-2 border-gold/20"
-                          />
-                        ) : (
-                          <div className="w-full h-full rounded-full bg-slate-200 flex items-center justify-center">
-                            <Users className="w-6 h-6 text-slate-400" />
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-slate-deep text-sm">{member.name}</h4>
-                        <p className="text-slate-500 text-xs">{member.role}</p>
-                      </div>
+                {eapData.saintOrens.members.map((member, idx) => (
+                  <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
+                    <div className="w-24 h-24 flex-shrink-0">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover rounded-full border-4 border-amber-400/20"
+                        />
+                      ) : (
+                        <div className="w-full h-full rounded-full bg-slate-200 flex items-center justify-center">
+                          <Users className="w-8 h-8 text-slate-400" />
+                        </div>
+                      )}
                     </div>
-                  ))}
-                </div>
+                    <div className="flex-grow">
+                      <h4 className="font-serif text-lg text-slate-deep mb-1">{member.name}</h4>
+                      <p className="text-slate-500 text-sm">{member.role}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <div className="pt-4 border-t border-slate-100">
                 <p className="text-slate-600 mb-4">
                   Pour contacter l'EAP, vous pouvez passer par le secrétariat paroissial.
+                </p>
+                <Link
+                  to="/secretariat"
+                  onClick={() => setModalOpen(false)}
+                  className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Contacter le secrétariat
+                </Link>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Modal Séminaristes */}
+      <Dialog open={modalOpen && modalType === 'seminaristes'} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-2xl p-0 overflow-hidden [&>button]:hidden">
+          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-6 py-4 flex flex-row items-center justify-between">
+            <DialogTitle className="font-serif text-xl text-white">Les Séminaristes</DialogTitle>
+            <button 
+              onClick={() => setModalOpen(false)}
+              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </DialogHeader>
+
+          <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
+            <div className="space-y-6">
+              <p className="text-slate-600 leading-relaxed">
+                Notre paroisse a la joie d'accompagner des séminaristes dans leur cheminement vers le sacerdoce. Leur présence est une grâce et un signe d'espérance pour notre communauté.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { prenom: 'Valentin', description: 'Séminariste accompagné par notre communauté paroissiale dans sa vocation.' },
+                  { prenom: 'Paul', description: 'Séminariste accompagné par notre communauté paroissiale dans sa vocation.' }
+                ].map((seminariste, idx) => (
+                  <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
+                    <div className="w-24 h-24 flex-shrink-0">
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-100 to-slate-200 border-4 border-[#93B5B7]/20 flex flex-col items-center justify-center gap-1">
+                        <GraduationCap className="w-8 h-8 text-slate-400" strokeWidth={1.5} />
+                        <span className="text-[9px] text-slate-400 font-medium">Photo à venir</span>
+                      </div>
+                    </div>
+                    <div className="flex-grow">
+                      <h4 className="font-serif text-lg text-slate-deep mb-1">{seminariste.prenom}</h4>
+                      <span className="inline-block bg-[#93B5B7]/10 text-[#93B5B7] px-3 py-0.5 rounded-full text-xs font-medium mb-2">Séminariste</span>
+                      <p className="text-slate-600 text-sm leading-relaxed">{seminariste.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-slate-600 mb-4">
+                  Pour en savoir plus, vous pouvez contacter le secrétariat paroissial.
                 </p>
                 <Link
                   to="/secretariat"
