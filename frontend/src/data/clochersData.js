@@ -17,6 +17,7 @@ Les vitraux de St Jean et de St Laurent furent offerts en 1870 par la famille Es
     address: 'Église Saint-Séverin, 31320 Auzeville-Tolosane',
     coordinates: { lat: 43.5261467, lng: 1.4871858 },
     placeId: 'ChIJy_Y94luu6hIRU69BAYA3McI',
+    googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Saint-S%C3%A9verin+d\'Auzeville-Tolosane/@43.5261467,1.4871858,17z',
     // Les horaires seront gérés via le CMS
     massSchedule: [],
     openingHours: null
