@@ -332,8 +332,8 @@ const SacrementDetailPage = () => {
               className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               {/* Section Header */}
-              <div className="px-6 py-5 border-b border-slate-100">
-                <h2 className="font-serif text-xl text-[#d0ada6]">{section.title}</h2>
+              <div className="px-6 py-4 bg-[#d0ada6]">
+                <h2 className="font-serif text-xl text-white">{section.title}</h2>
               </div>
               
               {/* Section Content */}
