@@ -26,19 +26,19 @@ const pretresData = {
   intro: `Notre paroisse a la chance d'être accompagnée par trois prêtres dévoués qui, aux côtés du curé, assurent l'animation spirituelle de notre communauté. Chacun apporte ses dons et sa sensibilité au service de tous les paroissiens.`,
   priests: [
     {
-      name: 'Père Donald',
+      name: 'P. Donald ZAGORE',
       image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/bwicpjkm_pere-donald.webp',
-      description: `Le Père Donald accompagne notre communauté paroissiale avec enthousiasme et dévouement. Il est particulièrement investi dans l'accompagnement des jeunes et l'animation des temps de prière.`
+      description: `Le Père Donald Zagore accompagne notre communauté paroissiale avec enthousiasme et dévouement. Il est particulièrement investi dans l'accompagnement des jeunes et l'animation des temps de prière.`
     },
     {
-      name: 'Père Anthony',
+      name: 'P. Anthony MAIA',
       image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/mrvxn6kf_pere-anthony.webp',
-      description: `Le Père Anthony est un jeune prêtre dynamique qui apporte fraîcheur et énergie à notre paroisse. Il est particulièrement engagé auprès des familles et dans la préparation aux sacrements.`
+      description: `Le Père Anthony Maia est un jeune prêtre dynamique qui apporte fraîcheur et énergie à notre paroisse. Il est particulièrement engagé auprès des familles et dans la préparation aux sacrements.`
     },
     {
-      name: 'Père Arnaud',
+      name: 'P. Arnaud FRANC',
       image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/parx1ojm_pere-arnaud.webp',
-      description: `Le Père Arnaud est reconnu pour sa profondeur spirituelle et sa pédagogie. Il accompagne avec attention les personnes en recherche de sens et anime des groupes de formation à la foi.`
+      description: `Le Père Arnaud Franc est reconnu pour sa profondeur spirituelle et sa pédagogie. Il accompagne avec attention les personnes en recherche de sens et anime des groupes de formation à la foi.`
     }
   ]
 };
