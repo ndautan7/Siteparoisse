@@ -16,7 +16,7 @@ En 1870, les murs de l'église furent surélevés, et le plafond, plat d'origine
 Les vitraux de St Jean et de St Laurent furent offerts en 1870 par la famille Escot, tandis que ceux de Ste Philomène, Ste Catherine de Sienne et de St Charles Borromée furent placés en 1875, lors de la mission jubilaire.`,
     address: 'Église Saint-Séverin, 31320 Auzeville-Tolosane',
     coordinates: { lat: 43.5261467, lng: 1.4871858 },
-    placeId: 'ChIJy_Y94luu6hIRU69BAYA3McI',
+    placeId: '0x12aebe5be23df6cb:0xc231c6cd018baf53',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Saint-S%C3%A9verin+d\'Auzeville-Tolosane/@43.5261467,1.4871858,17z',
     // Les horaires seront gérés via le CMS
     massSchedule: [],
@@ -53,7 +53,7 @@ Au XVe siècle, Bernard DE ROQUETTE s'installe à la tête de la Seigneurie et �
 À l'origine, le château est entouré de douves franchissables au sud et au nord par des ponts dormants et à l'est par un pont-levis. Au XVIe siècle, les angles du château sont flanqués de deux tours rondes au sud et carrées au nord, au XVIIe siècle le rez-de-chaussée et le premier étage sont remaniés, sur la façade principale, l'avant corps central est surmonté d'un fronton. Au XVIIIe siècle, construction du deuxième étage qui condamne les fenêtres des tours.`,
     address: 'Église Saint-Pierre, 31650 Auzielle',
     coordinates: { lat: 43.5417021, lng: 1.5658417 },
-    placeId: 'ChIJ1aMFaS6U6hIRJvnNn1sNcTE',
+    placeId: '0x12ae942e6905a3d5:0x31710d5b9fcdf926',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Saint-Pierre+d\'Auzielle/@43.541706,1.5632668,17z',
     massSchedule: [],
     openingHours: null
@@ -70,7 +70,7 @@ L'église est située sur une colline. Crépie à l'extérieur et enduite ou pei
 Cette église est très intéressante par sa diversité : styles architecturaux divers, sculpture du portail roman, peintures sous forme de fresques. La fresque de la chapelle de la Vierge est remarquable. Sur chacun des cinq pans de mur, sont figurées des scènes décorées, animées par la présence d'anges ou de visages. Trouverez-vous la colombe représentant l'Esprit saint, le couronnement de la Vierge, sainte Marie-Madeleine versant du parfum sur les pieds du Christ ou encore saint Jean-Baptiste ?`,
     address: 'Église Saint-Jean-Baptiste, 31450 Belberaud',
     coordinates: { lat: 43.500993, lng: 1.5752377 },
-    placeId: 'ChIJsW3x7O2U6hIR3cx4P3yDvco',
+    placeId: '0x12ae94edecf16db1:0xcebd837c3f78ccdd',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Saint-Jean-Baptiste+de+Belberaud/@43.5009969,1.5726628,17z',
     massSchedule: [],
     openingHours: null
@@ -89,7 +89,7 @@ Six chapelles latérales s'ouvrent sur la nef flanquée dans les contreforts de 
 L'église est ouverte du mardi au Samedi de 8 h 30 à 19 h et dimanche de 8 h 30 à 12 h h 30 (l'été jusqu'à 18 h).`,
     address: 'Église Saint-Gervais-et-Saint-Protais, 31320 Castanet-Tolosan',
     coordinates: { lat: 43.516274, lng: 1.49807 },
-    placeId: 'ChIJTSi5wUuu6hIRRbgNPmAXmKI',
+    placeId: '0x12aebe4bc1b9284d:0xa29817603e8db845',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Saint-Gervais+et+Saint-Protais+de+Castanet-Tolosan/@43.5162354,1.496766,18z',
     massSchedule: [],
     openingHours: 'Du mardi au samedi de 8h30 à 19h, dimanche de 8h30 à 12h30 (l\'été jusqu\'à 18h)'
@@ -113,7 +113,7 @@ L'ancien autel tridentin est une table de marbre d'époque Restauration. Les tab
 On peut être frappé par le mauvais état de l'intérieur de cette église qui a subi au long des siècles d'importantes déprédations. Cependant elle ne manque pas d'attraits et une restauration réfléchie devrait voir le jour.`,
     address: 'Église de la Nativité-de-la-Vierge, 31450 Corronsac',
     coordinates: { lat: 43.4736134, lng: 1.4945057 },
-    placeId: 'ChIJIWUiM1LB6hIRD96k0g1a6rg',
+    placeId: '0x12aec15233a26521:0xb8ea5a0dd2a4de0f',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+de+la+Nativit%C3%A9-de-la-Vierge+de+Corronsac/@43.4742209,1.4923561,17z',
     massSchedule: [],
     openingHours: null
@@ -137,7 +137,7 @@ Depuis plusieurs années, l'association des amis de l'église de Deyme s'active 
 Pour visiter cette église en dehors des heures d'ouverture, vous pouvez vous adresser au secrétariat.`,
     address: 'Église Sainte-Marie-Madeleine, 31450 Deyme',
     coordinates: { lat: 43.4783503, lng: 1.5268817 },
-    placeId: 'ChIJnWVtmfuV6hIR7Uov8uwe_xs',
+    placeId: '0x12ae95fb996d659d:0x1bbf2eecf92f4aed',
     googleMapsUrl: 'https://www.google.com/maps/place/%C3%89glise+Sainte-Marie-Madeleine+de+Deyme/@43.4783542,1.5243068,17z',
     massSchedule: [],
     openingHours: null
