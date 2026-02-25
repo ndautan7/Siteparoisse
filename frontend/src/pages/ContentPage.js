@@ -971,18 +971,18 @@ const ContentPage = ({ section }) => {
                           setSelectedResource(item);
                           setIsModalOpen(true);
                         }}
-                        className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
+                        className="group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
                         data-testid={`item-card-${index}`}
                       >
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                        <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors mb-3 sm:mb-0">
                             <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                            <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
                               {item.title}
                             </h3>
-                            <p className="text-slate-500 text-sm leading-relaxed">
+                            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
                               {item.description}
                             </p>
                           </div>
@@ -1004,18 +1004,18 @@ const ContentPage = ({ section }) => {
                           setSelectedResource(item);
                           setIsModalOpen(true);
                         }}
-                        className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
+                        className="group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
                         data-testid={`item-card-${index}`}
                       >
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                        <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors mb-3 sm:mb-0">
                             <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                            <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
                               {item.title}
                             </h3>
-                            <p className="text-slate-500 text-sm leading-relaxed">
+                            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
                               {item.description}
                             </p>
                           </div>
