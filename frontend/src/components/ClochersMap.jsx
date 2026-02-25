@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Custom cross icon using SVG for church markers
+// Custom cross icon using SVG for church markers - rose poudré colors
 const crossIcon = new L.DivIcon({
   html: `
     <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="16" cy="38" rx="8" ry="2" fill="rgba(0,0,0,0.2)"/>
-      <path d="M16 2L16 30" stroke="#b8860b" stroke-width="4" stroke-linecap="round"/>
-      <path d="M8 10L24 10" stroke="#b8860b" stroke-width="4" stroke-linecap="round"/>
-      <path d="M16 2L16 30" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
-      <path d="M8 10L24 10" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+      <path d="M16 2L16 30" stroke="#c09990" stroke-width="4" stroke-linecap="round"/>
+      <path d="M8 10L24 10" stroke="#c09990" stroke-width="4" stroke-linecap="round"/>
+      <path d="M16 2L16 30" stroke="#d0ada6" stroke-width="3" stroke-linecap="round"/>
+      <path d="M8 10L24 10" stroke="#d0ada6" stroke-width="3" stroke-linecap="round"/>
     </svg>
   `,
   className: 'cross-marker-icon',
