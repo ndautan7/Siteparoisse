@@ -241,6 +241,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     description: 'Découvrir ou redécouvrir la foi chrétienne dans un esprit de partage.',
     icon: MessagesSquare,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/epf9qipp_Alpha-catechumenat.png',
+    heroPosition: 'object-top',
     items: [
       { 
         title: 'Parcours Alpha', 
