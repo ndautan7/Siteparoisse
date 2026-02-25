@@ -62,8 +62,9 @@ const ClocherDetailPage = () => {
 
   // Get Google Maps URL for the place (fiche Google)
   const getGoogleMapsPlaceUrl = () => {
-    if (clocher.googleMapsUrl) {
-      return clocher.googleMapsUrl;
+    // Use place_id format which always works
+    if (clocher.placeId) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clocher.churchName + ' ' + clocher.name)}&query_place_id=${clocher.placeId}`;
     }
     // Fallback to search URL
     const query = encodeURIComponent(`${clocher.churchName} ${clocher.name}`);
