@@ -390,8 +390,8 @@ const EquipePastoralePage = () => {
                       {/* City badge */}
                       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2">
                         <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold shadow-md backdrop-blur-sm ${
-                          eapCarouselMembers[currentEapIndex]?.cityColor === 'gold'
-                            ? 'bg-amber-500/80 text-white'
+                          eapCarouselMembers[currentEapIndex]?.cityColor === 'rose'
+                            ? 'bg-[#d0ada6]/80 text-white'
                             : 'bg-[#93B5B7]/80 text-white'
                         }`}>
                           <span className="w-1.5 h-1.5 rounded-full bg-white/80 inline-block"></span>
