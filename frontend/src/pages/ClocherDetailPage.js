@@ -210,11 +210,11 @@ const ClocherDetailPage = () => {
                 </a>
               </div>
             </div>
-            {/* Google Maps Embed */}
+            {/* Google Maps Embed with marker */}
             <div className="h-[400px] w-full">
               <iframe
                 title={`Carte de ${clocher.churchName}`}
-                src={getMapEmbedUrl()}
+                src={getMapEmbedUrlFallback()}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
