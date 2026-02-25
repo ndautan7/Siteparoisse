@@ -184,7 +184,6 @@ const sacrementsData = {
     sections: [
       {
         title: 'La préparation',
-        icon: '💒',
         paragraphs: [
           'Dans un premier temps, vous contacterez le secrétariat du secteur paroissial pour planifier un rendez-vous avec le prêtre de la paroisse. Il vous guidera dans votre discernement.',
           'Puis, vous partagerez deux journées et une soirée avec d\'autres couples qui, comme vous, sont dans cette démarche de cheminement vers le mariage.',
@@ -193,7 +192,6 @@ const sacrementsData = {
       },
       {
         title: 'Informations pratiques',
-        icon: '📋',
         paragraphs: [],
         infoBox: {
           offrande: '200 €',
@@ -218,21 +216,18 @@ const sacrementsData = {
     sections: [
       {
         title: 'Qui peut le recevoir ?',
-        icon: '🙏',
         paragraphs: [
           'Toute personne gravement malade, âgée ou en danger de mort peut recevoir ce sacrement. Il n\'est pas réservé aux derniers instants de la vie.'
         ]
       },
       {
         title: 'Les effets du sacrement',
-        icon: '💫',
         paragraphs: [
           'Ce sacrement apporte la grâce de l\'Esprit Saint pour le réconfort, la paix et le courage. Il unit la souffrance du malade à celle du Christ.'
         ]
       },
       {
         title: 'Célébration communautaire',
-        icon: '⛪',
         paragraphs: [
           'Une fois par an, une célébration communautaire du sacrement des malades est organisée dans la paroisse.'
         ]
