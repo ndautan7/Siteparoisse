@@ -56,7 +56,7 @@ const ClochersMap = ({ clochers, height = "500px" }) => {
               <p className="text-slate-500 text-xs mb-2">{clocher.name}</p>
               <Link
                 to={`/nos-clochers/${clocher.id}`}
-                className="inline-block bg-amber-600 hover:bg-amber-700 text-white text-xs px-3 py-1.5 rounded-full transition-colors"
+                className="inline-block bg-[#d0ada6] hover:bg-[#c09990] text-white text-xs px-3 py-1.5 rounded-full transition-colors"
               >
                 Voir la fiche
               </Link>
