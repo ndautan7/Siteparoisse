@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Building2, Users, Wallet, Church, Sparkles, Music, Cross } from 'lucide-react';
+import { Building2, Users, Wallet, Church, Sparkles, Music, Cross, Mail } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
@@ -44,6 +44,14 @@ const sections = [
     description: 'Au service de tous',
     icon: Sparkles,
     path: '/services-transverses'
+  },
+  {
+    id: 'lettre-pere-daniel',
+    title: 'La Lettre du Père Daniel',
+    subtitle: 'Newsletter paroissiale',
+    description: 'Les nouvelles et réflexions du curé',
+    icon: Mail,
+    path: '/lettre-pere-daniel'
   },
   {
     id: 'liturgie-musique',
