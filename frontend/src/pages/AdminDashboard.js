@@ -687,6 +687,171 @@ const AdminDashboard = () => {
             </div>
           </div>
         )}
+
+        {/* EVENTS TAB */}
+        {activeTab === 'events' && (
+          <div className="space-y-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+              <h2 className="font-serif text-2xl text-slate-deep mb-6">
+                {editingEvent ? "Modifier l'événement" : 'Nouvel événement'}
+              </h2>
+              <form onSubmit={handleEventSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Titre *</label>
+                  <input
+                    type="text"
+                    required
+                    value={eventForm.title}
+                    onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    placeholder="Ex: Messe de Noël"
+                    data-testid="event-title-input"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Description</label>
+                  <textarea
+                    value={eventForm.description}
+                    onChange={(e) => setEventForm({ ...eventForm, description: e.target.value })}
+                    rows="3"
+                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    placeholder="Détails de l'événement..."
+                    data-testid="event-description-input"
+                  ></textarea>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <input
+                      type="date"
+                      required
+                      value={eventForm.date}
+                      onChange={(e) => setEventForm({ ...eventForm, date: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      data-testid="event-date-input"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure de début *</label>
+                    <input
+                      type="time"
+                      required
+                      value={eventForm.time}
+                      onChange={(e) => setEventForm({ ...eventForm, time: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      data-testid="event-time-input"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure de fin (optionnel)</label>
+                    <input
+                      type="time"
+                      value={eventForm.end_time}
+                      onChange={(e) => setEventForm({ ...eventForm, end_time: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      data-testid="event-end-time-input"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Lieu *</label>
+                    <input
+                      type="text"
+                      required
+                      value={eventForm.location}
+                      onChange={(e) => setEventForm({ ...eventForm, location: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      placeholder="Ex: Église de Castanet"
+                      data-testid="event-location-input"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Catégorie</label>
+                    <select
+                      value={eventForm.category}
+                      onChange={(e) => setEventForm({ ...eventForm, category: e.target.value })}
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      data-testid="event-category-select"
+                    >
+                      <option value="Liturgie">Liturgie</option>
+                      <option value="Communauté">Communauté</option>
+                      <option value="Jeunesse">Jeunesse</option>
+                      <option value="Solidarité">Solidarité</option>
+                      <option value="Formation">Formation</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="flex space-x-4 pt-2">
+                  <button
+                    type="submit"
+                    className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                    data-testid="event-submit-button"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{editingEvent ? 'Mettre à jour' : 'Ajouter'}</span>
+                  </button>
+                  {editingEvent && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditingEvent(null);
+                        setEventForm({ title: '', description: '', date: '', time: '', end_time: '', location: '', category: 'Communauté' });
+                      }}
+                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      data-testid="event-cancel-button"
+                    >
+                      Annuler
+                    </button>
+                  )}
+                </div>
+              </form>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-serif text-xl text-slate-deep">Tous les événements</h3>
+              {loading ? (
+                <p>Chargement...</p>
+              ) : events.length === 0 ? (
+                <p className="text-slate-500">Aucun événement</p>
+              ) : (
+                events.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-lg p-4 border border-slate-100 flex justify-between items-start"
+                    data-testid={`event-item-${item.id}`}
+                  >
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h4 className="font-medium text-slate-900">{item.title}</h4>
+                        <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded-full">{item.category}</span>
+                      </div>
+                      {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2">{item.description}</p>}
+                      <p className="text-sm text-slate-500">
+                        {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')} à {item.time}
+                        {item.end_time ? ` - ${item.end_time}` : ''} • {item.location}
+                      </p>
+                    </div>
+                    <div className="flex space-x-2 ml-4">
+                      <button
+                        onClick={() => handleEditEvent(item)}
+                        className="text-slate-600 hover:text-gold transition-colors"
+                        data-testid={`event-edit-${item.id}`}
+                      >
+                        <Edit2 className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteEvent(item.id)}
+                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        data-testid={`event-delete-${item.id}`}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
