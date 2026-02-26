@@ -5,7 +5,7 @@ import { SocialIcons } from '@/components/SocialIcons';
 export const Hero = () => {
 
   return (
-    <section className="relative min-h-[80vh] flex flex-col" data-testid="hero-section">
+    <section className="relative min-h-[60vh] sm:min-h-[80vh] flex flex-col" data-testid="hero-section">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img

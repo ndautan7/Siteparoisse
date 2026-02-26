@@ -49,7 +49,7 @@ const JeSuisNouveauPage = () => {
   return (
     <div className="min-h-screen bg-paper" data-testid="je-suis-nouveau-page">
       {/* Hero Section with Image */}
-      <section className="relative h-[55vh] flex items-center justify-center">
+      <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img

@@ -279,7 +279,7 @@ const EquipePastoralePage = () => {
   return (
     <div className="min-h-screen bg-paper" data-testid="equipe-pastorale-page">
       {/* Hero Section with Image */}
-      <section className="relative h-[55vh] flex items-center justify-center">
+      <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/x8y0e2d8_Equipe-pastorale.png"
