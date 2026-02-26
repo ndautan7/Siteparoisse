@@ -48,7 +48,7 @@ const VieEconomiquePage = () => {
           </div>
 
           {/* Cartes Donner - Grid 2 colonnes */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
             {/* Denier de l'Église */}
             <div className="bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl p-8 border-2 border-gold shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
               <div className="flex justify-center mb-6">
@@ -115,7 +115,7 @@ const VieEconomiquePage = () => {
           </div>
 
           {/* Cartes Fonctionnement - Grid 2 colonnes */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Conseil des Finances */}
             <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 hover:-translate-y-1">
               <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-4">
