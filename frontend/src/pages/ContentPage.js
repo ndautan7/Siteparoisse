@@ -12,6 +12,8 @@ import {
 import FuneralsAgenda from '@/components/FuneralsAgenda';
 import { SocialIcons } from '@/components/SocialIcons';
 import ResourceModal from '@/components/ResourceModal';
+import { SEO } from '@/components/SEO';
+import { FadeIn } from '@/components/FadeIn';
 
 // Citations bibliques pour chaque section
 const biblicalQuotes = {
