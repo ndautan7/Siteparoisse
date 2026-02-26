@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero';
 import { NewsSection } from '@/components/NewsSection';
+import { UpcomingEvents } from '@/components/UpcomingEvents';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
 
@@ -13,6 +14,10 @@ const HomePage = () => {
       <Hero />
       <FadeIn>
         <NewsSection />
+      </FadeIn>
+
+      <FadeIn>
+        <UpcomingEvents />
       </FadeIn>
 
       {/* Mot de bienvenue du Père Daniel */}

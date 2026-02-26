@@ -26,6 +26,7 @@ import ClocherDetailPage from '@/pages/ClocherDetailPage';
 import DemanderSacrementPage from '@/pages/DemanderSacrementPage';
 import SacrementDetailPage from '@/pages/SacrementDetailPage';
 import JeSuisNouveauPage from '@/pages/JeSuisNouveauPage';
+import AgendaPage from '@/pages/AgendaPage';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
                       <Route path="/horaires-messes" element={<HorairesMesses />} />
                       <Route path="/secretariat" element={<Secretariat />} />
                       <Route path="/je-suis-nouveau" element={<JeSuisNouveauPage />} />
+                      <Route path="/agenda" element={<AgendaPage />} />
                       
                       {/* Pillar landing pages with cards */}
                       <Route path="/notre-dame-autan" element={<NotreDameAutanPage />} />

@@ -39,6 +39,11 @@ export const Footer = () => {
             <h4 className="font-medium text-white mb-4">Accès rapide</h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link to="/agenda" className="hover:text-gold transition-colors">
+                  Agenda
+                </Link>
+              </li>
+              <li>
                 <Link to="/horaires-messes" className="hover:text-gold transition-colors">
                   Horaires des messes
                 </Link>
