@@ -1,5 +1,7 @@
 import { Hero } from '@/components/Hero';
 import { NewsSection } from '@/components/NewsSection';
+import { SEO } from '@/components/SEO';
+import { FadeIn } from '@/components/FadeIn';
 
 const BIENVENUE_IMG = 'https://customer-assets.emergentagent.com/job_church-community-16/artifacts/qxrgws2a_Bienvenue.png';
 const CURE_IMG = 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp';
@@ -7,10 +9,14 @@ const CURE_IMG = 'https://customer-assets.emergentagent.com/job_513c9844-285f-48
 const HomePage = () => {
   return (
     <div data-testid="home-page">
+      <SEO title="Accueil" description="Paroisse Notre Dame d'Autan - Communauté paroissiale vivante et accueillante au service de la foi et de la fraternité. Castanet-Tolosan, Saint-Orens et environs." />
       <Hero />
-      <NewsSection />
+      <FadeIn>
+        <NewsSection />
+      </FadeIn>
 
       {/* Mot de bienvenue du Père Daniel */}
+      <FadeIn>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-0">
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
           <div className="flex flex-col md:flex-row">
