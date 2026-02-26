@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Clock } from 'lucide-react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -97,11 +97,11 @@ export const UpcomingEvents = () => {
         <div className="text-center">
           <Link
             to="/agenda"
-            className="inline-flex items-center gap-2 text-gold hover:text-gold-dark font-medium transition-colors group"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-200 text-slate-600 hover:border-gold hover:text-gold transition-all duration-300 text-sm font-medium"
             data-testid="see-all-events-link"
           >
+            <Calendar className="w-4 h-4" />
             <span>Voir tout l'agenda</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
