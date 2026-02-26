@@ -44,18 +44,28 @@ Creation et amelioration iterative d'un site web pour la paroisse Notre Dame d'A
 - **Lire la suite**: Modal pour articles longs dans la section Actualites (image, titre, date, contenu complet, boutons fermeture)
 - **Recherche complete**: 100+ entrees indexees incluant toutes les vignettes et modales de chaque section (Entraide, Groupes, Meditation, Ressources, etc.)
 
+### Ameliorations visuelles et SEO (Fev 2026) - TERMINEES
+- **Hauteur hero mobile**: Reduite a 40vh sur sous-pages (55vh desktop), 60vh sur accueil (80vh desktop)
+- **Animations fade-in**: Sections de contenu apparaissent en fondu au scroll (IntersectionObserver + CSS transitions)
+- **SEO francais**: lang="fr", balises title dynamiques par page, meta descriptions en francais, attributs alt descriptifs en francais, meta OG avec locale fr_FR
+
 ## Fichiers cles
 - `frontend/src/pages/ContentPage.js` - Page de contenu principale (vignettes, modales)
 - `frontend/src/components/NewsSection.js` - Section actualites avec modal "Lire la suite"
 - `frontend/src/components/Header.js` - Header + navigation mobile + recherche complete
 - `frontend/src/components/ResourceModal.js` - Modal responsive des ressources
 - `frontend/src/pages/Secretariat.js` - Page secretariat + formulaire contact
+- `frontend/src/components/SEO.js` - Composant SEO (title, meta description, OG tags)
+- `frontend/src/components/FadeIn.js` - Composant animation fade-in au scroll
+- `frontend/src/hooks/useFadeIn.js` - Hook IntersectionObserver pour le fade-in
 - `backend/server.py` - API FastAPI (contact, news, mass-times, funerals)
 
 ## Patterns techniques importants
 - **Espacement**: NE PAS utiliser `space-y-*` de Tailwind. Utiliser flexbox + gap
 - **Vignettes mobile**: flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left
 - **Modales mobile**: items-end sm:items-center pour slide-up depuis le bas
+- **Hero responsive**: h-[40vh] sm:h-[55vh] pour sous-pages, min-h-[60vh] sm:min-h-[80vh] pour accueil
+- **Fade-in**: Classe CSS `fade-in-section` + `is-visible` via IntersectionObserver
 
 ## API Endpoints
 - POST /api/contact - Envoyer un message de contact (public)
@@ -73,10 +83,10 @@ Creation et amelioration iterative d'un site web pour la paroisse Notre Dame d'A
 - [x] Recherche complete (toutes vignettes et modales indexees)
 - [x] Numeros de telephone cliquables (click-to-call)
 
-### P1 - Priorite moyenne
-- [ ] Reduire hauteur images hero sur mobile (55vh -> 35vh)
-- [ ] Animations fade-in au scroll
-- [ ] Balises title et meta par page pour le SEO
+### P1 - Termine
+- [x] Reduire hauteur images hero sur mobile (40vh sous-pages, 60vh accueil)
+- [x] Animations fade-in au scroll
+- [x] SEO: lang="fr", balises title et meta par page, alt images en francais
 
 ### P2 - Priorite basse
 - [ ] Page Agenda centralisee pour les evenements
@@ -85,7 +95,7 @@ Creation et amelioration iterative d'un site web pour la paroisse Notre Dame d'A
 - [ ] Newsletter fonctionnelle
 
 ## Etat actuel
-- **Fonctionnel**: Navigation, pages clochers, equipe pastorale, secretariat, formulaire contact, toutes les pages de contenu, version mobile, modales mobile, menu mobile, "Lire la suite", recherche complete
+- **Fonctionnel**: Navigation, pages clochers, equipe pastorale, secretariat, formulaire contact, toutes les pages de contenu, version mobile, modales mobile, menu mobile, "Lire la suite", recherche complete, SEO, animations
 - **Non fonctionnel**: Newsletter
 - **Placeholder**: Horaires de messe
 
