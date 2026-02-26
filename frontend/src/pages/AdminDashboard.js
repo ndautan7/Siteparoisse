@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Edit2, Trash2, LogOut, Newspaper, Clock, Cross, Calendar } from 'lucide-react';
+import { Plus, Edit2, Trash2, LogOut, Newspaper, Clock, Cross, Calendar, Mail } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
@@ -14,6 +14,7 @@ const AdminDashboard = () => {
   const [massTimes, setMassTimes] = useState([]);
   const [funerals, setFunerals] = useState([]);
   const [events, setEvents] = useState([]);
+  const [letters, setLetters] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -33,6 +34,10 @@ const AdminDashboard = () => {
   const [eventForm, setEventForm] = useState({ title: '', description: '', date: '', time: '', end_time: '', location: '', category: 'Communauté' });
   const [editingEvent, setEditingEvent] = useState(null);
 
+  // Letters Form State
+  const [letterForm, setLetterForm] = useState({ title: '', content: '', date: '' });
+  const [editingLetter, setEditingLetter] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
     if (!token) {
@@ -49,16 +54,18 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [newsRes, massRes, funeralsRes, eventsRes] = await Promise.all([
+      const [newsRes, massRes, funeralsRes, eventsRes, lettersRes] = await Promise.all([
         axios.get(`${BACKEND_URL}/api/news`),
         axios.get(`${BACKEND_URL}/api/mass-times`),
         axios.get(`${BACKEND_URL}/api/funerals`),
         axios.get(`${BACKEND_URL}/api/events?include_past=true`),
+        axios.get(`${BACKEND_URL}/api/letters`),
       ]);
       setNews(newsRes.data);
       setMassTimes(massRes.data);
       setFunerals(funeralsRes.data);
       setEvents(eventsRes.data);
+      setLetters(lettersRes.data);
     } catch (error) {
       toast.error('Erreur lors du chargement des données');
     } finally {
