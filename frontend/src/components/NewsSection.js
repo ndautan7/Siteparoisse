@@ -109,7 +109,7 @@ export const NewsSection = () => {
                     className="w-full md:w-[calc(33.333%-16px)] flex-shrink-0 group"
                     data-testid={`news-card-${item.id}`}
                   >
-                    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col border border-slate-100/80">
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col border border-slate-100/80 cursor-pointer" onClick={() => setSelectedArticle(item)}>
                       {/* Image */}
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {item.image_url ? (
