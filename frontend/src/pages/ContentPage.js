@@ -957,74 +957,38 @@ const ContentPage = ({ section }) => {
         {/* Items Grid - Vignettes avec icônes */}
         {config.items && config.items.length > 0 && (
           <>
-            {/* Special layout for entraide section (5 items: 3 + 2 centered) */}
+            {/* Special layout for entraide section (5 items: 2+2+1 on mobile, 3+2 on desktop) */}
             {section === 'entraide' ? (
-              <>
-                {/* First row: 3 items */}
-                <div className="flex flex-wrap justify-center gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-6">
-                  {config.items.slice(0, 3).map((item, index) => {
-                    const ItemIcon = item.icon;
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setSelectedResource(item);
-                          setIsModalOpen(true);
-                        }}
-                        className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
-                        data-testid={`item-card-${index}`}
-                      >
-                        <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors mb-3 sm:mb-0">
-                            <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
-                              {item.title}
-                            </h3>
-                            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
-                              {item.description}
-                            </p>
-                          </div>
+              <div className="flex flex-wrap justify-center gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 mb-12">
+                {config.items.map((item, index) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setSelectedResource(item);
+                        setIsModalOpen(true);
+                      }}
+                      className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
+                      data-testid={`item-card-${index}`}
+                    >
+                      <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors mb-3 sm:mb-0">
+                          <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
-                
-                {/* Second row: 2 items centered */}
-                <div className="flex flex-wrap justify-center gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-2 mb-12 lg:max-w-3xl lg:mx-auto">
-                  {config.items.slice(3, 5).map((item, idx) => {
-                    const index = idx + 3;
-                    const ItemIcon = item.icon;
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setSelectedResource(item);
-                          setIsModalOpen(true);
-                        }}
-                        className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
-                        data-testid={`item-card-${index}`}
-                      >
-                        <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors mb-3 sm:mb-0">
-                            <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
-                              {item.title}
-                            </h3>
-                            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
-                              {item.description}
-                            </p>
-                          </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
+                            {item.title}
+                          </h3>
+                          <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
+                            {item.description}
+                          </p>
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             ) : (
               /* Standard layout for other sections */
               <div className={`flex flex-wrap justify-center gap-6 sm:grid ${
