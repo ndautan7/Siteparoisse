@@ -389,6 +389,62 @@ async def get_contact_messages(username: str = Depends(get_current_user)):
     messages = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     return messages
 
+# NEWSLETTER SUBSCRIBERS
+@api_router.post("/subscribers", response_model=SubscriberResponse)
+async def subscribe(sub: SubscriberEmail):
+    existing = await db.subscribers.find_one({"email": sub.email}, {"_id": 0})
+    if existing:
+        return SubscriberResponse(**existing)
+    sub_obj = SubscriberResponse(
+        id=str(uuid.uuid4()),
+        email=sub.email,
+        subscribed_at=datetime.now(timezone.utc).isoformat()
+    )
+    doc = sub_obj.model_dump()
+    await db.subscribers.insert_one(doc)
+    return sub_obj
+
+@api_router.get("/subscribers", response_model=List[SubscriberResponse])
+async def get_subscribers(username: str = Depends(get_current_user)):
+    subs = await db.subscribers.find({}, {"_id": 0}).sort("subscribed_at", -1).to_list(500)
+    return subs
+
+# LETTERS (Lettre du Père Daniel)
+@api_router.get("/letters", response_model=List[Letter])
+async def get_letters():
+    letters = await db.letters.find({}, {"_id": 0}).sort("date", -1).to_list(200)
+    return letters
+
+@api_router.post("/letters", response_model=Letter)
+async def create_letter(letter: LetterCreate, username: str = Depends(get_current_user)):
+    letter_dict = letter.model_dump()
+    letter_obj = Letter(
+        id=str(uuid.uuid4()),
+        created_at=datetime.now(timezone.utc).isoformat(),
+        **letter_dict
+    )
+    doc = letter_obj.model_dump()
+    await db.letters.insert_one(doc)
+    return letter_obj
+
+@api_router.put("/letters/{letter_id}", response_model=Letter)
+async def update_letter(letter_id: str, letter_update: LetterUpdate, username: str = Depends(get_current_user)):
+    existing = await db.letters.find_one({"id": letter_id}, {"_id": 0})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Letter not found")
+    update_data = {k: v for k, v in letter_update.model_dump().items() if v is not None}
+    if update_data:
+        await db.letters.update_one({"id": letter_id}, {"$set": update_data})
+    updated = await db.letters.find_one({"id": letter_id}, {"_id": 0})
+    return Letter(**updated)
+
+@api_router.delete("/letters/{letter_id}")
+async def delete_letter(letter_id: str, username: str = Depends(get_current_user)):
+    result = await db.letters.delete_one({"id": letter_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Letter not found")
+    return {"message": "Letter deleted"}
+
 app.include_router(api_router)
 
 app.add_middleware(
