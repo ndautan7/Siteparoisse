@@ -115,6 +115,33 @@ class ContactMessage(BaseModel):
     subject: str
     message: str
 
+class SubscriberEmail(BaseModel):
+    email: str
+
+class SubscriberResponse(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str
+    email: str
+    subscribed_at: str
+
+class LetterCreate(BaseModel):
+    title: str
+    content: str
+    date: str  # Format: "YYYY-MM-DD"
+
+class LetterUpdate(BaseModel):
+    title: Optional[str] = None
+    content: Optional[str] = None
+    date: Optional[str] = None
+
+class Letter(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str
+    title: str
+    content: str
+    date: str
+    created_at: str
+
 class ContactResponse(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str
