@@ -10,7 +10,7 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src="https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg"
-          alt="Église Notre Dame d'Autan"
+          alt="Vue de l'église de Castanet-Tolosan, paroisse Notre Dame d'Autan"
           className="w-full h-full object-cover object-[center_30%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
