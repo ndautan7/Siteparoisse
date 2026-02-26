@@ -83,8 +83,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      </FadeIn>
 
       {/* Citation biblique */}
+      <FadeIn>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
           <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
@@ -93,6 +95,7 @@ const HomePage = () => {
           <p className="text-gold font-medium">Isaïe 56, 7</p>
         </div>
       </div>
+      </FadeIn>
     </div>
   );
 };
