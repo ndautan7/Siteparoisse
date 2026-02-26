@@ -13,37 +13,50 @@ Site web paroissial pour Notre Dame d'Autan (Castanet-Tolosan / Saint-Orens). Ap
 ### Fonctionnalités Core
 - Site paroissial complet avec navigation multi-pages
 - Formulaire de contact fonctionnel (Resend)
-- Recherche site complète
-- Responsive mobile
+- Recherche site complète, responsive mobile
 
-### Gestion Admin (CRUD)
-- Actualités (news)
-- Horaires des messes
-- Funérailles
-- Événements / Agenda
+### Gestion Admin (CRUD) - 5 onglets
+- Actualités, Horaires des messes, Funérailles, Événements, Lettres
 
 ### Page Agenda (Feb 2026)
-- Page publique `/agenda` avec hero, filtres par catégorie, événements groupés par mois
-- Section "Prochains événements" sur la page d'accueil (4 max)
-- Catégories : Liturgie, Communauté, Jeunesse, Solidarité, Formation
-- Onglet admin pour CRUD des événements
+- `/agenda` : filtres par catégorie, événements groupés par mois
+- Section "Prochains événements" sur la page d'accueil
 
 ### Actualités (Feb 2026)
-- Vignettes cliquables pour ouvrir l'article (en plus du "Lire la suite")
-- Page archives `/actualites` avec liste complète de toutes les actualités
-- Bouton "Voir les archives" sous le carrousel de la page d'accueil
+- Vignettes cliquables, page archives `/actualites`
 
-### Améliorations Visuelles (Feb 2026)
-- Hero 40vh sur mobile (sous-pages), 80vh accueil
-- Animations fade-in au scroll (IntersectionObserver)
-- Icônes sociales repositionnées en haut à droite sur mobile
+### La Lettre du Père Daniel (Feb 2026)
+- `/lettre-pere-daniel` : inscription newsletter + liste des lettres publiées
+- Inscription stockée en base (POST /api/subscribers)
+- CRUD admin pour publier/modifier/supprimer les lettres
+- Accessible via menu "Notre Dame d'Autan"
 
-### SEO (Feb 2026)
-- Langue FR, titres/metas dynamiques, alt images, sitemap.xml, robots.txt
+### Page Servir (Feb 2026)
+- `/servir` : 13 vignettes de services (Chorale, Lecteurs, Art Floral, Servants, Catéchisme, Aumônerie, Éveil à la Foi, Alpha, Écoute, Visite malades, Secours Catholique, Funérailles, Accueil)
+- CTA "Nous contacter", accessible via menu "Je veux..."
 
-## Backlog
-- P2: Refactoring ContentPage.js, amélioration indexation recherche
+### Footer (Feb 2026)
+- Numéros Castanet + Saint-Orens
+- Newsletter avec stockage backend des emails
+
+### Améliorations Visuelles
+- Hero 40vh mobile (sous-pages), 80vh accueil
+- Animations fade-in au scroll
+- Icônes sociales en haut à droite sur mobile
+- Bouton téléphone flottant sur toutes les pages
+
+### SEO
+- Langue FR, titres/metas dynamiques, sitemap.xml, robots.txt
+
+## API Endpoints
+- GET/POST /api/letters, PUT/DELETE /api/letters/{id}
+- POST /api/subscribers, GET /api/subscribers (auth)
+- GET/POST /api/events, PUT/DELETE /api/events/{id}
+- GET/POST /api/news, PUT/DELETE /api/news/{id}
+- GET/POST /api/mass-times, PUT/DELETE /api/mass-times/{id}
+- GET/POST /api/funerals, PUT/DELETE /api/funerals/{id}
+- POST /api/auth/login, GET/POST /api/contact
 
 ## Notes Techniques
-- Ne PAS utiliser `react-helmet-async` (cause écran blanc)
-- Admin credentials: admin / admin123
+- Ne PAS utiliser react-helmet-async
+- Admin: admin / admin123
