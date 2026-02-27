@@ -1082,18 +1082,28 @@ const AdminDashboard = () => {
               ) : funerals.length === 0 ? (
                 <p className="text-slate-500">Aucune cérémonie</p>
               ) : (
-                funerals.map((item) => (
+                <>
+                <BulkBar selected={selectedFunerals} setSelected={setSelectedFunerals} items={funerals} endpoint="funerals" label="funérailles" />
+                {funerals.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-lg p-4 border border-slate-100 flex justify-between items-center"
+                    className={`bg-white rounded-lg p-4 border flex justify-between items-center ${selectedFunerals.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`funeral-item-${item.id}`}
                   >
-                    <div>
-                      <h4 className="font-medium text-slate-900">{item.deceased_name}</h4>
-                      <p className="text-sm text-slate-600">
-                        {new Date(item.funeral_date).toLocaleDateString('fr-FR')} à {item.funeral_time} • {item.location}
-                      </p>
-                      <p className="text-xs text-gold mt-1">{item.ceremony_type}</p>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedFunerals.includes(item.id)}
+                        onChange={() => toggleSelect(item.id, selectedFunerals, setSelectedFunerals)}
+                        className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+                      />
+                      <div>
+                        <h4 className="font-medium text-slate-900">{item.deceased_name}</h4>
+                        <p className="text-sm text-slate-600">
+                          {new Date(item.funeral_date).toLocaleDateString('fr-FR')} à {item.funeral_time} • {item.location}
+                        </p>
+                        <p className="text-xs text-gold mt-1">{item.ceremony_type}</p>
+                      </div>
                     </div>
                     <div className="flex space-x-2">
                       <button
@@ -1112,7 +1122,8 @@ const AdminDashboard = () => {
                       </button>
                     </div>
                   </div>
-                ))
+                ))}
+                </>
               )}
             </div>
           </div>
