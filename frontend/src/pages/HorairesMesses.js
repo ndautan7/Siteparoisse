@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Clock, MapPin, Bell } from 'lucide-react';
+import { useEffect, useState, useMemo } from 'react';
+import { Clock, MapPin, Bell, Filter, ChevronDown, ChevronUp, CalendarDays, X } from 'lucide-react';
 import axios from 'axios';
 import { SocialIcons } from '@/components/SocialIcons';
 import { SEO } from '@/components/SEO';
@@ -7,9 +7,19 @@ import { FadeIn } from '@/components/FadeIn';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
+const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
 const HorairesMesses = () => {
   const [massTimes, setMassTimes] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Filters
+  const [showBeyond30, setShowBeyond30] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filterLocation, setFilterLocation] = useState('');
+  const [filterType, setFilterType] = useState('');
+  const [filterDay, setFilterDay] = useState('');
+  const [filterFromTime, setFilterFromTime] = useState('');
 
   useEffect(() => {
     fetchMassTimes();
@@ -26,9 +36,93 @@ const HorairesMesses = () => {
     }
   };
 
+  // Extract unique values for filters
+  const uniqueLocations = useMemo(() => {
+    const locs = [...new Set(massTimes.map(m => m.location).filter(Boolean))];
+    return locs.sort();
+  }, [massTimes]);
+
+  const uniqueTypes = useMemo(() => {
+    const types = [...new Set(massTimes.map(m => m.mass_type).filter(Boolean))];
+    return types.sort();
+  }, [massTimes]);
+
+  // Filter logic
+  const filteredMasses = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const in30Days = new Date(today);
+    in30Days.setDate(in30Days.getDate() + 30);
+
+    return massTimes.filter(mass => {
+      // 30-day filter
+      if (!showBeyond30 && mass.date) {
+        const massDate = new Date(mass.date + 'T00:00:00');
+        if (massDate > in30Days) return false;
+      }
+
+      // Hide past masses
+      if (mass.date) {
+        const massDate = new Date(mass.date + 'T00:00:00');
+        if (massDate < today) return false;
+      }
+
+      // Location filter
+      if (filterLocation && mass.location !== filterLocation) return false;
+
+      // Type filter
+      if (filterType && mass.mass_type !== filterType) return false;
+
+      // Day filter
+      if (filterDay && mass.day !== filterDay) return false;
+
+      // From time filter
+      if (filterFromTime && mass.time) {
+        const massMinutes = timeToMinutes(mass.time);
+        const filterMinutes = timeToMinutes(filterFromTime);
+        if (massMinutes < filterMinutes) return false;
+      }
+
+      return true;
+    }).sort((a, b) => {
+      // Sort by date first, then by time
+      if (a.date && b.date) {
+        const cmp = a.date.localeCompare(b.date);
+        if (cmp !== 0) return cmp;
+      }
+      return (a.time || '').localeCompare(b.time || '');
+    });
+  }, [massTimes, showBeyond30, filterLocation, filterType, filterDay, filterFromTime]);
+
+  const timeToMinutes = (timeStr) => {
+    if (!timeStr) return 0;
+    // Handle HH:MM or HHhMM formats
+    const clean = timeStr.replace('h', ':');
+    const parts = clean.split(':');
+    return parseInt(parts[0] || 0) * 60 + parseInt(parts[1] || 0);
+  };
+
+  const activeFilterCount = [filterLocation, filterType, filterDay, filterFromTime].filter(Boolean).length;
+
+  const clearFilters = () => {
+    setFilterLocation('');
+    setFilterType('');
+    setFilterDay('');
+    setFilterFromTime('');
+  };
+
+  // Count masses beyond 30 days
+  const beyondCount = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const in30Days = new Date(today);
+    in30Days.setDate(in30Days.getDate() + 30);
+    return massTimes.filter(m => m.date && new Date(m.date + 'T00:00:00') > in30Days).length;
+  }, [massTimes]);
+
   return (
     <div className="min-h-screen bg-paper" data-testid="mass-times-page">
-      <SEO title="Horaires des Messes" description="Horaires des messes et c\u00e9l\u00e9brations de la paroisse Notre Dame d'Autan - Castanet-Tolosan, Saint-Orens et environs." />
+      <SEO title="Horaires des Messes" description="Horaires des messes et célébrations de la paroisse Notre Dame d'Autan - Castanet-Tolosan, Saint-Orens et environs." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
         {/* Background Image */}
@@ -43,7 +137,7 @@ const HorairesMesses = () => {
 
         <SocialIcons />
 
-        {/* Content - with padding to avoid search button overlap */}
+        {/* Content */}
         <div className="relative z-10 text-center text-white px-4 pt-8">
           <div className="flex justify-center mb-6">
             <div className="w-20 h-20 rounded-full bg-gold/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
@@ -63,15 +157,144 @@ const HorairesMesses = () => {
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
+        {/* Filters Section */}
+        {!loading && massTimes.length > 0 && (
+          <div className="mb-8">
+            {/* Filter toggle + 30 days toggle */}
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <button
+                onClick={() => setFiltersOpen(!filtersOpen)}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all ${
+                  filtersOpen || activeFilterCount > 0
+                    ? 'bg-gold text-white border-gold'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-gold/50'
+                }`}
+              >
+                <Filter className="w-4 h-4" />
+                <span>Filtres</span>
+                {activeFilterCount > 0 && (
+                  <span className="bg-white text-gold rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">{activeFilterCount}</span>
+                )}
+                {filtersOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
+
+              {beyondCount > 0 && (
+                <button
+                  onClick={() => setShowBeyond30(!showBeyond30)}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all ${
+                    showBeyond30
+                      ? 'bg-gold text-white border-gold'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-gold/50'
+                  }`}
+                >
+                  <CalendarDays className="w-4 h-4" />
+                  <span>{showBeyond30 ? 'Masquer au-delà de 30j' : `Voir au-delà de 30 jours (+${beyondCount})`}</span>
+                </button>
+              )}
+
+              {activeFilterCount > 0 && (
+                <button
+                  onClick={clearFilters}
+                  className="inline-flex items-center gap-1 px-3 py-2 rounded-full text-sm text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors"
+                >
+                  <X className="w-3 h-3" />
+                  Effacer les filtres
+                </button>
+              )}
+            </div>
+
+            {/* Filter controls */}
+            {filtersOpen && (
+              <FadeIn>
+                <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {/* Location */}
+                    <div>
+                      <label className="block text-xs font-medium text-slate-500 mb-1.5">Lieu</label>
+                      <select
+                        value={filterLocation}
+                        onChange={(e) => setFilterLocation(e.target.value)}
+                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                      >
+                        <option value="">Tous les lieux</option>
+                        {uniqueLocations.map(loc => (
+                          <option key={loc} value={loc}>{loc}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Type */}
+                    <div>
+                      <label className="block text-xs font-medium text-slate-500 mb-1.5">Type</label>
+                      <select
+                        value={filterType}
+                        onChange={(e) => setFilterType(e.target.value)}
+                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                      >
+                        <option value="">Tous les types</option>
+                        {uniqueTypes.map(t => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Day */}
+                    <div>
+                      <label className="block text-xs font-medium text-slate-500 mb-1.5">Jour</label>
+                      <select
+                        value={filterDay}
+                        onChange={(e) => setFilterDay(e.target.value)}
+                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                      >
+                        <option value="">Tous les jours</option>
+                        {DAYS.map(d => (
+                          <option key={d} value={d}>{d}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* From time */}
+                    <div>
+                      <label className="block text-xs font-medium text-slate-500 mb-1.5">À partir de</label>
+                      <input
+                        type="time"
+                        value={filterFromTime}
+                        onChange={(e) => setFilterFromTime(e.target.value)}
+                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Results count */}
+            <p className="text-sm text-slate-500">
+              {filteredMasses.length} {filteredMasses.length <= 1 ? 'célébration trouvée' : 'célébrations trouvées'}
+              {activeFilterCount > 0 && <span className="text-gold"> (filtrées)</span>}
+            </p>
+          </div>
+        )}
+
         {loading ? (
           <p className="text-center text-slate-500">Chargement...</p>
         ) : massTimes.length === 0 ? (
           <div className="text-center bg-white rounded-xl p-12 shadow-sm">
             <p className="text-slate-500" data-testid="no-mass-times">Les horaires des messes seront bientôt disponibles.</p>
           </div>
+        ) : filteredMasses.length === 0 ? (
+          <div className="text-center bg-white rounded-xl p-12 shadow-sm">
+            <p className="text-slate-500">Aucune célébration ne correspond à vos filtres.</p>
+            <button
+              onClick={clearFilters}
+              className="mt-4 text-gold hover:text-gold-dark font-medium text-sm"
+            >
+              Effacer les filtres
+            </button>
+          </div>
         ) : (
           <div className="space-y-4">
-            {massTimes.map((mass) => (
+            {filteredMasses.map((mass) => (
               <div
                 key={mass.id}
                 className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
