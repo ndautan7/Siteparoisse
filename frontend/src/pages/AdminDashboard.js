@@ -619,7 +619,7 @@ const AdminDashboard = () => {
                         const defaultImages = Object.values(DEFAULT_CATEGORY_IMAGES);
                         const isDefaultOrEmpty = !newsForm.image_url || defaultImages.includes(newsForm.image_url);
                         if (e.target.value === 'Autre') {
-                          setNewsForm({ ...newsForm, category: 'Autre', ...(isDefaultOrEmpty ? { image_url: '' } : {}) });
+                          setNewsForm({ ...newsForm, category: 'Autre', ...(isDefaultOrEmpty ? { image_url: DEFAULT_CATEGORY_IMAGES['Autre'] || '' } : {}) });
                           setCustomCategory('');
                         } else {
                           setNewsForm({ ...newsForm, category: e.target.value, ...(isDefaultOrEmpty ? { image_url: DEFAULT_CATEGORY_IMAGES[e.target.value] || '' } : {}) });
