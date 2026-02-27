@@ -159,18 +159,23 @@ const AdminDashboard = () => {
   const handleNewsSubmit = async (e) => {
     e.preventDefault();
     try {
+      const payload = { ...newsForm };
+      if (payload.category === 'Autre' && customCategory.trim()) {
+        payload.category = customCategory.trim();
+      }
       if (editingNews) {
         await axios.put(
           `${BACKEND_URL}/api/news/${editingNews.id}`,
-          newsForm,
+          payload,
           { headers: getAuthHeaders() }
         );
         toast.success('Actualité mise à jour');
       } else {
-        await axios.post(`${BACKEND_URL}/api/news`, newsForm, { headers: getAuthHeaders() });
+        await axios.post(`${BACKEND_URL}/api/news`, payload, { headers: getAuthHeaders() });
         toast.success('Actualité créée');
       }
       setNewsForm({ title: '', content: '', category: 'Actualité', image_url: '' });
+      setCustomCategory('');
       setEditingNews(null);
       fetchData();
     } catch (error) {
