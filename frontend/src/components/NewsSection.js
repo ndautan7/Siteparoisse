@@ -257,10 +257,10 @@ export const NewsSection = () => {
           >
             {/* Modal Header with image */}
             <div className="flex-shrink-0 sm:rounded-t-2xl rounded-t-2xl overflow-hidden relative">
-              {selectedArticle.image_url ? (
+              {(selectedArticle.image_url || DEFAULT_CATEGORY_IMAGES[selectedArticle.category]) ? (
                 <div className="relative h-48 sm:h-56">
                   <img
-                    src={selectedArticle.image_url}
+                    src={selectedArticle.image_url || DEFAULT_CATEGORY_IMAGES[selectedArticle.category]}
                     alt={selectedArticle.title}
                     className="w-full h-full object-cover"
                   />
