@@ -79,7 +79,12 @@ const HorairesMesses = () => {
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <div className="mb-4 md:mb-0">
-                    <h3 className="font-serif text-2xl text-slate-deep mb-2">{mass.day}</h3>
+                    <h3 className="font-serif text-2xl text-slate-deep mb-1">{mass.day}</h3>
+                    {mass.date && (
+                      <p className="text-sm text-gold font-medium mb-2">
+                        {new Date(mass.date + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                      </p>
+                    )}
                     <div className="flex items-center space-x-2 text-slate-600">
                       <Clock className="w-4 h-4" />
                       <span className="font-medium">{mass.time}</span>
