@@ -148,9 +148,9 @@ const ActualitesPage = () => {
             data-testid="archive-modal"
           >
             <div className="flex-shrink-0 sm:rounded-t-2xl rounded-t-2xl overflow-hidden relative">
-              {selectedArticle.image_url ? (
+              {(selectedArticle.image_url || DEFAULT_CATEGORY_IMAGES[selectedArticle.category]) ? (
                 <div className="relative h-48 sm:h-56">
-                  <img src={selectedArticle.image_url} alt={selectedArticle.title} className="w-full h-full object-cover" />
+                  <img src={selectedArticle.image_url || DEFAULT_CATEGORY_IMAGES[selectedArticle.category]} alt={selectedArticle.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                     {selectedArticle.category && (
