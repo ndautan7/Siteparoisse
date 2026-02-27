@@ -257,6 +257,7 @@ const HorairesMesses = () => {
             {/* Results count */}
             <p className="text-sm text-slate-500">
               {filteredMasses.length} {filteredMasses.length <= 1 ? 'célébration trouvée' : 'célébrations trouvées'}
+              {!showBeyond30 && <span> — Horaires des 30 prochains jours</span>}
               {activeFilterCount > 0 && <span className="text-gold"> (filtrées)</span>}
             </p>
           </div>
