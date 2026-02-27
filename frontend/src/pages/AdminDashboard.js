@@ -199,23 +199,60 @@ const AdminDashboard = () => {
     }
   };
 
+  // Helper: get French day name from date string
+  const getDayName = (dateStr) => {
+    if (!dateStr) return '';
+    const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+    const d = new Date(dateStr + 'T00:00:00');
+    return days[d.getDay()];
+  };
+
   // MASS TIMES HANDLERS
   const handleMassSubmit = async (e) => {
     e.preventDefault();
     try {
+      const dayName = getDayName(massForm.date) || massForm.day;
+      const basePayload = { ...massForm, day: dayName };
+
       if (editingMass) {
         await axios.put(
           `${BACKEND_URL}/api/mass-times/${editingMass.id}`,
-          massForm,
+          basePayload,
           { headers: getAuthHeaders() }
         );
         toast.success('Horaire mis à jour');
+      } else if (repeatMode !== 'none' && repeatUntil && massForm.date) {
+        // Generate repeated entries
+        const items = [];
+        let currentDate = new Date(massForm.date + 'T00:00:00');
+        const endDate = new Date(repeatUntil + 'T00:00:00');
+        const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+        while (currentDate <= endDate) {
+          const dateStr = currentDate.toISOString().split('T')[0];
+          items.push({
+            day: days[currentDate.getDay()],
+            time: massForm.time,
+            location: massForm.location,
+            mass_type: massForm.mass_type,
+            date: dateStr,
+          });
+          if (repeatMode === 'week') currentDate = addWeeks(currentDate, 1);
+          else if (repeatMode === '2weeks') currentDate = addWeeks(currentDate, 2);
+          else if (repeatMode === 'month') currentDate = addMonths(currentDate, 1);
+          else break;
+        }
+
+        await axios.post(`${BACKEND_URL}/api/mass-times/bulk`, { items }, { headers: getAuthHeaders() });
+        toast.success(`${items.length} horaires créés`);
       } else {
-        await axios.post(`${BACKEND_URL}/api/mass-times`, massForm, { headers: getAuthHeaders() });
+        await axios.post(`${BACKEND_URL}/api/mass-times`, basePayload, { headers: getAuthHeaders() });
         toast.success('Horaire créé');
       }
-      setMassForm({ day: '', time: '', location: '', mass_type: 'Messe' });
+      setMassForm({ day: '', time: '10:00', location: '', mass_type: 'Messe', date: todayStr });
       setEditingMass(null);
+      setRepeatMode('none');
+      setRepeatUntil('');
       fetchData();
     } catch (error) {
       toast.error('Erreur lors de l\'enregistrement');
@@ -224,12 +261,12 @@ const AdminDashboard = () => {
 
   const handleEditMass = (item) => {
     setEditingMass(item);
-    setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type });
+    setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type, date: item.date || '' });
   };
 
   const handleDuplicateMass = (item) => {
     setEditingMass(null);
-    setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type });
+    setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type, date: item.date || todayStr });
     toast.info('Horaire dupliqué — modifiez et cliquez "Ajouter"');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
