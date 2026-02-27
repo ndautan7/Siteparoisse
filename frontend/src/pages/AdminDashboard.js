@@ -29,7 +29,8 @@ const AdminDashboard = () => {
 
   // Mass Times Form State
   const todayStr = new Date().toISOString().split('T')[0];
-  const [massForm, setMassForm] = useState({ day: '', time: '10:00', location: '', mass_type: 'Messe Dominicale', date: todayStr });
+  const getInitialDay = (dateStr) => { const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']; return days[new Date(dateStr + 'T00:00:00').getDay()]; };
+  const [massForm, setMassForm] = useState({ day: getInitialDay(todayStr), time: '10:00', location: '', mass_type: 'Messe Dominicale', date: todayStr });
   const [editingMass, setEditingMass] = useState(null);
   const [repeatMode, setRepeatMode] = useState('none'); // none, week, 2weeks, month
   const [repeatUntil, setRepeatUntil] = useState('');
