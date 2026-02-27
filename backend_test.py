@@ -288,6 +288,7 @@ def main():
     # Basic tests (no auth required)
     print("\n📍 BASIC API TESTS")
     tester.test_root_endpoint()
+    tester.test_health_check()
     tester.test_get_news()
     tester.test_get_mass_times()
     
