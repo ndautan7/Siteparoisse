@@ -435,6 +435,55 @@ const AdminDashboard = () => {
     }
   };
 
+  // BULK DELETE HELPERS
+  const toggleSelect = (id, selected, setSelected) => {
+    setSelected(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+  };
+
+  const toggleSelectAll = (items, selected, setSelected) => {
+    if (selected.length === items.length) {
+      setSelected([]);
+    } else {
+      setSelected(items.map(i => i.id));
+    }
+  };
+
+  const handleBulkDelete = async (endpoint, selected, setSelected, label) => {
+    if (selected.length === 0) return;
+    if (!window.confirm(`Supprimer ${selected.length} ${label} ?`)) return;
+    try {
+      await axios.post(`${BACKEND_URL}/api/${endpoint}/bulk-delete`, { ids: selected }, { headers: getAuthHeaders() });
+      toast.success(`${selected.length} ${label} supprimé(e)s`);
+      setSelected([]);
+      fetchData();
+    } catch (error) {
+      toast.error('Erreur lors de la suppression');
+    }
+  };
+
+  const BulkBar = ({ selected, setSelected, items, endpoint, label }) => (
+    <div className="flex items-center justify-between bg-slate-50 rounded-lg px-4 py-2 mb-3">
+      <label className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={items.length > 0 && selected.length === items.length}
+          onChange={() => toggleSelectAll(items, selected, setSelected)}
+          className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+        />
+        {selected.length > 0 ? `${selected.length} sélectionné(s)` : 'Tout sélectionner'}
+      </label>
+      {selected.length > 0 && (
+        <button
+          onClick={() => handleBulkDelete(endpoint, selected, setSelected, label)}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-sm rounded-lg font-medium transition-colors"
+        >
+          <Trash2 className="w-3.5 h-3.5" />
+          Supprimer ({selected.length})
+        </button>
+      )}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-paper" data-testid="admin-dashboard">
       {/* Header */}
