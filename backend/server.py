@@ -18,11 +18,14 @@ import aiofiles
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-mongo_url = os.environ['MONGO_URL']
+# Railway injecte MONGO_URL via le plugin MongoDB (ex: MONGO_URL=mongodb://mongo:27017)
+# En local, on utilise le .env
+mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
+db_name = os.environ.get('DB_NAME', 'notre_dame_autan')
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+db = client[db_name]
 
-app = FastAPI()
+app = FastAPI(title="Notre Dame d'Autan API", version="1.0.0")
 api_router = APIRouter(prefix="/api")
 security = HTTPBearer()
 
