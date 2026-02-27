@@ -66,12 +66,14 @@ class MassTimeCreate(BaseModel):
     time: str
     location: str
     mass_type: Optional[str] = "Messe"
+    date: Optional[str] = None  # Format: "YYYY-MM-DD"
 
 class MassTimeUpdate(BaseModel):
     day: Optional[str] = None
     time: Optional[str] = None
     location: Optional[str] = None
     mass_type: Optional[str] = None
+    date: Optional[str] = None
 
 class MassTime(BaseModel):
     model_config = ConfigDict(extra="ignore")
@@ -80,6 +82,7 @@ class MassTime(BaseModel):
     time: str
     location: str
     mass_type: str
+    date: Optional[str] = None
 
 class EventCreate(BaseModel):
     title: str
