@@ -83,6 +83,33 @@ class ParishAPITester:
         success, response = self.run_test("API Root", "GET", "", 200)
         return success
 
+    def test_health_check(self):
+        """Test health check endpoint"""
+        print("\n🏥 Testing Health Check Endpoint...")
+        success, response = self.run_test("Health Check", "GET", "health", 200)
+        
+        if success:
+            # Verify expected structure and content
+            expected_fields = ["status", "database", "service"]
+            missing_fields = [field for field in expected_fields if field not in response]
+            
+            if missing_fields:
+                print(f"   ⚠️ Missing fields: {missing_fields}")
+                return False
+            
+            # Check specific values
+            status_ok = response.get("status") == "healthy"
+            db_ok = response.get("database") in ["connected", "disconnected"]  # Both are acceptable
+            service_ok = response.get("service") == "notre-dame-autan-api"
+            
+            print(f"   📊 Status: {response.get('status')} {'✅' if status_ok else '❌'}")
+            print(f"   🗄️  Database: {response.get('database')} {'✅' if db_ok else '❌'}")
+            print(f"   🔧 Service: {response.get('service')} {'✅' if service_ok else '❌'}")
+            
+            return status_ok and db_ok and service_ok
+        
+        return success
+
     def test_login(self, username="admin", password="admin123"):
         """Test admin login"""
         success, response = self.run_test(
