@@ -924,9 +924,21 @@ const AdminDashboard = () => {
               ) : (
                 <>
                 <BulkBar selected={selectedMass} setSelected={setSelectedMass} items={massTimes} endpoint="mass-times" label="horaires" />
-                {massTimes.map((item) => (
+                {massTimes.map((item, idx) => {
+                  const prevDate = idx > 0 ? massTimes[idx - 1].date : null;
+                  const showDateHeader = item.date && item.date !== prevDate;
+                  return (
+                  <div key={item.id}>
+                    {showDateHeader && (
+                      <div className={`flex items-center gap-3 ${idx > 0 ? 'mt-6' : ''} mb-2`}>
+                        <div className="h-px flex-1 bg-slate-200"></div>
+                        <span className="text-xs font-semibold text-gold uppercase tracking-wider">
+                          {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+                        </span>
+                        <div className="h-px flex-1 bg-slate-200"></div>
+                      </div>
+                    )}
                   <div
-                    key={item.id}
                     className={`bg-white rounded-lg p-4 border flex justify-between items-center ${selectedMass.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`mass-item-${item.id}`}
                   >
