@@ -13,6 +13,10 @@ const DEFAULT_CATEGORY_IMAGES = {
   'Communauté': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/q6ijalbn_Communaut%C3%A9-d%C3%A9faut.png',
   'Événement': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/1vio65rk_Ev%C3%A8nement-d%C3%A9faut.png',
   'Liturgie': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/ah90qnjg_Liturgie-d%C3%A9faut.png',
+  'Formation': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/3qrxsfae_Formation-d%C3%A9faut.png',
+  'Solidarité': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/vj7uvn3t_Solidarit%C3%A9-d%C3%A9faut.png',
+  'Vie paroissiale': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/qiitewn6_Vie-paroissiale-d%C3%A9faut.png',
+  'Autre': 'https://customer-assets.emergentagent.com/job_9a3ee4fd-0a90-44f7-b4d0-970fb3b3dfaf/artifacts/9ntbz7ti_Autre-d%C3%A9faut.jpg',
 };
 
 export const NewsSection = () => {
