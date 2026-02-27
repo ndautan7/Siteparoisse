@@ -102,7 +102,7 @@ const VieEconomiquePage = () => {
           {/* Info complémentaire */}
           <div className="bg-white rounded-xl p-6 border border-gold/20 text-center">
             <p className="text-slate-600 text-sm">
-              💡 <strong>Avantage fiscal :</strong> Vos dons au Denier de l'Église ouvrent droit à une réduction d'impôt de 66% 
+              💡 <strong>Avantage fiscal :</strong> Vos dons à la paroisse ouvrent droit à une réduction d'impôt de 66% 
               (dans la limite de 20% du revenu imposable).
             </p>
           </div>
