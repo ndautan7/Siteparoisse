@@ -17,7 +17,7 @@ export const FloatingButtons = () => {
       
       {/* Donate button - always visible */}
       <Link
-        to="/soutenir"
+        to="/vie-economique"
         className="flex items-center gap-2 bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         data-testid="floating-don-button"
       >
