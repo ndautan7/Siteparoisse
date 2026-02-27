@@ -63,6 +63,10 @@ const AdminDashboard = () => {
     'Formation',
   ];
 
+  const MASS_TYPES = ['Messe', 'Messe anticipée', 'Vêpres', 'Adoration', 'Confession', 'Laudes', 'Chapelet'];
+  const CEREMONY_TYPES = ['Messe de funérailles', 'Célébration de la Parole', 'Bénédiction'];
+  const EVENT_CATEGORIES = ['Communauté', 'Liturgie', 'Formation', 'Jeunesse', 'Solidarité', 'Concert', 'Pèlerinage'];
+
   const uploadFile = async (file, type = 'image') => {
     const formData = new FormData();
     formData.append('file', file);
