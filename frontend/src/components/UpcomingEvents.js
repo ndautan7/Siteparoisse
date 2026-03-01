@@ -81,7 +81,7 @@ export const UpcomingEvents = () => {
                     {event.category}
                   </span>
                 </div>
-                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1 break-words overflow-wrap-anywhere">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
