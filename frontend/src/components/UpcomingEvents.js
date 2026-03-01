@@ -4,6 +4,7 @@ import { Calendar, MapPin, Clock, X } from 'lucide-react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import LocationLink from '@/components/LocationLink';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
