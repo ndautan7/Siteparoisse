@@ -58,7 +58,7 @@ const FuneralsAgenda = () => {
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div className="flex-1">
               <h3 className="font-serif text-xl text-slate-deep mb-3 flex items-center gap-2">
-                <Cross className="w-5 h-5 text-gold" />
+                <ChristianCross className="w-5 h-5 text-gold" />
                 {funeral.deceased_name}
               </h3>
               
