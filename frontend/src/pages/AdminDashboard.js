@@ -9,6 +9,7 @@ import LocationAutocomplete from '@/components/LocationAutocomplete';
 import ChristianCross from '@/components/ChristianCross';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import { APP_VERSION } from '@/version';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
