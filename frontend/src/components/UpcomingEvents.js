@@ -123,7 +123,7 @@ export const UpcomingEvents = () => {
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] overflow-hidden shadow-xl"
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
