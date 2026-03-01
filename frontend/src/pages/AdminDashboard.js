@@ -557,7 +557,7 @@ const AdminDashboard = () => {
             }`}
             data-testid="tab-funerals"
           >
-            <Cross className="w-5 h-5" />
+            <ChristianCross className="w-5 h-5" />
             <span>Funérailles</span>
           </button>
           <button
