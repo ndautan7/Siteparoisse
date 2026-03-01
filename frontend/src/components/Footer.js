@@ -169,6 +169,7 @@ export const Footer = () => {
 
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-sm">
           <p>© {new Date().getFullYear()} Paroisse Notre Dame d'Autan. Tous droits réservés.</p>
+          <p className="text-slate-600 text-xs mt-2">v{APP_VERSION}</p>
         </div>
       </div>
     </footer>
