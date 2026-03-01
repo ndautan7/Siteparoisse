@@ -1390,26 +1390,26 @@ const AdminDashboard = () => {
                     className={`bg-white rounded-lg p-4 border flex justify-between items-start ${selectedEvents.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`event-item-${item.id}`}
                   >
-                    <div className="flex items-start gap-3 flex-1">
+                    <div className="flex items-start gap-3 flex-1 min-w-0 overflow-hidden">
                       <input
                         type="checkbox"
                         checked={selectedEvents.includes(item.id)}
                         onChange={() => toggleSelect(item.id, selectedEvents, setSelectedEvents)}
-                        className="mt-1 w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+                        className="mt-1 w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-medium text-slate-900">{item.title}</h4>
-                          <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded-full">{item.category}</span>
+                          <h4 className="font-medium text-slate-900 truncate">{item.title}</h4>
+                          <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded-full flex-shrink-0">{item.category}</span>
                         </div>
-                        {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.description }}></p>}
-                        <p className="text-sm text-slate-500">
+                        {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.description; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>}
+                        <p className="text-sm text-slate-500 truncate">
                           {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')} à {item.time}
                           {item.end_time ? ` - ${item.end_time}` : ''} • {item.location}
                         </p>
                       </div>
                     </div>
-                    <div className="flex space-x-2 ml-4">
+                    <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleEditEvent(item)}
                         className="text-slate-600 hover:text-gold transition-colors"
