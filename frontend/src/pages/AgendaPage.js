@@ -30,11 +30,7 @@ const AgendaPage = () => {
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState('');
 
-  useEffect(() => {
-    fetchEvents();
-  }, [activeCategory]);
-
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams();
@@ -46,7 +42,11 @@ const AgendaPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeCategory]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]);
 
   const formatEventDate = (dateStr) => {
     try {
