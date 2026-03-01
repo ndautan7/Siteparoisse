@@ -49,7 +49,7 @@ const subActions = [
   {
     title: 'Hospitalité de Lourdes',
     description: 'Pèlerinages pour personnes malades',
-    icon: Cross
+    icon: ChristianCross
   },
   {
     title: 'Lourdes Cancer Espérance',
