@@ -1022,15 +1022,15 @@ const AdminDashboard = () => {
                     className={`bg-white rounded-lg p-4 border flex justify-between items-center ${selectedMass.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`mass-item-${item.id}`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
                       <input
                         type="checkbox"
                         checked={selectedMass.includes(item.id)}
                         onChange={() => toggleSelect(item.id, selectedMass, setSelectedMass)}
-                        className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+                        className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
-                      <div>
-                        <h4 className="font-medium text-slate-900">
+                      <div className="min-w-0">
+                        <h4 className="font-medium text-slate-900 truncate">
                           {item.day} - {item.time}
                           {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
                         </h4>
