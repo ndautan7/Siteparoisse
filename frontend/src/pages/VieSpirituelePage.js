@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Heart, Droplets, Sparkles, HandHeart, Cross } from 'lucide-react';
+import { Heart, Droplets, Sparkles, HandHeart } from 'lucide-react';
+import ChristianCross from '../components/ChristianCross';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
 
