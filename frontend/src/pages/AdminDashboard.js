@@ -531,6 +531,7 @@ const AdminDashboard = () => {
             <LogOut className="w-5 h-5" />
             <span>Déconnexion</span>
           </button>
+          <span className="text-xs text-slate-400 ml-2">v{APP_VERSION}</span>
         </div>
       </header>
 
