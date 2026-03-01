@@ -251,7 +251,7 @@ const AgendaPage = () => {
               {selectedEvent.description ? (
                 <div
                   className="text-slate-600 leading-relaxed prose prose-sm max-w-none break-words"
-                  dangerouslySetInnerHTML={{ __html: selectedEvent.description }}
+                  dangerouslySetInnerHTML={{ __html: selectedEvent.description.replace(/&nbsp;/g, ' ') }}
                 />
               ) : (
                 <p className="text-slate-400 italic text-sm">Pas de description disponible.</p>
