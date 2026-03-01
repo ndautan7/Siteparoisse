@@ -61,7 +61,7 @@ const sections = [
     title: 'Sacrement des Malades',
     subtitle: 'Force et réconfort',
     description: 'Réconfort pour les personnes malades ou âgées',
-    icon: Cross,
+    icon: ChristianCross,
     image: 'https://customer-assets.emergentagent.com/job_c9a89358-b983-4f0b-8ec4-b48d0db621c4/artifacts/3dt57dtp_Sacreement-des-malades.png',
     path: '/sacrements/malades',
     color: 'from-green-400 to-emerald-600'
