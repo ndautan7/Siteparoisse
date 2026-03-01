@@ -58,47 +58,44 @@ export const UpcomingEvents = () => {
             <button
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 text-left cursor-pointer group"
+              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-4 text-left cursor-pointer group"
               data-testid={`upcoming-event-${event.id}`}
             >
-              <div className="flex gap-4">
-                {/* Date badge */}
-                <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gold/10 flex flex-col items-center justify-center">
-                  <span className="text-xl font-bold text-gold leading-none">
-                    {format(parseISO(event.date), 'd')}
-                  </span>
-                  <span className="text-[10px] text-gold/70 uppercase font-medium">
-                    {format(parseISO(event.date), 'MMM', { locale: fr })}
-                  </span>
-                </div>
-
-                {/* Details */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start gap-2 mb-1">
-                    <h3 className="font-medium text-slate-900 leading-tight line-clamp-1 flex-1">
-                      {event.title}
-                    </h3>
-                    <span className={`flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[event.category] || 'bg-slate-100 text-slate-600'}`}>
-                      {event.category}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
-                    </span>
-                    <span className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
-                      <LocationLink location={event.location} iconClassName="w-3 h-3" showIcon={true} className="text-xs" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* Bouton Détails centré */}
-              <div className="flex justify-center mt-3 pt-3 border-t border-slate-50">
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-gold group-hover:text-gold/80 transition-colors">
-                  Détails
-                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              {/* Date badge */}
+              <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gold/10 flex flex-col items-center justify-center">
+                <span className="text-xl font-bold text-gold leading-none">
+                  {format(parseISO(event.date), 'd')}
                 </span>
+                <span className="text-[10px] text-gold/70 uppercase font-medium">
+                  {format(parseISO(event.date), 'MMM', { locale: fr })}
+                </span>
+              </div>
+
+              {/* Details */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start gap-2 mb-1">
+                  <h3 className="font-medium text-slate-900 leading-tight line-clamp-1 flex-1">
+                    {event.title}
+                  </h3>
+                  <span className={`flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[event.category] || 'bg-slate-100 text-slate-600'}`}>
+                    {event.category}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1">
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
+                  </span>
+                  <span className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                    <LocationLink location={event.location} iconClassName="w-3 h-3" showIcon={true} className="text-xs" />
+                  </span>
+                </div>
+                <div className="flex justify-end mt-2">
+                  <span className="inline-flex items-center gap-1 text-xs font-medium text-gold group-hover:text-gold/80 transition-colors">
+                    Détails
+                    <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
               </div>
             </button>
           ))}
