@@ -74,7 +74,7 @@ export const UpcomingEvents = () => {
               {/* Details */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-start gap-2 mb-1">
-                  <h3 className="font-medium text-slate-900 leading-tight line-clamp-1 flex-1">
+                  <h3 className="font-medium text-slate-900 leading-tight line-clamp-2 flex-1 break-words">
                     {event.title}
                   </h3>
                   <span className={`flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[event.category] || 'bg-slate-100 text-slate-600'}`}>
