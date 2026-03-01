@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Calendar, Clock, MapPin, Cross } from 'lucide-react';
+import { Calendar, Clock, MapPin } from 'lucide-react';
+import ChristianCross from './ChristianCross';
 
 const FuneralsAgenda = () => {
   const [funerals, setFunerals] = useState([]);
