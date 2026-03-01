@@ -180,9 +180,9 @@ const LettrePereDanielPage = () => {
 
                   {selectedLetter?.id === letter.id && (
                     <div className="px-5 pb-5 border-t border-slate-100 pt-4" onClick={(e) => e.stopPropagation()}>
-                      <div className="text-slate-600 text-sm leading-relaxed whitespace-pre-line">
-                        {letter.content}
-                      </div>
+                      <div className="text-slate-600 text-sm leading-relaxed prose prose-sm max-w-none"
+                        dangerouslySetInnerHTML={{ __html: letter.content }}
+                      />
                       <p className="text-right text-slate-500 text-sm italic mt-4">
                         Père Daniel Brouard-Derval
                       </p>
