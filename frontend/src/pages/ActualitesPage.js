@@ -12,7 +12,8 @@ const stripHtml = (html) => {
   if (!html) return '';
   const tmp = document.createElement('div');
   tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || '';
+  const text = tmp.textContent || tmp.innerText || '';
+  return text.replace(/\u00A0/g, ' ');
 };
 
 const DEFAULT_CATEGORY_IMAGES = {
