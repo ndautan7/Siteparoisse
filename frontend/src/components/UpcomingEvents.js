@@ -135,7 +135,7 @@ export const UpcomingEvents = () => {
             </div>
 
             {/* Modal Body */}
-            <div className="p-5 overflow-y-auto max-h-[50vh]">
+            <div className="p-5 overflow-y-auto overflow-x-hidden max-h-[50vh]">
               {/* Date & Time */}
               <div className="flex flex-wrap gap-4 mb-4 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2 text-sm text-slate-600">
@@ -156,7 +156,7 @@ export const UpcomingEvents = () => {
 
               {/* Description */}
               {selectedEvent.description ? (
-                <div className="text-slate-600 leading-relaxed prose prose-sm max-w-none"
+                <div className="text-slate-600 leading-relaxed prose prose-sm max-w-none break-words"
                   dangerouslySetInnerHTML={{ __html: selectedEvent.description }}
                 />
               ) : (
