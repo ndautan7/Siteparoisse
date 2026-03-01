@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock, X } from 'lucide-react';
+import { Calendar, MapPin, Clock, X, ChevronRight } from 'lucide-react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
