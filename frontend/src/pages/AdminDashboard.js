@@ -299,6 +299,7 @@ const AdminDashboard = () => {
   const handleEditMass = (item) => {
     setEditingMass(item);
     setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type, date: item.date || '' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDuplicateMass = (item) => {
