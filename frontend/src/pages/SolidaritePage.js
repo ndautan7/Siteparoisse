@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { HandHeart, Heart, Stethoscope, Users, Coffee, Cross } from 'lucide-react';
+import { HandHeart, Heart, Stethoscope, Users, Coffee } from 'lucide-react';
+import ChristianCross from '../components/ChristianCross';
 import { SocialIcons } from '@/components/SocialIcons';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
