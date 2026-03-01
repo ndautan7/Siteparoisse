@@ -1599,7 +1599,7 @@ const AdminDashboard = () => {
                             Voir le PDF
                           </a>
                         )}
-                        {item.content && <p className="text-sm text-slate-600 mt-1 line-clamp-2">{item.content}</p>}
+                        {item.content && <p className="text-sm text-slate-600 mt-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.content }}></p>}
                       </div>
                     </div>
                     <div className="flex space-x-2 ml-4">
