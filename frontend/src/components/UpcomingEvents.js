@@ -58,7 +58,7 @@ export const UpcomingEvents = () => {
             <button
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-4 text-left cursor-pointer"
+              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex flex-col gap-4 text-left cursor-pointer group"
               data-testid={`upcoming-event-${event.id}`}
             >
               {/* Date badge */}
