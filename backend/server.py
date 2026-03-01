@@ -570,19 +570,25 @@ async def startup_event():
         await client.admin.command('ping')
         logger.info("✅ Connexion MongoDB réussie")
         
-        # Créer le compte admin par défaut s'il n'existe pas
-        existing_admin = await db.admins.find_one({"username": "admin"})
-        if not existing_admin:
-            password_hash = bcrypt.hashpw("admin123".encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-            await db.admins.insert_one({
-                "id": str(uuid.uuid4()),
-                "username": "admin",
-                "password_hash": password_hash,
-                "created_at": datetime.now(timezone.utc).isoformat()
-            })
-            logger.info("✅ Compte admin créé (admin / admin123)")
+        # Créer le compte admin via variables d'environnement
+        admin_username = os.environ.get('ADMIN_USERNAME')
+        admin_password = os.environ.get('ADMIN_PASSWORD')
+        
+        if admin_username and admin_password:
+            existing_admin = await db.admins.find_one({"username": admin_username})
+            if not existing_admin:
+                password_hash = bcrypt.hashpw(admin_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+                await db.admins.insert_one({
+                    "id": str(uuid.uuid4()),
+                    "username": admin_username,
+                    "password_hash": password_hash,
+                    "created_at": datetime.now(timezone.utc).isoformat()
+                })
+                logger.info(f"✅ Compte admin '{admin_username}' créé")
+            else:
+                logger.info(f"✅ Compte admin '{admin_username}' existant")
         else:
-            logger.info("✅ Compte admin existant trouvé")
+            logger.info("ℹ️ Pas de ADMIN_USERNAME/ADMIN_PASSWORD définis, pas de création auto")
     except Exception as e:
         logger.warning(f"⚠️ MongoDB pas encore disponible: {e}")
 
