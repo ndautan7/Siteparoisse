@@ -127,7 +127,7 @@ export const UpcomingEvents = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-gold/90 to-gold p-5 text-white relative">
+            <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] p-5 text-white relative">
               <button
                 onClick={() => setSelectedEvent(null)}
                 className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors"
