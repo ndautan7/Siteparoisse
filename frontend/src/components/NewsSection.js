@@ -157,7 +157,7 @@ export const NewsSection = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors duration-300 line-clamp-2">
+                        <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors duration-300 line-clamp-2" style={{ overflowWrap: 'break-word', wordBreak: 'normal' }}>
                           {item.title}
                         </h3>
 
