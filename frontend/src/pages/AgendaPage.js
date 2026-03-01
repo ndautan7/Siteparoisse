@@ -197,7 +197,7 @@ const AgendaPage = () => {
       {/* Modal Détails */}
       {selectedEvent && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
           onClick={() => setSelectedEvent(null)}
         >
           <div
