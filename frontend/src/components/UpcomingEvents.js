@@ -91,9 +91,11 @@ export const UpcomingEvents = () => {
                   </span>
                 </div>
                 <div className="flex justify-end mt-2">
-                  <span className="inline-flex items-center gap-1 text-xs font-medium text-gold group-hover:text-gold/80 transition-colors">
-                    Détails
-                    <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  <span
+                    className="inline-flex items-center gap-1 text-xs font-medium text-gold hover:text-gold-dark transition-all duration-300 group/btn"
+                  >
+                    <span className="group-hover/btn:font-bold transition-all duration-300">Détails</span>
+                    <ChevronRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform duration-300" />
                   </span>
                 </div>
               </div>
