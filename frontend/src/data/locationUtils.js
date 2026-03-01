@@ -4,7 +4,7 @@ import { clochersData } from '@/data/clochersData';
 export const EXTRA_LOCATIONS = [
   {
     displayName: 'Maison de la Fraternité — Castanet-Tolosan',
-    googleMapsUrl: 'https://www.google.com/maps/search/Maison+de+la+Fraternité+10+avenue+de+Toulouse+31320+Castanet-Tolosan',
+    googleMapsUrl: 'https://www.google.com/maps/place/Ensemble+paroissial+catholique+de+Castanet-Tolosan/@43.5157697,1.4983272,20.5z/data=!4m6!3m5!1s0x12aebe4bb7540001:0xc954e76ed59283db!8m2!3d43.515777!4d1.4985022!16s%2Fg%2F11txfbs_9p',
   },
   {
     displayName: 'Centre Paroissial — Saint-Orens',
