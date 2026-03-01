@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { Droplets, Heart, Sparkles, HandHeart, Cross, ArrowLeft, Phone, ChevronRight, Calendar, Users, BookOpen } from 'lucide-react';
+import { Droplets, Heart, Sparkles, HandHeart, ArrowLeft, Phone, ChevronRight, Calendar, Users, BookOpen } from 'lucide-react';
+import ChristianCross from '../components/ChristianCross';
 import { SocialIcons } from '@/components/SocialIcons';
 
 // Citations bibliques pour chaque sacrement
