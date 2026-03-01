@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock } from 'lucide-react';
+import { Calendar, MapPin, Clock, X } from 'lucide-react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -18,6 +18,7 @@ const CATEGORY_COLORS = {
 export const UpcomingEvents = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -53,9 +54,10 @@ export const UpcomingEvents = () => {
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {events.map((event) => (
-            <div
+            <button
               key={event.id}
-              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md transition-shadow duration-300 flex gap-4"
+              onClick={() => setSelectedEvent(event)}
+              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-4 text-left cursor-pointer"
               data-testid={`upcoming-event-${event.id}`}
             >
               {/* Date badge */}
@@ -81,7 +83,7 @@ export const UpcomingEvents = () => {
                 <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
-                    {event.time}
+                    {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
                   </span>
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3 h-3" />
@@ -89,7 +91,7 @@ export const UpcomingEvents = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -105,6 +107,82 @@ export const UpcomingEvents = () => {
           </Link>
         </div>
       </div>
+
+      {/* Event Detail Modal */}
+      {selectedEvent && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] overflow-hidden shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-gold/90 to-gold p-5 text-white relative">
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <span className={`inline-block text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 mb-2`}>
+                {selectedEvent.category}
+              </span>
+              <h3 className="font-serif text-xl font-semibold leading-tight">
+                {selectedEvent.title}
+              </h3>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-5 overflow-y-auto max-h-[50vh]">
+              {/* Date & Time */}
+              <div className="flex flex-wrap gap-4 mb-4 pb-4 border-b border-slate-100">
+                <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <Calendar className="w-4 h-4 text-gold" />
+                  <span className="capitalize">
+                    {format(parseISO(selectedEvent.date), 'EEEE d MMMM yyyy', { locale: fr })}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <Clock className="w-4 h-4 text-gold" />
+                  <span>{selectedEvent.time}{selectedEvent.end_time ? ` - ${selectedEvent.end_time}` : ''}</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <MapPin className="w-4 h-4 text-gold" />
+                  <span>{selectedEvent.location}</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              {selectedEvent.description ? (
+                <div className="text-slate-600 leading-relaxed prose prose-sm max-w-none"
+                  dangerouslySetInnerHTML={{ __html: selectedEvent.description }}
+                />
+              ) : (
+                <p className="text-slate-400 italic text-sm">Pas de description disponible.</p>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="bg-slate-50 border-t border-slate-100 p-4 flex justify-between items-center">
+              <Link
+                to="/agenda"
+                className="text-sm text-gold hover:text-gold-dark font-medium transition-colors"
+                onClick={() => setSelectedEvent(null)}
+              >
+                Voir tout l'agenda →
+              </Link>
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full text-sm font-medium transition-colors"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
