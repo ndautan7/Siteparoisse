@@ -5,6 +5,7 @@ import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
+import LocationLink from '@/components/LocationLink';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
