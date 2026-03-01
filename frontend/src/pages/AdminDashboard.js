@@ -604,14 +604,22 @@ const AdminDashboard = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Contenu</label>
-                  <textarea
+                  <ReactQuill
+                    theme="snow"
                     value={newsForm.content}
-                    onChange={(e) => setNewsForm({ ...newsForm, content: e.target.value })}
-                    rows="4"
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
-                    required
+                    onChange={(value) => setNewsForm({ ...newsForm, content: value })}
+                    modules={{
+                      toolbar: [
+                        [{ 'header': [1, 2, 3, false] }],
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        ['link'],
+                        ['clean']
+                      ]
+                    }}
+                    placeholder="Écrivez le contenu de l'actualité..."
                     data-testid="news-content-input"
-                  ></textarea>
+                  />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
