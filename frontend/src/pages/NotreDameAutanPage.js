@@ -74,7 +74,7 @@ const sections = [
 
 const NotreDameAutanPage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="notre-dame-autan-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="notre-dame-autan-page">
       <SEO title="Notre Dame d'Autan" description="D\u00e9couvrez l'organisation et la vie de la paroisse Notre Dame d'Autan - Secr\u00e9tariat, \u00e9quipe pastorale, clochers et services." />
       {/* Hero Section */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -129,10 +129,10 @@ const NotreDameAutanPage = () => {
 
                   {/* Content */}
                   <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                  <h3 className="font-serif text-lg text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2 group-hover:text-gold transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                     {section.description}
                   </p>
                   
@@ -169,10 +169,10 @@ const NotreDameAutanPage = () => {
 
                   {/* Content */}
                   <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                  <h3 className="font-serif text-lg text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2 group-hover:text-gold transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                     {section.description}
                   </p>
                   
@@ -192,8 +192,8 @@ const NotreDameAutanPage = () => {
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 mb-16">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="font-serif text-2xl text-slate-deep mb-4">Une paroisse vivante</h2>
-              <p className="text-slate-600 leading-relaxed">
+              <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Une paroisse vivante</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 La paroisse Notre Dame d'Autan regroupe 16 clochers et une communauté vivante et accueillante. 
                 Notre mission est d'annoncer l'Évangile et d'accompagner chacun dans sa vie de foi.
               </p>
@@ -211,7 +211,7 @@ const NotreDameAutanPage = () => {
 
         {/* Citation */}
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Comme des pierres vivantes, entrez dans la construction de la demeure de Dieu."
           </blockquote>
           <p className="text-gold font-medium">1 Pierre 2, 5</p>

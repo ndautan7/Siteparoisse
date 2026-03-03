@@ -8,7 +8,7 @@ import { FadeIn } from '@/components/FadeIn';
 
 const NosClochersPage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="nos-clochers-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="nos-clochers-page">
       <SEO title="Nos 16 Clochers" description="D\u00e9couvrez les 16 \u00e9glises de la paroisse Notre Dame d'Autan - Patrimoine religieux de Castanet-Tolosan, Saint-Orens et environs." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -52,7 +52,7 @@ const NosClochersPage = () => {
               className="group"
               data-testid={`clocher-card-${clocher.id}`}
             >
-              <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 h-full border border-slate-100">
+              <article className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 h-full border border-slate-100 dark:border-slate-700 dark:border-slate-700">
                 {/* Image */}
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <img
@@ -71,7 +71,7 @@ const NosClochersPage = () => {
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-1 group-hover:text-gold transition-colors">
                     {clocher.name}
                   </h3>
                   <p className="text-slate-500 text-sm line-clamp-2">{clocher.description}</p>
@@ -83,13 +83,13 @@ const NosClochersPage = () => {
 
         {/* Interactive Map Section */}
         <section className="mb-12" data-testid="map-all-churches">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div className="p-6 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+            <div className="p-6 border-b border-slate-100 dark:border-slate-700 dark:border-slate-700">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center">
                   <Map className="w-6 h-6 text-gold mr-3" />
                   <div>
-                    <h2 className="font-serif text-xl text-slate-deep">Carte des 16 clochers</h2>
+                    <h2 className="font-serif text-xl text-slate-deep dark:text-slate-100 dark:text-slate-100">Carte des 16 clochers</h2>
                     <p className="text-slate-500 text-sm">Cliquez sur un marqueur pour voir les détails de l'église</p>
                   </div>
                 </div>
@@ -103,22 +103,22 @@ const NosClochersPage = () => {
         </section>
 
         {/* Info Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="font-serif text-2xl text-slate-deep mb-4">Un patrimoine vivant</h2>
-              <p className="text-slate-600 mb-4">
+              <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Un patrimoine vivant</h2>
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
                 Chaque clocher de notre paroisse possède son histoire, son architecture et sa communauté. 
                 Ces édifices sont les témoins de la foi de nos ancêtres et continuent d'accueillir 
                 les célébrations et les moments forts de la vie chrétienne.
               </p>
-              <p className="text-slate-600">
+              <p className="text-slate-600 dark:text-slate-400 dark:text-slate-400">
                 Cliquez sur chaque église pour découvrir son histoire, ses horaires de messe et ses particularités.
               </p>
             </div>
             <div className="bg-slate-50 rounded-xl p-6">
-              <h3 className="font-serif text-xl text-slate-deep mb-3">Horaires des messes</h3>
-              <p className="text-slate-600 text-sm mb-4">
+              <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3">Horaires des messes</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Les messes sont célébrées dans différentes églises selon un planning établi.
               </p>
               <Link
@@ -135,7 +135,7 @@ const NosClochersPage = () => {
       {/* Citation biblique */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Vous êtes le corps du Christ, et vous êtes ses membres, chacun pour sa part."
           </blockquote>
           <p className="text-gold font-medium">1 Corinthiens 12, 27</p>

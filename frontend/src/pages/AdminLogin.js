@@ -34,7 +34,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50 flex items-center justify-center px-4" data-testid="admin-login-page">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center px-4 transition-colors duration-300" data-testid="admin-login-page">
       <div className="max-w-md w-full">
         {/* Logo & Title */}
         <div className="text-center mb-8">
@@ -45,22 +45,22 @@ const AdminLogin = () => {
               className="h-10 w-auto"
             />
           </div>
-          <h1 className="font-serif text-3xl text-slate-800 mb-1">Administration</h1>
-          <p className="text-slate-500 text-sm">Connectez-vous pour gérer le contenu de votre paroisse</p>
+          <h1 className="font-serif text-3xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-1">Administration</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">Connectez-vous pour gérer le contenu de votre paroisse</p>
         </div>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border border-slate-100 dark:border-slate-700">
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Nom d'utilisateur</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300 mb-2">Nom d'utilisateur</label>
               <div className="relative">
                 <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400" />
                 <input
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-slate-50/50 text-sm transition-all focus:bg-white"
+                  className="w-full pl-11 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-slate-50/50 dark:bg-slate-700 text-sm dark:text-slate-200 transition-all focus:bg-white dark:focus:bg-slate-600"
                   placeholder="admin"
                   required
                   data-testid="admin-username-input"
@@ -69,14 +69,14 @@ const AdminLogin = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Mot de passe</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300 mb-2">Mot de passe</label>
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400" />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-slate-50/50 text-sm transition-all focus:bg-white"
+                  className="w-full pl-11 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-slate-50/50 dark:bg-slate-700 text-sm dark:text-slate-200 transition-all focus:bg-white dark:focus:bg-slate-600"
                   placeholder="••••••••"
                   required
                   data-testid="admin-password-input"

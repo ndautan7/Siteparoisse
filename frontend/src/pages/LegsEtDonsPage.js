@@ -53,7 +53,7 @@ const LegsEtDonsPage = () => {
         {/* Citation */}
         <FadeIn>
           <blockquote className="text-center mb-16" data-testid="citation">
-            <p className="font-serif text-xl md:text-2xl text-slate-deep italic leading-relaxed mb-3">
+            <p className="font-serif text-xl md:text-2xl text-slate-deep dark:text-slate-100 italic leading-relaxed mb-3">
               "Chacun doit donner comme il a décidé dans son cœur, sans regret et sans contrainte, car Dieu aime celui qui donne avec joie."
             </p>
             <cite className="text-gold font-medium not-italic">2 Co 9, 7</cite>
@@ -61,7 +61,7 @@ const LegsEtDonsPage = () => {
         </FadeIn>
 
         <FadeIn>
-          <p className="text-slate-600 leading-relaxed text-center max-w-3xl mx-auto mb-16">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-center max-w-3xl mx-auto mb-16">
             La vitalité de notre paroisse, l'entretien de notre patrimoine et le rayonnement de nos missions dépendent exclusivement de votre générosité. Que ce soit pour un soutien immédiat ou pour transmettre un héritage, votre don est une pierre vivante apportée à notre communauté.
           </p>
         </FadeIn>
@@ -69,11 +69,11 @@ const LegsEtDonsPage = () => {
         {/* ===== Section 1: Don du vivant ===== */}
         <FadeIn>
           <div className="mb-16">
-            <h2 className="font-serif text-3xl text-slate-deep mb-2 flex items-center gap-3">
+            <h2 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-2 flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-gold text-white font-bold text-lg">1</span>
               Agir aujourd'hui : Le don du vivant
             </h2>
-            <p className="text-slate-600 leading-relaxed ml-[52px] mb-8">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed ml-[52px] mb-8">
               Soutenir la paroisse de son vivant permet de financer nos actions quotidiennes : accueil, catéchisme, chauffage de l'église, solidarité et vie de nos prêtres.
             </p>
 
@@ -85,7 +85,7 @@ const LegsEtDonsPage = () => {
               <p className="text-emerald-700 text-sm mb-4">
                 En donnant à la paroisse, vous bénéficiez d'une réduction d'impôt sur le revenu égale à 66 % de votre don, dans la limite de 20 % de votre revenu imposable.
               </p>
-              <div className="bg-white rounded-xl overflow-hidden">
+              <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden">
                 <table className="w-full" data-testid="tax-table">
                   <thead>
                     <tr className="bg-emerald-100/50">
@@ -96,7 +96,7 @@ const LegsEtDonsPage = () => {
                   <tbody>
                     {taxTable.map((row) => (
                       <tr key={row.don} className="border-t border-emerald-100/50">
-                        <td className="px-5 py-3 text-slate-700 font-medium">{row.don} &euro;</td>
+                        <td className="px-5 py-3 text-slate-700 dark:text-slate-300 font-medium">{row.don} &euro;</td>
                         <td className="px-5 py-3 text-emerald-700 font-bold">{row.cout} &euro;</td>
                       </tr>
                     ))}
@@ -106,18 +106,18 @@ const LegsEtDonsPage = () => {
             </div>
 
             {/* Payment methods */}
-            <h3 className="font-serif text-xl text-slate-deep mb-6">Comment donner ?</h3>
+            <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-6">Comment donner ?</h3>
 
             <div className="space-y-5">
               {/* Option 1: Carte bancaire */}
-              <div className="bg-white rounded-xl border border-slate-100 p-6 shadow-sm">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
                     <CreditCard className="w-5 h-5 text-gold" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-medium text-slate-900 mb-1">Option 1 : Par Carte Bancaire (Sécurisé)</h4>
-                    <p className="text-slate-600 text-sm mb-4">
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">Option 1 : Par Carte Bancaire (Sécurisé)</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                       C'est le moyen le plus simple et le plus rapide. Cliquez sur le bouton ci-dessous pour accéder à notre plateforme de paiement sécurisée.
                     </p>
                     <a
@@ -137,14 +137,14 @@ const LegsEtDonsPage = () => {
               </div>
 
               {/* Option 2: Chèque */}
-              <div className="bg-white rounded-xl border border-slate-100 p-6 shadow-sm">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center flex-shrink-0">
                     <FileText className="w-5 h-5 text-sky-600" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-medium text-slate-900 mb-1">Option 2 : Par Chèque</h4>
-                    <p className="text-slate-600 text-sm mb-2">
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">Option 2 : Par Chèque</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
                       Libellez votre chèque à l'ordre de : <strong>Association Diocésaine de Toulouse — Paroisse Notre Dame d'Autan</strong>.
                     </p>
                     <p className="text-slate-500 text-sm">
@@ -155,20 +155,20 @@ const LegsEtDonsPage = () => {
               </div>
 
               {/* Option 3: Virement */}
-              <div className="bg-white rounded-xl border border-slate-100 p-6 shadow-sm">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
                     <Landmark className="w-5 h-5 text-violet-600" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-medium text-slate-900 mb-1">Option 3 : Par Virement Bancaire</h4>
-                    <p className="text-slate-600 text-sm mb-3">
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">Option 3 : Par Virement Bancaire</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mb-3">
                       Pour un don ponctuel ou régulier, vous pouvez effectuer un virement direct.
                     </p>
                     <div className="bg-slate-50 rounded-lg p-4 text-sm space-y-1">
-                      <p className="text-slate-600"><span className="font-medium text-slate-700">IBAN :</span> À demander au secrétariat</p>
-                      <p className="text-slate-600"><span className="font-medium text-slate-700">BIC :</span> À demander au secrétariat</p>
-                      <p className="text-slate-600"><span className="font-medium text-slate-700">Libellé à préciser :</span> "Don Paroisse Notre Dame d'Autan"</p>
+                      <p className="text-slate-600 dark:text-slate-400 dark:text-slate-400"><span className="font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300">IBAN :</span> À demander au secrétariat</p>
+                      <p className="text-slate-600 dark:text-slate-400 dark:text-slate-400"><span className="font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300">BIC :</span> À demander au secrétariat</p>
+                      <p className="text-slate-600 dark:text-slate-400 dark:text-slate-400"><span className="font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300">Libellé à préciser :</span> "Don Paroisse Notre Dame d'Autan"</p>
                     </div>
                   </div>
                 </div>
@@ -180,26 +180,26 @@ const LegsEtDonsPage = () => {
         {/* ===== Section 2: Legs et Donations ===== */}
         <FadeIn>
           <div className="mb-16">
-            <h2 className="font-serif text-3xl text-slate-deep mb-2 flex items-center gap-3">
+            <h2 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-2 flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-gold text-white font-bold text-lg">2</span>
               Transmettre demain : Legs et Donations
             </h2>
-            <p className="text-slate-600 leading-relaxed ml-[52px] mb-8">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed ml-[52px] mb-8">
               Préparer sa succession en faveur de la paroisse est une manière de prolonger son engagement de foi et de veiller sur les générations futures.
             </p>
 
             <div className="space-y-5">
               {/* Legs */}
               <div className="bg-gradient-to-r from-gold/5 to-gold/10 rounded-xl border border-gold/20 p-6">
-                <h3 className="font-serif text-xl text-slate-deep mb-3 flex items-center gap-2">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3 flex items-center gap-2">
                   <Gift className="w-5 h-5 text-gold" />
                   Le Legs (via testament)
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-3">
                   Vous pouvez transmettre par testament tout ou partie de vos biens (argent, biens immobiliers, bijoux, etc.).
                 </p>
-                <div className="bg-white rounded-lg p-4 border border-gold/10">
-                  <p className="text-sm text-slate-700">
+                <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-gold/10">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 dark:text-slate-300">
                     <strong className="text-gold">Exonération totale :</strong> L'Association Diocésaine est totalement exonérée de droits de succession. L'intégralité de votre legs profite donc à la paroisse.
                   </p>
                 </div>
@@ -207,22 +207,22 @@ const LegsEtDonsPage = () => {
 
               {/* Donation */}
               <div className="bg-gradient-to-r from-gold/5 to-gold/10 rounded-xl border border-gold/20 p-6">
-                <h3 className="font-serif text-xl text-slate-deep mb-3 flex items-center gap-2">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3 flex items-center gap-2">
                   <HandHeart className="w-5 h-5 text-gold" />
                   La Donation
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   À la différence du legs, la donation se fait de votre vivant devant notaire. Elle permet de transmettre immédiatement un bien pour soutenir un projet majeur (ex: rénovation de l'église).
                 </p>
               </div>
 
               {/* Assurance-vie */}
               <div className="bg-gradient-to-r from-gold/5 to-gold/10 rounded-xl border border-gold/20 p-6">
-                <h3 className="font-serif text-xl text-slate-deep mb-3 flex items-center gap-2">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3 flex items-center gap-2">
                   <FileText className="w-5 h-5 text-gold" />
                   L'Assurance-vie
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   Vous pouvez désigner la paroisse comme bénéficiaire de votre contrat d'assurance-vie. C'est une démarche simple qui ne nécessite pas de testament.
                 </p>
               </div>
@@ -233,11 +233,11 @@ const LegsEtDonsPage = () => {
         {/* ===== Section 3: À quoi servira votre don ? ===== */}
         <FadeIn>
           <div className="mb-16">
-            <h2 className="font-serif text-3xl text-slate-deep mb-2 flex items-center gap-3">
+            <h2 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-2 flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-gold text-white font-bold text-lg">3</span>
               À quoi servira votre don ?
             </h2>
-            <p className="text-slate-600 leading-relaxed ml-[52px] mb-8">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed ml-[52px] mb-8">
               Votre générosité est gérée dans la plus grande transparence pour :
             </p>
 
@@ -245,12 +245,12 @@ const LegsEtDonsPage = () => {
               {usages.map((item) => {
                 const IconComp = item.icon;
                 return (
-                  <div key={item.title} className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
+                  <div key={item.title} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5 shadow-sm">
                     <div className={`w-10 h-10 rounded-lg ${item.color} flex items-center justify-center mb-3`}>
                       <IconComp className="w-5 h-5" />
                     </div>
-                    <h4 className="font-medium text-slate-900 mb-1">{item.title}</h4>
-                    <p className="text-slate-600 text-sm">{item.description}</p>
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-1">{item.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{item.description}</p>
                   </div>
                 );
               })}
@@ -261,14 +261,14 @@ const LegsEtDonsPage = () => {
         {/* ===== Contact Section ===== */}
         <FadeIn>
           <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center" data-testid="don-contact-section">
-            <h2 className="font-serif text-2xl text-slate-deep mb-3">Un conseil personnalisé et discret</h2>
-            <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+            <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-3">Un conseil personnalisé et discret</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
               Une question sur la fiscalité ? Vous souhaitez discuter d'un projet de legs ou de donation en toute confidentialité ? Nous sommes à votre écoute pour vous accompagner dans votre réflexion, sans aucun engagement.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <a
                 href="tel:0561005169"
-                className="inline-flex items-center gap-2 text-slate-700 hover:text-gold transition-colors"
+                className="inline-flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-gold transition-colors"
                 data-testid="don-contact-phone"
               >
                 <Phone className="w-4 h-4" />
@@ -276,7 +276,7 @@ const LegsEtDonsPage = () => {
               </a>
               <a
                 href="mailto:contact@notredamedautan.fr"
-                className="inline-flex items-center gap-2 text-slate-700 hover:text-gold transition-colors"
+                className="inline-flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-gold transition-colors"
                 data-testid="don-contact-email"
               >
                 <Mail className="w-4 h-4" />

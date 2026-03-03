@@ -33,7 +33,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
   return (
     <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center sm:p-4 bg-black/40 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
+        className="bg-white dark:bg-slate-800 sm:rounded-2xl rounded-t-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
         data-testid="resource-modal"
       >
@@ -64,7 +64,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
           {/* Description principale — encadré rose poudré */}
           {resource.modalDescription && (
-            <div className="rounded-xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-4 text-slate-700 leading-relaxed text-[15px]">
+            <div className="rounded-xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-4 text-slate-700 dark:text-slate-300 leading-relaxed text-[15px]">
               {resource.modalDescription}
             </div>
           )}
@@ -76,37 +76,37 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
             <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
               {/* Format / Déroulement */}
               {alphaContent.format && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                     <MessageSquare className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Déroulement</span>
                   </div>
-                  <div className="bg-white px-5 py-4">
-                    <p className="text-slate-600 leading-relaxed text-[15px]">{alphaContent.format}</p>
+                  <div className="bg-white dark:bg-slate-800 px-5 py-4">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{alphaContent.format}</p>
                   </div>
                 </div>
               )}
 
               {/* Pour qui */}
               {alphaContent.pour_qui && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                     <Users className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Pour qui ?</span>
                   </div>
-                  <div className="bg-white px-5 py-4">
-                    <p className="text-slate-600 leading-relaxed text-[15px]">{alphaContent.pour_qui}</p>
+                  <div className="bg-white dark:bg-slate-800 px-5 py-4">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{alphaContent.pour_qui}</p>
                   </div>
                 </div>
               )}
 
               {/* Contact */}
               {alphaContent.contact && (
-                <div className="rounded-xl bg-white border border-slate-100 shadow-sm p-4 flex items-center space-x-4">
+                <div className="rounded-xl bg-white border border-slate-100 dark:border-slate-700 shadow-sm p-4 flex items-center space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
                     <Phone className="w-5 h-5 text-[#7da4a6]" />
                   </div>
-                  <p className="text-slate-700 text-sm leading-relaxed">{alphaContent.contact}</p>
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{alphaContent.contact}</p>
                 </div>
               )}
             </div>
@@ -119,18 +119,18 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
             <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
               {groupeContent.description && (
                 <div className="relative pl-5 border-l-[3px] border-[#93B5B7]/60">
-                  <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.description}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-[1.85] text-[15px]">{groupeContent.description}</p>
                 </div>
               )}
 
               {groupeContent.spiritualite && (
-                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.spiritualite}</p>
+                <p className="text-slate-600 dark:text-slate-400 leading-[1.85] text-[15px]">{groupeContent.spiritualite}</p>
               )}
 
               {groupeContent.points && groupeContent.points.length > 0 && (
                 <ul className="space-y-3 pl-1">
                   {groupeContent.points.map((point, idx) => (
-                    <li key={idx} className="flex items-start space-x-3 text-slate-600 text-[15px] leading-[1.75]">
+                    <li key={idx} className="flex items-start space-x-3 text-slate-600 dark:text-slate-400 text-[15px] leading-[1.75]">
                       <span className="text-[#93B5B7] mt-1 flex-shrink-0">✦</span>
                       <span>{point}</span>
                     </li>
@@ -139,7 +139,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.principe && (
-                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.principe}</p>
+                <p className="text-slate-600 dark:text-slate-400 leading-[1.85] text-[15px]">{groupeContent.principe}</p>
               )}
 
               {groupeContent.mission && (
@@ -147,33 +147,33 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                   <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#93B5B7]/15 flex items-center justify-center mt-0.5">
                     <Star className="w-4 h-4 text-[#7da4a6]" />
                   </div>
-                  <p className="text-slate-700 font-medium leading-[1.85]">{groupeContent.mission}</p>
+                  <p className="text-slate-700 dark:text-slate-300 font-medium leading-[1.85]">{groupeContent.mission}</p>
                 </div>
               )}
 
               {groupeContent.paragraphes && groupeContent.paragraphes.map((para, idx) => (
-                <p key={idx} className="text-slate-600 leading-[1.85] text-[15px]">{para}</p>
+                <p key={idx} className="text-slate-600 dark:text-slate-400 leading-[1.85] text-[15px]">{para}</p>
               ))}
 
               {groupeContent.invitation && (
-                <div className="rounded-xl bg-white border-l-4 border-[#93B5B7] border border-slate-100 p-5 shadow-sm">
-                  <p className="text-slate-600 italic text-[15px] leading-[1.85]">{groupeContent.invitation}</p>
+                <div className="rounded-xl bg-white border-l-4 border-[#93B5B7] border border-slate-100 dark:border-slate-700 p-5 shadow-sm">
+                  <p className="text-slate-600 dark:text-slate-400 italic text-[15px] leading-[1.85]">{groupeContent.invitation}</p>
                 </div>
               )}
 
               {groupeContent.explication && (
-                <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.explication}</p>
+                <p className="text-slate-600 dark:text-slate-400 leading-[1.85] text-[15px]">{groupeContent.explication}</p>
               )}
 
               {groupeContent.mysteres && groupeContent.mysteres.length > 0 && (
                 <div className="space-y-3">
                   {groupeContent.mysteres.map((mystere, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-3">
-                        <h4 className="font-semibold text-slate-deep text-sm">{mystere.titre}</h4>
+                        <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{mystere.titre}</h4>
                       </div>
-                      <div className="bg-white px-4 py-4">
-                        <p className="text-slate-600 text-sm leading-[1.75]">{mystere.contenu}</p>
+                      <div className="bg-white dark:bg-slate-800 px-4 py-4">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-[1.75]">{mystere.contenu}</p>
                       </div>
                     </div>
                   ))}
@@ -184,15 +184,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Les temps de prière</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Les temps de prière</h4>
                   </div>
                   {groupeContent.temps_priere.map((temps, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-3">
-                        <h5 className="font-semibold text-slate-deep text-sm">{temps.titre}</h5>
+                        <h5 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{temps.titre}</h5>
                       </div>
-                      <div className="bg-white px-4 py-4">
-                        <p className="text-slate-600 text-sm leading-[1.75]">{temps.contenu}</p>
+                      <div className="bg-white dark:bg-slate-800 px-4 py-4">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-[1.75]">{temps.contenu}</p>
                       </div>
                     </div>
                   ))}
@@ -200,15 +200,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.horaires && groupeContent.horaires.length > 0 && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Nous rejoindre</span>
                   </div>
-                  <div className="bg-white px-5 py-5">
+                  <div className="bg-white dark:bg-slate-800 px-5 py-5">
                     <ul className="space-y-3">
                       {groupeContent.horaires.map((horaire, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-slate-600 text-[15px] leading-[1.75]">
+                        <li key={idx} className="flex items-start space-x-2 text-slate-600 dark:text-slate-400 text-[15px] leading-[1.75]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#93B5B7] flex-shrink-0 mt-2"></span>
                           <span>{horaire}</span>
                         </li>
@@ -219,19 +219,19 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.rejoindre && (
-                <p className="text-slate-600 font-medium text-[15px] leading-[1.85]">{groupeContent.rejoindre}</p>
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-[15px] leading-[1.85]">{groupeContent.rejoindre}</p>
               )}
 
               {groupeContent.antennes && groupeContent.antennes.length > 0 && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-2">
                     <MapPin className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Contacts locaux</span>
                   </div>
-                  <div className="bg-white px-5 py-5">
+                  <div className="bg-white dark:bg-slate-800 px-5 py-5">
                     <ul className="space-y-3">
                       {groupeContent.antennes.map((antenne, idx) => (
-                        <li key={idx} className="flex items-center space-x-2 text-slate-600 text-[15px]">
+                        <li key={idx} className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 text-[15px]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#93B5B7] flex-shrink-0"></span>
                           <span>{antenne}</span>
                         </li>
@@ -242,7 +242,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {groupeContent.contact && (
-                <div className="rounded-xl bg-white border border-slate-100 shadow-sm p-5 flex items-center space-x-4">
+                <div className="rounded-xl bg-white border border-slate-100 dark:border-slate-700 shadow-sm p-5 flex items-center space-x-4">
                   <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-[#7da4a6]" />
                   </div>
@@ -258,14 +258,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {groupeContent.citation && (
                 <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-[1.85] text-[15px] pl-3">{groupeContent.citation}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 italic leading-[1.85] text-[15px] pl-3">{groupeContent.citation}</p>
                 </div>
               )}
 
               {groupeContent.citations && groupeContent.citations.map((cit, idx) => (
                 <div key={idx} className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-[1.85] text-[15px] pl-3">{cit}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 italic leading-[1.85] text-[15px] pl-3">{cit}</p>
                 </div>
               ))}
 
@@ -288,14 +288,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {/* Paragraphes — avec léger accent gauche */}
               {meditationContent.paragraphes && meditationContent.paragraphes.map((para, idx) => (
                 <div key={idx} className="relative pl-4 border-l-[3px] border-[#93B5B7]/50">
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{para}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{para}</p>
                 </div>
               ))}
 
               {/* Intro */}
               {meditationContent.intro && (
                 <div className="rounded-xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-4">
-                  <p className="text-slate-600 italic leading-relaxed text-[15px]">{meditationContent.intro}</p>
+                  <p className="text-slate-600 dark:text-slate-400 italic leading-relaxed text-[15px]">{meditationContent.intro}</p>
                 </div>
               )}
 
@@ -303,17 +303,17 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {meditationContent.piliers && (
                 <div className="space-y-3">
                   <div>
-                    <h3 className="font-serif text-lg text-slate-deep">{meditationContent.piliers.titre}</h3>
+                    <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 dark:text-slate-100">{meditationContent.piliers.titre}</h3>
                     <p className="text-slate-500 italic text-sm mt-1">{meditationContent.piliers.sousTitre}</p>
                   </div>
                   {meditationContent.piliers.etapes.map((etape, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-3">
                         <span className="w-6 h-6 rounded-full bg-white/25 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">{idx + 1}</span>
                         <h4 className="font-semibold text-white text-sm">{etape.nom}</h4>
                       </div>
-                      <div className="bg-white px-5 py-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{etape.description}</p>
+                      <div className="bg-white dark:bg-slate-800 px-5 py-3">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{etape.description}</p>
                       </div>
                     </div>
                   ))}
@@ -322,15 +322,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {/* Pourquoi pratiquer */}
               {meditationContent.pourquoi && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-5 py-3">
-                    <h4 className="font-serif text-base text-slate-deep">{meditationContent.pourquoi.titre}</h4>
+                    <h4 className="font-serif text-base text-slate-deep dark:text-slate-100 dark:text-slate-100">{meditationContent.pourquoi.titre}</h4>
                     <p className="text-slate-500 text-sm mt-1">{meditationContent.pourquoi.description}</p>
                   </div>
-                  <div className="bg-white px-5 py-3">
+                  <div className="bg-white dark:bg-slate-800 px-5 py-3">
                     <ul className="space-y-2">
                       {meditationContent.pourquoi.points.map((point, idx) => (
-                        <li key={idx} className="flex items-start space-x-2.5 text-slate-600 text-sm">
+                        <li key={idx} className="flex items-start space-x-2.5 text-slate-600 dark:text-slate-400 text-sm">
                           <CheckCircle2 className="w-4 h-4 text-[#93B5B7] mt-0.5 flex-shrink-0" />
                           <span>{point}</span>
                         </li>
@@ -344,8 +344,8 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {meditationContent.anecdote && (
                 <div className="rounded-xl bg-[#93B5B7]/8 border border-[#93B5B7]/20 p-4 flex items-start space-x-3">
                   <Lightbulb className="w-5 h-5 text-[#7da4a6] mt-0.5 flex-shrink-0" />
-                  <p className="text-slate-600 text-sm italic leading-relaxed">
-                    <span className="font-semibold not-italic text-slate-700">Le saviez-vous ? </span>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm italic leading-relaxed">
+                    <span className="font-semibold not-italic text-slate-700 dark:text-slate-300 dark:text-slate-300">Le saviez-vous ? </span>
                     {meditationContent.anecdote}
                   </p>
                 </div>
@@ -356,14 +356,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Sparkles className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-serif text-base text-slate-deep">{meditationContent.commencer.titre}</h4>
+                    <h4 className="font-serif text-base text-slate-deep dark:text-slate-100 dark:text-slate-100">{meditationContent.commencer.titre}</h4>
                   </div>
                   <p className="text-slate-500 text-sm">{meditationContent.commencer.description}</p>
                   <div className="space-y-2">
                     {meditationContent.commencer.conseils.map((conseil, idx) => (
-                      <div key={idx} className="flex items-start space-x-3 bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                      <div key={idx} className="flex items-start space-x-3 bg-white rounded-xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm">
                         <span className="w-6 h-6 rounded-full bg-[#93B5B7]/15 flex items-center justify-center text-[#7da4a6] font-bold text-xs flex-shrink-0">{idx + 1}</span>
-                        <p className="text-slate-600 text-sm leading-relaxed">{conseil}</p>
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{conseil}</p>
                       </div>
                     ))}
                   </div>
@@ -375,16 +375,16 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Horaires d'adoration</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Horaires d'adoration</h4>
                   </div>
                   {meditationContent.horaires.map((item, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-white" />
                         <span className="text-white font-semibold text-sm">{item.lieu}</span>
                       </div>
-                      <div className="bg-white px-5 py-3">
-                        <p className="text-slate-600 text-sm">{item.horaire}</p>
+                      <div className="bg-white dark:bg-slate-800 px-5 py-3">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm">{item.horaire}</p>
                       </div>
                     </div>
                   ))}
@@ -395,7 +395,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {meditationContent.conclusion && (
                 <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 font-medium italic leading-relaxed pl-3">{meditationContent.conclusion}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 font-medium italic leading-relaxed pl-3">{meditationContent.conclusion}</p>
                 </div>
               )}
 
@@ -419,7 +419,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {/* Paragraphes */}
               {eveilContent.paragraphes && eveilContent.paragraphes.map((para, idx) => (
                 <div key={idx} className="relative pl-4 border-l-[3px] border-[#93B5B7]/50">
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{para}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{para}</p>
                 </div>
               ))}
 
@@ -427,7 +427,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {eveilContent.contact && (
                 <div className="rounded-xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-4 flex items-start space-x-3">
                   <Phone className="w-5 h-5 text-[#7da4a6] mt-0.5 flex-shrink-0" />
-                  <p className="text-slate-700 font-medium">{eveilContent.contact}</p>
+                  <p className="text-slate-700 dark:text-slate-300 font-medium">{eveilContent.contact}</p>
                 </div>
               )}
 
@@ -436,26 +436,26 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Rencontres 2025-2026</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Rencontres 2025-2026</h4>
                   </div>
                   {eveilContent.lieux.map((lieu, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-white" />
                         <span className="text-white font-semibold text-sm">À {lieu.ville}</span>
                       </div>
-                      <div className="bg-white px-5 py-4 space-y-2">
+                      <div className="bg-white dark:bg-slate-800 px-5 py-4 space-y-2">
                         <div className="flex items-start space-x-2">
                           <Clock className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
-                          <p className="text-slate-600 text-sm">{lieu.horaire}</p>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm">{lieu.horaire}</p>
                         </div>
                         <div className="flex items-start space-x-2">
                           <MapPin className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
-                          <p className="text-slate-600 text-sm">{lieu.adresse}</p>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm">{lieu.adresse}</p>
                         </div>
-                        <div className="mt-2 pt-2 border-t border-slate-100">
+                        <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
                           <p className="text-slate-500 text-xs font-medium uppercase tracking-wide mb-1">Dates</p>
-                          <p className="text-slate-700 text-sm font-medium">{lieu.dates}</p>
+                          <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">{lieu.dates}</p>
                         </div>
                       </div>
                     </div>
@@ -474,7 +474,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {/* Paragraphes */}
               {mejContent.paragraphes && mejContent.paragraphes.map((para, idx) => (
                 <div key={idx} className="relative pl-4 border-l-[3px] border-[#93B5B7]/50">
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{para}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{para}</p>
                 </div>
               ))}
 
@@ -483,13 +483,13 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-5 mt-8">
                   <div className="flex items-center space-x-2">
                     <Users className="w-5 h-5 text-[#93B5B7]" />
-                    <h4 className="font-serif text-lg text-slate-deep">{mejContent.tranches.titre}</h4>
+                    <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 dark:text-slate-100">{mejContent.tranches.titre}</h4>
                   </div>
                   <div className="flex flex-col gap-6">
                     {mejContent.tranches.groupes.map((groupe, idx) => (
-                      <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                      <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                         <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-6 py-5 flex items-center justify-between">
-                          <span className="font-semibold text-slate-deep">{groupe.nom}</span>
+                          <span className="font-semibold text-slate-deep dark:text-slate-100 dark:text-slate-100">{groupe.nom}</span>
                           <span className="text-[#7da4a6] font-medium bg-white px-3 py-1 rounded-full text-sm">{groupe.age}</span>
                         </div>
                       </div>
@@ -531,15 +531,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                           <div className="w-7 h-7 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
                             <SectionIcon className="w-3.5 h-3.5 text-[#7da4a6]" />
                           </div>
-                          <h3 className="font-serif text-base text-slate-deep">{section.title}</h3>
+                          <h3 className="font-serif text-base text-slate-deep dark:text-slate-100 dark:text-slate-100">{section.title}</h3>
                         </div>
                         {section.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                          <div key={itemIndex} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                             <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
-                              <h4 className="font-semibold text-slate-deep text-sm">{item.name}</h4>
+                              <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{item.name}</h4>
                             </div>
-                            <div className="bg-white px-4 py-3">
-                              <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                            <div className="bg-white dark:bg-slate-800 px-4 py-3">
+                              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.description}</p>
                             </div>
                           </div>
                         ))}
@@ -556,15 +556,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <BookOpen className="w-4 h-4 text-[#93B5B7]" />
-                    <h3 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Ce que vous y trouverez</h3>
+                    <h3 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Ce que vous y trouverez</h3>
                   </div>
                   {resource.features.map((feature, index) => (
-                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={index} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
-                        <h4 className="font-semibold text-slate-deep text-sm">{feature.title}</h4>
+                        <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{feature.title}</h4>
                       </div>
-                      <div className="bg-white px-4 py-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+                      <div className="bg-white dark:bg-slate-800 px-4 py-3">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                   ))}
@@ -575,19 +575,19 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {resource.quote && (
                 <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
                   <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-3">{resource.quote}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 italic leading-relaxed text-[15px] pl-3">{resource.quote}</p>
                 </div>
               )}
 
               {/* Horaires (Librairie) */}
               {resource.horaires && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                     <Clock className="w-4 h-4 text-white" />
                     <span className="text-white font-semibold text-sm">Horaires d'ouverture</span>
                   </div>
-                  <div className="bg-white px-5 py-3">
-                    <p className="text-slate-600 text-sm">{resource.horaires}</p>
+                  <div className="bg-white dark:bg-slate-800 px-5 py-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{resource.horaires}</p>
                   </div>
                 </div>
               )}
@@ -598,20 +598,20 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {resource.items && resource.items.length > 0 && (
                 <div className="space-y-3">
                   {resource.items.map((item, index) => (
-                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={index} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5 flex items-center justify-between">
-                        <h3 className="font-semibold text-slate-deep text-sm">{item.name}</h3>
+                        <h3 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{item.name}</h3>
                         {item.subtitle && <span className="text-xs text-[#7da4a6] font-medium italic">{item.subtitle}</span>}
                       </div>
-                      <div className="bg-white px-4 py-3 space-y-2">
+                      <div className="bg-white dark:bg-slate-800 px-4 py-3 space-y-2">
                         {item.concept && (
-                          <p className="text-sm text-slate-600">
-                            <span className="font-semibold text-slate-700">Le concept : </span>{item.concept}
+                          <p className="text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
+                            <span className="font-semibold text-slate-700 dark:text-slate-300 dark:text-slate-300">Le concept : </span>{item.concept}
                           </p>
                         )}
                         {item.why && (
-                          <p className="text-sm text-slate-600">
-                            <span className="font-semibold text-slate-700">Pourquoi l'aimer : </span>{item.why}
+                          <p className="text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
+                            <span className="font-semibold text-slate-700 dark:text-slate-300 dark:text-slate-300">Pourquoi l'aimer : </span>{item.why}
                           </p>
                         )}
                         {item.url && (
@@ -633,13 +633,13 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {resource.podcasts && resource.podcasts.length > 0 && (
                 <div className="space-y-3">
                   {resource.podcasts.map((podcast, index) => (
-                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={index} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
                         <Headphones className="w-4 h-4 text-white" />
                         <h3 className="font-semibold text-white text-sm">{podcast.name}</h3>
                       </div>
-                      <div className="bg-white px-5 py-4 flex items-center justify-between gap-4">
-                        <p className="text-slate-600 text-sm leading-relaxed flex-1">{podcast.description}</p>
+                      <div className="bg-white dark:bg-slate-800 px-5 py-4 flex items-center justify-between gap-4">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">{podcast.description}</p>
                         <a href={podcast.url} target="_blank" rel="noopener noreferrer"
                           className="inline-flex items-center bg-[#1DB954] hover:bg-[#17a34a] text-white px-4 py-2 rounded-full font-medium text-sm transition-colors shadow-md hover:shadow-lg flex-shrink-0">
                           <Headphones className="w-3.5 h-3.5 mr-1.5" />
@@ -662,7 +662,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
 
               {entraideContent.intro && (
                 <div className="relative pl-5 border-l-[3px] border-[#93B5B7]/60">
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{entraideContent.intro}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{entraideContent.intro}</p>
                 </div>
               )}
 
@@ -671,17 +671,17 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#93B5B7]/15 flex items-center justify-center mt-0.5">
                     <HandHeart className="w-5 h-5 text-[#7da4a6]" />
                   </div>
-                  <p className="text-slate-700 leading-relaxed font-medium text-[15px]">{entraideContent.mission}</p>
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-[15px]">{entraideContent.mission}</p>
                 </div>
               )}
 
               {entraideContent.actions && (
-                <div className="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
+                <div className="rounded-2xl bg-white border border-slate-100 dark:border-slate-700 p-5 shadow-sm">
                   <div className="flex items-center space-x-2 mb-3">
                     <Star className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Nos actions</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Nos actions</h4>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{entraideContent.actions}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{entraideContent.actions}</p>
                 </div>
               )}
 
@@ -689,14 +689,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5">
                   <div className="flex items-center space-x-2 mb-3">
                     <Heart className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Aide matérielle</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Aide matérielle</h4>
                   </div>
-                  <p className="text-slate-600 leading-relaxed text-[15px]">{entraideContent.aide}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{entraideContent.aide}</p>
                 </div>
               )}
 
               {entraideContent.revue && (
-                <div className="flex items-start space-x-3 bg-white border border-slate-100 rounded-xl p-4 shadow-sm">
+                <div className="flex items-start space-x-3 bg-white border border-slate-100 dark:border-slate-700 rounded-xl p-4 shadow-sm">
                   <BookOpen className="w-4 h-4 text-[#93B5B7] mt-0.5 flex-shrink-0" />
                   <p className="text-slate-500 text-sm italic leading-relaxed">{entraideContent.revue}</p>
                 </div>
@@ -705,7 +705,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {entraideContent.temoignage && !entraideContent.projet && (
                 <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-3 left-4 text-[#93B5B7]/20 font-serif text-7xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-4">{entraideContent.temoignage}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 italic leading-relaxed text-[15px] pl-4">{entraideContent.temoignage}</p>
                 </div>
               )}
 
@@ -713,18 +713,18 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Users className="w-4 h-4 text-[#93B5B7]" />
-                    <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Nos équipes locales</h4>
+                    <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Nos équipes locales</h4>
                   </div>
                   {entraideContent.teams.map((team, index) => (
-                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={index} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-3">
                         <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                           <Users className="w-4 h-4 text-white" />
                         </div>
                         <h5 className="font-semibold text-white text-sm">{team.name}</h5>
                       </div>
-                      <div className="bg-white p-5 space-y-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{team.description}</p>
+                      <div className="bg-white dark:bg-slate-800 p-5 space-y-3">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{team.description}</p>
                         <div className="flex flex-wrap gap-3">
                           {team.phone && (
                             <a href={`tel:${team.phone}`} className="inline-flex items-center space-x-1.5 bg-[#93B5B7]/15 hover:bg-[#93B5B7]/25 text-[#7da4a6] font-medium text-sm px-3 py-1.5 rounded-full transition-colors">
@@ -768,7 +768,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {(entraideContent.lieu || entraideContent.permanences) && (
-                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                <div className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                   {entraideContent.lieu && (
                     <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-2">
                       <MapPin className="w-4 h-4 text-white" />
@@ -776,14 +776,14 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                     </div>
                   )}
                   {entraideContent.permanences && (
-                    <div className="bg-white px-5 py-4">
+                    <div className="bg-white dark:bg-slate-800 px-5 py-4">
                       <div className="flex items-center space-x-2 mb-3">
                         <Calendar className="w-4 h-4 text-[#93B5B7]" />
-                        <h4 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Permanences</h4>
+                        <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Permanences</h4>
                       </div>
                       <ul className="space-y-2">
                         {entraideContent.permanences.map((perm, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-slate-600 text-sm">
+                          <li key={idx} className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 text-sm">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#93B5B7] flex-shrink-0"></span>
                             <span>{perm}</span>
                           </li>
@@ -797,15 +797,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {entraideContent.projet && (
                 <div className="space-y-3">
                   <div className="rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5">
-                    <h3 className="font-serif text-base text-slate-deep mb-2">{entraideContent.projet.title}</h3>
-                    <p className="text-slate-600 leading-relaxed text-[15px]">{entraideContent.projet.description}</p>
+                    <h3 className="font-serif text-base text-slate-deep dark:text-slate-100 mb-2">{entraideContent.projet.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">{entraideContent.projet.description}</p>
                   </div>
                   {entraideContent.projet.objectifs && (
                     <div className="space-y-2">
                       {entraideContent.projet.objectifs.map((obj, idx) => (
-                        <div key={idx} className="flex items-start space-x-3 bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                        <div key={idx} className="flex items-start space-x-3 bg-white rounded-xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm">
                           <CheckCircle2 className="w-4 h-4 text-[#93B5B7] mt-0.5 flex-shrink-0" />
-                          <span className="text-slate-600 text-sm leading-relaxed">{obj}</span>
+                          <span className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{obj}</span>
                         </div>
                       ))}
                     </div>
@@ -816,7 +816,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {entraideContent.temoignage && entraideContent.projet && (
                 <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-6 overflow-hidden">
                   <div className="absolute top-3 left-4 text-[#93B5B7]/20 font-serif text-7xl leading-none select-none">"</div>
-                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-4">{entraideContent.temoignage}</p>
+                  <p className="relative z-10 text-slate-700 dark:text-slate-300 italic leading-relaxed text-[15px] pl-4">{entraideContent.temoignage}</p>
                 </div>
               )}
 
@@ -824,15 +824,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Star className="w-4 h-4 text-[#93B5B7]" />
-                    <h3 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">{entraideContent.comment.title}</h3>
+                    <h3 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">{entraideContent.comment.title}</h3>
                   </div>
                   {entraideContent.comment.activites.map((act, idx) => (
-                    <div key={idx} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                    <div key={idx} className="rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
                       <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-5 py-2.5">
-                        <h4 className="font-semibold text-slate-deep text-sm">{act.nom}</h4>
+                        <h4 className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{act.nom}</h4>
                       </div>
-                      <div className="bg-white px-5 py-3">
-                        <p className="text-slate-600 text-sm leading-relaxed">{act.description}</p>
+                      <div className="bg-white dark:bg-slate-800 px-5 py-3">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{act.description}</p>
                       </div>
                     </div>
                   ))}
@@ -843,15 +843,15 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Phone className="w-4 h-4 text-[#93B5B7]" />
-                    <h3 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Contacts</h3>
+                    <h3 className="font-semibold text-slate-deep dark:text-slate-100 text-sm uppercase tracking-wide">Contacts</h3>
                   </div>
                   {entraideContent.contacts.map((contact, idx) => (
-                    <div key={idx} className="rounded-2xl bg-white border border-slate-100 shadow-sm p-4 flex items-start space-x-4">
+                    <div key={idx} className="rounded-2xl bg-white border border-slate-100 dark:border-slate-700 shadow-sm p-4 flex items-start space-x-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#93B5B7]/15 flex items-center justify-center font-bold text-[#7da4a6] text-sm">
                         {contact.nom.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-slate-deep text-sm">{contact.nom}</p>
+                        <p className="font-semibold text-slate-deep dark:text-slate-100 text-sm">{contact.nom}</p>
                         <a href={`tel:${contact.phone}`} className="text-[#7da4a6] hover:text-[#93B5B7] font-medium text-sm transition-colors">{contact.phone}</a>
                         <p className="text-slate-500 text-xs mt-1 leading-relaxed">{contact.description}</p>
                       </div>
@@ -861,11 +861,11 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               )}
 
               {entraideContent.contact && !entraideContent.contacts && (
-                <div className="rounded-xl bg-white border border-slate-100 shadow-sm p-4 flex items-center space-x-4">
+                <div className="rounded-xl bg-white border border-slate-100 dark:border-slate-700 shadow-sm p-4 flex items-center space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
                     <Phone className="w-5 h-5 text-[#7da4a6]" />
                   </div>
-                  <p className="text-slate-700 text-sm font-medium leading-relaxed">{entraideContent.contact}</p>
+                  <p className="text-slate-700 dark:text-slate-300 text-sm font-medium leading-relaxed">{entraideContent.contact}</p>
                 </div>
               )}
 
@@ -901,10 +901,10 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
         </div>
 
         {/* ── Footer fixe ── */}
-        <div className="flex-shrink-0 sm:rounded-b-2xl bg-slate-50 border-t border-slate-200 p-3 sm:p-4 flex justify-end">
+        <div className="flex-shrink-0 sm:rounded-b-2xl bg-slate-50 border-t border-slate-200 dark:border-slate-700 p-3 sm:p-4 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full font-medium transition-colors"
+            className="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 rounded-full font-medium transition-colors"
             data-testid="modal-close-footer-button"
           >
             Fermer

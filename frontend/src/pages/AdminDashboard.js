@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Edit2, Trash2, LogOut, Newspaper, Clock, Calendar, Mail, Upload, Copy, X, FileText, Repeat, LayoutDashboard, Users, Download, Eye, EyeOff, MessageSquare, Search, Menu, ChevronRight, Home } from 'lucide-react';
+import { Plus, Edit2, Trash2, LogOut, Newspaper, Clock, Calendar, Mail, Upload, Copy, X, FileText, Repeat, LayoutDashboard, Users, Download, Eye, EyeOff, MessageSquare, Search, Menu, ChevronRight, Home, Sun, Moon } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { format, addWeeks, addMonths, addDays } from 'date-fns';
@@ -8,12 +8,14 @@ import { fr } from 'date-fns/locale';
 import LocationAutocomplete from '@/components/LocationAutocomplete';
 import ChristianCross from '@/components/ChristianCross';
 import ReactQuill from 'react-quill-new';
+import { useDarkMode } from '@/contexts/DarkModeContext';
 import 'react-quill-new/dist/quill.snow.css';
 import { APP_VERSION } from '@/version';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const AdminDashboard = () => {
+  const { isDark, toggleDarkMode } = useDarkMode();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [news, setNews] = useState([]);
   const [massTimes, setMassTimes] = useState([]);
@@ -594,7 +596,7 @@ const AdminDashboard = () => {
 
   const BulkBar = ({ selected, setSelected, items, endpoint, label }) => (
     <div className="flex items-center justify-between bg-slate-50 rounded-lg px-4 py-2 mb-3">
-      <label className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
+      <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
         <input
           type="checkbox"
           checked={items.length > 0 && selected.length === items.length}
@@ -629,7 +631,7 @@ const AdminDashboard = () => {
   const currentTabLabel = sidebarTabs.find(t => t.id === activeTab)?.label || 'Tableau de bord';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50 flex" data-testid="admin-dashboard">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex transition-colors duration-300" data-testid="admin-dashboard">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -639,9 +641,9 @@ const AdminDashboard = () => {
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed lg:sticky top-0 left-0 h-screen w-[260px] bg-white border-r border-slate-200/80 z-50 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}`}>
+      <aside className={`fixed lg:sticky top-0 left-0 h-screen w-[260px] bg-white dark:bg-slate-800 border-r border-slate-200/80 dark:border-slate-700 z-50 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${sidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}`}>
         {/* Sidebar Header - Logo */}
-        <div className="p-5 border-b border-slate-100">
+        <div className="p-5 border-b border-slate-100 dark:border-slate-700">
           <div className="flex items-center gap-3">
             <img
               src="https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/34n0n91l_Notre-Dame-d-Autan.png"
@@ -649,8 +651,8 @@ const AdminDashboard = () => {
               className="h-9 w-auto"
             />
             <div>
-              <h1 className="font-serif text-sm font-semibold text-slate-800 leading-tight">Notre Dame d'Autan</h1>
-              <p className="text-[10px] text-slate-400 font-medium">Administration</p>
+              <h1 className="font-serif text-sm font-semibold text-slate-800 dark:text-slate-100 dark:text-slate-100 leading-tight">Notre Dame d'Autan</h1>
+              <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Administration</p>
             </div>
           </div>
         </div>
@@ -665,12 +667,12 @@ const AdminDashboard = () => {
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-gold/15 to-gold/5 text-gold shadow-sm'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                    : 'text-slate-600 dark:text-slate-400 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-200'
                 }`}
                 data-testid={`tab-${tab.id}`}
               >
                 <span className={`flex items-center justify-center w-8 h-8 rounded-lg transition-colors ${
-                  activeTab === tab.id ? 'bg-gold/20 text-gold' : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200 group-hover:text-slate-700'
+                  activeTab === tab.id ? 'bg-gold/20 text-gold' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-600 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200'
                 }`}>
                   <tab.icon className="w-[18px] h-[18px]" />
                 </span>
@@ -687,16 +689,23 @@ const AdminDashboard = () => {
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="p-3 border-t border-slate-100">
-          <div className="px-3 py-2 mb-2">
+        <div className="p-3 border-t border-slate-100 dark:border-slate-700">
+          <div className="flex items-center justify-between px-3 py-2 mb-2">
             <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">v{APP_VERSION}</p>
+            <button
+              onClick={toggleDarkMode}
+              className={`p-1.5 rounded-lg transition-colors ${isDark ? 'bg-slate-700 text-amber-300 hover:bg-slate-600' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
+              title={isDark ? 'Mode clair' : 'Mode sombre'}
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 hover:bg-red-50 hover:text-red-600 transition-all"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 transition-all"
             data-testid="logout-button"
           >
-            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100">
+            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700">
               <LogOut className="w-[18px] h-[18px]" />
             </span>
             <span>Déconnexion</span>
@@ -707,19 +716,19 @@ const AdminDashboard = () => {
       {/* Main Content Area */}
       <div className="flex-1 min-h-screen flex flex-col w-0">
         {/* Top Bar */}
-        <header className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-30">
+        <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-700/60 sticky top-0 z-30">
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors"
+                className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 transition-colors"
               >
                 <Menu className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-2 text-sm">
                 <Home className="w-4 h-4 text-slate-400" />
                 <span className="text-slate-400">/</span>
-                <span className="font-semibold text-slate-700">{currentTabLabel}</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300 dark:text-slate-200">{currentTabLabel}</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -756,11 +765,11 @@ const AdminDashboard = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher..."
-              className="w-full pl-11 pr-10 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-white text-sm shadow-sm transition-shadow focus:shadow-md"
+              className="w-full pl-11 pr-10 py-3 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold/50 bg-white dark:bg-slate-800 dark:text-slate-200 text-sm shadow-sm transition-shadow focus:shadow-md"
               data-testid="search-input"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:text-slate-400">
                 <X className="w-4 h-4" />
               </button>
             )}
@@ -774,8 +783,8 @@ const AdminDashboard = () => {
               <>
                 {/* Welcome banner */}
                 <div className="bg-gradient-to-r from-gold/10 via-gold/5 to-transparent rounded-2xl p-6 border border-gold/10">
-                  <h2 className="font-serif text-2xl text-slate-800 mb-1">Bienvenue sur votre espace</h2>
-                  <p className="text-sm text-slate-500">Gérez le contenu de votre paroisse Notre Dame d'Autan</p>
+                  <h2 className="font-serif text-2xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-1">Bienvenue sur votre espace</h2>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Gérez le contenu de votre paroisse Notre Dame d'Autan</p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -792,23 +801,23 @@ const AdminDashboard = () => {
                     <button
                       key={idx}
                       onClick={stat.onClick}
-                      className="bg-white rounded-2xl p-5 text-left transition-all duration-200 hover:shadow-lg hover:shadow-slate-200/50 hover:-translate-y-0.5 border border-slate-100 group"
+                      className="bg-white dark:bg-slate-800 rounded-2xl p-5 text-left transition-all duration-200 hover:shadow-lg hover:shadow-slate-200/50 dark:hover:shadow-slate-900/50 hover:-translate-y-0.5 border border-slate-100 dark:border-slate-700 group"
                       data-testid={`stat-card-${idx}`}
                     >
                       <div className={`w-10 h-10 ${stat.iconBg} ${stat.iconColor} rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110`}>
                         <stat.icon className="w-5 h-5" />
                       </div>
-                      <p className="text-3xl font-bold text-slate-800 mb-1">{stat.value}</p>
-                      <p className="text-sm text-slate-500 font-medium">{stat.label}</p>
+                      <p className="text-3xl font-bold text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-1">{stat.value}</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{stat.label}</p>
                     </button>
                   ))}
                 </div>
 
                 {/* Recent messages preview */}
                 {contactMessages.length > 0 && (
-                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
                     <div className="flex items-center justify-between mb-5">
-                      <h3 className="font-serif text-xl text-slate-800">Derniers messages</h3>
+                      <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Derniers messages</h3>
                       <button onClick={() => setActiveTab('messages')} className="text-sm text-gold hover:text-gold-dark font-medium flex items-center gap-1 transition-colors">
                         Voir tout
                         <ChevronRight className="w-4 h-4" />
@@ -818,10 +827,10 @@ const AdminDashboard = () => {
                       {contactMessages.slice(0, 3).map(msg => (
                         <div key={msg.id} className={`p-4 rounded-xl border transition-colors ${msg.read ? 'border-slate-100 bg-slate-50/50 hover:bg-slate-50' : 'border-gold/30 bg-gradient-to-r from-gold/5 to-transparent'}`}>
                           <div className="flex items-center justify-between mb-1">
-                            <p className="font-medium text-slate-900 text-sm">{msg.name} <span className="text-slate-400 font-normal">({msg.email})</span></p>
+                            <p className="font-medium text-slate-900 dark:text-slate-100 text-sm">{msg.name} <span className="text-slate-400 font-normal">({msg.email})</span></p>
                             {!msg.read && <span className="text-[10px] font-bold text-white bg-red-500 rounded-full px-2 py-0.5 animate-pulse">Nouveau</span>}
                           </div>
-                          <p className="text-sm font-medium text-slate-700">{msg.subject}</p>
+                          <p className="text-sm font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300">{msg.subject}</p>
                           <p className="text-xs text-slate-500 line-clamp-1 mt-1">{msg.message}</p>
                         </div>
                       ))}
@@ -832,7 +841,7 @@ const AdminDashboard = () => {
             ) : (
               <div className="flex items-center justify-center py-20">
                 <div className="w-8 h-8 border-3 border-gold border-t-transparent rounded-full animate-spin"></div>
-                <span className="ml-3 text-slate-500">Chargement...</span>
+                <span className="ml-3 text-slate-500 dark:text-slate-400">Chargement...</span>
               </div>
             )}
           </div>
@@ -842,24 +851,24 @@ const AdminDashboard = () => {
         {activeTab === 'news' && (
           <div className="space-y-8">
             {/* Form */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <h2 className="font-serif text-2xl text-slate-800 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+              <h2 className="font-serif text-2xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-6">
                 {editingNews ? 'Éditer l\'actualité' : 'Nouvelle actualité'}
               </h2>
               <form onSubmit={handleNewsSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Titre</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Titre</label>
                   <input
                     type="text"
                     value={newsForm.title}
                     onChange={(e) => setNewsForm({ ...newsForm, title: e.target.value })}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                     required
                     data-testid="news-title-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Contenu</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Contenu</label>
                   <ReactQuill
                     theme="snow"
                     value={newsForm.content}
@@ -879,7 +888,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Catégorie</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Catégorie</label>
                     <select
                       value={NEWS_CATEGORIES.includes(newsForm.category) ? newsForm.category : 'Autre'}
                       onChange={(e) => {
@@ -893,7 +902,7 @@ const AdminDashboard = () => {
                           setCustomCategory('');
                         }
                       }}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold bg-white"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold bg-white dark:bg-slate-700 dark:text-slate-200"
                       data-testid="news-category-input"
                     >
                       {NEWS_CATEGORIES.map((cat) => (
@@ -907,14 +916,14 @@ const AdminDashboard = () => {
                         value={customCategory || (newsForm.category !== 'Autre' ? newsForm.category : '')}
                         onChange={(e) => setCustomCategory(e.target.value)}
                         placeholder="Tapez votre catégorie..."
-                        className="w-full mt-2 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                        className="w-full mt-2 px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                         required
                         data-testid="news-custom-category-input"
                       />
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Image (optionnel)</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Image (optionnel)</label>
                     {newsForm.image_url ? (
                       <div className="relative border border-slate-200 rounded-lg overflow-hidden"
                         onDragOver={(e) => { e.preventDefault(); setDragOverImage(true); }}
@@ -934,7 +943,7 @@ const AdminDashboard = () => {
                           <button
                             type="button"
                             onClick={() => document.getElementById('news-image-file').click()}
-                            className="bg-white shadow-md text-slate-700 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:bg-slate-50 text-xs font-medium border border-slate-200"
+                            className="bg-white shadow-md text-slate-700 dark:text-slate-300 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:bg-slate-50 text-xs font-medium border border-slate-200"
                             title="Changer l'image"
                           >
                             <Edit2 className="w-3.5 h-3.5" />
@@ -990,7 +999,7 @@ const AdminDashboard = () => {
                         ) : (
                           <>
                             <Upload className="w-6 h-6 text-slate-400 mx-auto mb-1" />
-                            <p className="text-sm text-slate-500">Glissez une image ou <span className="text-gold font-medium">parcourir</span></p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">Glissez une image ou <span className="text-gold font-medium">parcourir</span></p>
                             <p className="text-xs text-slate-400 mt-1">JPG, PNG, WebP — max 10 Mo</p>
                           </>
                         )}
@@ -1021,7 +1030,7 @@ const AdminDashboard = () => {
                     type="button"
                     onClick={() => setPreviewNews(true)}
                     disabled={!newsForm.title}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                     data-testid="news-preview-button"
                   >
                     <Eye className="w-4 h-4" />
@@ -1034,7 +1043,7 @@ const AdminDashboard = () => {
                         setEditingNews(null);
                         setNewsForm({ title: '', content: '', category: 'Actualité', image_url: DEFAULT_CATEGORY_IMAGES['Actualité'] || '' });
                       }}
-                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="news-cancel-button"
                     >
                       Annuler
@@ -1058,8 +1067,8 @@ const AdminDashboard = () => {
                   </div>
                   <div className="p-6">
                     <span className="text-xs font-semibold text-gold uppercase tracking-wider">{newsForm.category === 'Autre' ? (customCategory || 'Autre') : newsForm.category}</span>
-                    <h2 className="font-serif text-2xl text-slate-900 mt-2 mb-4">{newsForm.title || 'Sans titre'}</h2>
-                    <div className="prose prose-sm max-w-none text-slate-600" dangerouslySetInnerHTML={{ __html: newsForm.content || '<p class="text-slate-400 italic">Aucun contenu</p>' }}></div>
+                    <h2 className="font-serif text-2xl text-slate-900 dark:text-slate-100 mt-2 mb-4">{newsForm.title || 'Sans titre'}</h2>
+                    <div className="prose prose-sm max-w-none text-slate-600 dark:text-slate-400 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: newsForm.content || '<p class="text-slate-400 italic">Aucun contenu</p>' }}></div>
                     <p className="text-xs text-slate-400 mt-6 pt-4 border-t border-slate-100">{new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
                   </div>
                 </div>
@@ -1069,20 +1078,20 @@ const AdminDashboard = () => {
             {/* News List */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl text-slate-800">Actualités publiées</h3>
-                {q && <span className="text-sm text-slate-500">{filteredNews.length}/{news.length} résultat(s)</span>}
+                <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Actualités publiées</h3>
+                {q && <span className="text-sm text-slate-500 dark:text-slate-400">{filteredNews.length}/{news.length} résultat(s)</span>}
               </div>
               {loading ? (
                 <p>Chargement...</p>
               ) : filteredNews.length === 0 ? (
-                <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucune actualité'}</p>
+                <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucune actualité'}</p>
               ) : (
                 <>
                 <BulkBar selected={selectedNews} setSelected={setSelectedNews} items={filteredNews} endpoint="news" label="actualités" />
                 {filteredNews.map((item) => (
                   <div
                     key={item.id}
-                    className={`bg-white rounded-xl p-4 border flex justify-between items-start ${selectedNews.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-start ${selectedNews.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`news-item-${item.id}`}
                   >
                     <div className="flex items-start gap-3 flex-1 min-w-0 overflow-hidden">
@@ -1094,15 +1103,15 @@ const AdminDashboard = () => {
                       />
                       <div className="flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-medium text-slate-900 truncate">{item.title}</h4>
+                          <h4 className="font-medium text-slate-900 dark:text-slate-100 truncate">{item.title}</h4>
                           {item.published === false ? (
                             <span className="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5 flex-shrink-0 flex items-center gap-1"><EyeOff className="w-3 h-3" />Brouillon</span>
                           ) : (
                             <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5 flex-shrink-0">Publié</span>
                           )}
                         </div>
-                        <p className="text-sm text-slate-600 mb-2 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.content; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>
-                        <div className="flex items-center space-x-2 text-xs text-slate-500">
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mb-2 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.content; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>
+                        <div className="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400">
                           <span>{formatDate(item.created_at)}</span>
                           <span>•</span>
                           <span className="text-gold">{item.category}</span>
@@ -1112,14 +1121,14 @@ const AdminDashboard = () => {
                     <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleEditNews(item)}
-                        className="text-slate-600 hover:text-gold transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                         data-testid={`news-edit-${item.id}`}
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDeleteNews(item.id)}
-                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
                         data-testid={`news-delete-${item.id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1137,19 +1146,19 @@ const AdminDashboard = () => {
         {activeTab === 'mass' && (
           <div className="space-y-8">
             {/* Form */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <h2 className="font-serif text-2xl text-slate-800 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+              <h2 className="font-serif text-2xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-6">
                 {editingMass ? 'Éditer l\'horaire' : 'Nouvel horaire'}
               </h2>
               <form onSubmit={handleMassSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Date</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Date</label>
                     <input
                       type="date"
                       value={massForm.date || ''}
                       onChange={(e) => setMassForm({ ...massForm, date: e.target.value, day: getDayName(e.target.value) })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       required
                       data-testid="mass-date-input"
                     />
@@ -1158,18 +1167,18 @@ const AdminDashboard = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Heure</label>
                     <input
                       type="time"
                       value={massForm.time}
                       onChange={(e) => setMassForm({ ...massForm, time: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       required
                       data-testid="mass-time-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Lieu</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Lieu</label>
                     <LocationAutocomplete
                       value={massForm.location}
                       onChange={(val) => setMassForm({ ...massForm, location: val })}
@@ -1179,7 +1188,7 @@ const AdminDashboard = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Type</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Type</label>
                     <select
                       value={MASS_TYPES.includes(massForm.mass_type) ? massForm.mass_type : 'Autre'}
                       onChange={(e) => {
@@ -1191,7 +1200,7 @@ const AdminDashboard = () => {
                           setCustomMassType('');
                         }
                       }}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold bg-white"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold bg-white dark:bg-slate-700 dark:text-slate-200"
                       data-testid="mass-type-input"
                     >
                       {MASS_TYPES.map((t) => (
@@ -1205,7 +1214,7 @@ const AdminDashboard = () => {
                         value={customMassType || (massForm.mass_type !== 'Autre' ? massForm.mass_type : '')}
                         onChange={(e) => setCustomMassType(e.target.value)}
                         placeholder="Tapez le type..."
-                        className="w-full mt-2 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                        className="w-full mt-2 px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                         required
                       />
                     )}
@@ -1216,8 +1225,8 @@ const AdminDashboard = () => {
                 {!editingMass && (
                   <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
                     <div className="flex items-center gap-2 mb-3">
-                      <Repeat className="w-4 h-4 text-slate-600" />
-                      <label className="text-sm font-medium text-slate-700">Répéter cet horaire</label>
+                      <Repeat className="w-4 h-4 text-slate-600 dark:text-slate-400 dark:text-slate-400" />
+                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300 dark:text-slate-300">Répéter cet horaire</label>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -1225,7 +1234,7 @@ const AdminDashboard = () => {
                         <select
                           value={repeatMode}
                           onChange={(e) => setRepeatMode(e.target.value)}
-                          className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold bg-white text-sm"
+                          className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold bg-white dark:bg-slate-700 dark:text-slate-200 text-sm"
                         >
                           <option value="none">Pas de répétition</option>
                           <option value="week">Toutes les semaines</option>
@@ -1241,7 +1250,7 @@ const AdminDashboard = () => {
                             value={repeatUntil}
                             onChange={(e) => setRepeatUntil(e.target.value)}
                             min={massForm.date}
-                            className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold text-sm"
+                            className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold text-sm"
                             required={repeatMode !== 'none'}
                           />
                         </div>
@@ -1267,7 +1276,7 @@ const AdminDashboard = () => {
                         setRepeatMode('none');
                         setRepeatUntil('');
                       }}
-                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="mass-cancel-button"
                     >
                       Annuler
@@ -1280,13 +1289,13 @@ const AdminDashboard = () => {
             {/* Mass Times List */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl text-slate-800">Horaires configurés</h3>
-                {q && <span className="text-sm text-slate-500">{filteredMass.length}/{massTimes.length} résultat(s)</span>}
+                <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Horaires configurés</h3>
+                {q && <span className="text-sm text-slate-500 dark:text-slate-400">{filteredMass.length}/{massTimes.length} résultat(s)</span>}
               </div>
               {loading ? (
                 <p>Chargement...</p>
               ) : filteredMass.length === 0 ? (
-                <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucun horaire'}</p>
+                <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucun horaire'}</p>
               ) : (
                 <>
                 <BulkBar selected={selectedMass} setSelected={setSelectedMass} items={filteredMass} endpoint="mass-times" label="horaires" />
@@ -1305,7 +1314,7 @@ const AdminDashboard = () => {
                       </div>
                     )}
                   <div
-                    className={`bg-white rounded-xl p-4 border flex justify-between items-center ${selectedMass.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-center ${selectedMass.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`mass-item-${item.id}`}
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -1316,17 +1325,17 @@ const AdminDashboard = () => {
                         className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
                       <div className="min-w-0">
-                        <h4 className="font-medium text-slate-900 truncate">
+                        <h4 className="font-medium text-slate-900 dark:text-slate-100 truncate">
                           {item.day} - {item.time}
                           {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
                         </h4>
-                        <p className="text-sm text-slate-600 truncate">{item.location} • {item.mass_type}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 truncate">{item.location} • {item.mass_type}</p>
                       </div>
                     </div>
                     <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleDuplicateMass(item)}
-                        className="text-slate-600 hover:text-emerald-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 transition-colors"
                         title="Dupliquer"
                         data-testid={`mass-duplicate-${item.id}`}
                       >
@@ -1334,14 +1343,14 @@ const AdminDashboard = () => {
                       </button>
                       <button
                         onClick={() => handleEditMass(item)}
-                        className="text-slate-600 hover:text-gold transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                         data-testid={`mass-edit-${item.id}`}
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDeleteMass(item.id)}
-                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
                         data-testid={`mass-delete-${item.id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1361,25 +1370,25 @@ const AdminDashboard = () => {
         {activeTab === 'funerals' && (
           <div className="space-y-8">
             {/* Form */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <h3 className="font-serif text-xl text-slate-800 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+              <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-6">
                 {editingFuneral ? 'Modifier la cérémonie' : 'Ajouter une cérémonie'}
               </h3>
               <form onSubmit={handleSubmitFuneral} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Nom du défunt *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Nom du défunt *</label>
                     <input
                       type="text"
                       required
                       value={funeralForm.deceased_name}
                       onChange={(e) => setFuneralForm({ ...funeralForm, deceased_name: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                       placeholder="M. Jean Dupont"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Lieu *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Lieu *</label>
                     <LocationAutocomplete
                       value={funeralForm.location}
                       onChange={(val) => setFuneralForm({ ...funeralForm, location: val })}
@@ -1389,27 +1398,27 @@ const AdminDashboard = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Date *</label>
                     <input
                       type="date"
                       required
                       value={funeralForm.funeral_date}
                       onChange={(e) => setFuneralForm({ ...funeralForm, funeral_date: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Heure *</label>
                     <input
                       type="time"
                       required
                       value={funeralForm.funeral_time}
                       onChange={(e) => setFuneralForm({ ...funeralForm, funeral_time: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                     />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Type de cérémonie</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Type de cérémonie</label>
                     <select
                       value={CEREMONY_TYPES.includes(funeralForm.ceremony_type) ? funeralForm.ceremony_type : 'Autre'}
                       onChange={(e) => {
@@ -1421,7 +1430,7 @@ const AdminDashboard = () => {
                           setCustomCeremonyType('');
                         }
                       }}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                     >
                       {CEREMONY_TYPES.map((t) => (
                         <option key={t} value={t}>{t}</option>
@@ -1434,7 +1443,7 @@ const AdminDashboard = () => {
                         value={customCeremonyType || (funeralForm.ceremony_type !== 'Autre' ? funeralForm.ceremony_type : '')}
                         onChange={(e) => setCustomCeremonyType(e.target.value)}
                         placeholder="Tapez le type de cérémonie..."
-                        className="w-full mt-2 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                        className="w-full mt-2 px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                         required
                       />
                     )}
@@ -1456,7 +1465,7 @@ const AdminDashboard = () => {
                         setEditingFuneral(null);
                         setFuneralForm({ deceased_name: '', funeral_date: '', funeral_time: '', location: '', ceremony_type: 'Messe de funérailles' });
                       }}
-                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors"
                     >
                       Annuler
                     </button>
@@ -1468,20 +1477,20 @@ const AdminDashboard = () => {
             {/* Funerals List */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl text-slate-800">Cérémonies programmées</h3>
-                {q && <span className="text-sm text-slate-500">{filteredFunerals.length}/{funerals.length} résultat(s)</span>}
+                <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Cérémonies programmées</h3>
+                {q && <span className="text-sm text-slate-500 dark:text-slate-400">{filteredFunerals.length}/{funerals.length} résultat(s)</span>}
               </div>
               {loading ? (
                 <p>Chargement...</p>
               ) : filteredFunerals.length === 0 ? (
-                <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucune cérémonie'}</p>
+                <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucune cérémonie'}</p>
               ) : (
                 <>
                 <BulkBar selected={selectedFunerals} setSelected={setSelectedFunerals} items={filteredFunerals} endpoint="funerals" label="funérailles" />
                 {filteredFunerals.map((item) => (
                   <div
                     key={item.id}
-                    className={`bg-white rounded-xl p-4 border flex justify-between items-center ${selectedFunerals.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-center ${selectedFunerals.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`funeral-item-${item.id}`}
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -1492,8 +1501,8 @@ const AdminDashboard = () => {
                         className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
                       <div className="min-w-0">
-                        <h4 className="font-medium text-slate-900 truncate">{item.deceased_name}</h4>
-                        <p className="text-sm text-slate-600 truncate">
+                        <h4 className="font-medium text-slate-900 dark:text-slate-100 truncate">{item.deceased_name}</h4>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 truncate">
                           {new Date(item.funeral_date).toLocaleDateString('fr-FR')} à {item.funeral_time} • {item.location}
                         </p>
                         <p className="text-xs text-gold mt-1">{item.ceremony_type}</p>
@@ -1502,14 +1511,14 @@ const AdminDashboard = () => {
                     <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleEditFuneral(item)}
-                        className="text-slate-600 hover:text-gold transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                         data-testid={`funeral-edit-${item.id}`}
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDeleteFuneral(item.id)}
-                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
                         data-testid={`funeral-delete-${item.id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1526,25 +1535,25 @@ const AdminDashboard = () => {
         {/* EVENTS TAB */}
         {activeTab === 'events' && (
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <h2 className="font-serif text-2xl text-slate-800 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+              <h2 className="font-serif text-2xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-6">
                 {editingEvent ? "Modifier l'événement" : 'Nouvel événement'}
               </h2>
               <form onSubmit={handleEventSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Titre *</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Titre *</label>
                   <input
                     type="text"
                     required
                     value={eventForm.title}
                     onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                     placeholder="Ex: Messe de Noël"
                     data-testid="event-title-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Description</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Description</label>
                   <ReactQuill
                     theme="snow"
                     value={eventForm.description}
@@ -1564,39 +1573,39 @@ const AdminDashboard = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Date *</label>
                     <input
                       type="date"
                       required
                       value={eventForm.date}
                       onChange={(e) => setEventForm({ ...eventForm, date: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       data-testid="event-date-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure de début *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Heure de début *</label>
                     <input
                       type="time"
                       required
                       value={eventForm.time}
                       onChange={(e) => setEventForm({ ...eventForm, time: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       data-testid="event-time-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Heure de fin (optionnel)</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Heure de fin (optionnel)</label>
                     <input
                       type="time"
                       value={eventForm.end_time}
                       onChange={(e) => setEventForm({ ...eventForm, end_time: e.target.value })}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       data-testid="event-end-time-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Lieu *</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Lieu *</label>
                     <LocationAutocomplete
                       value={eventForm.location}
                       onChange={(val) => setEventForm({ ...eventForm, location: val })}
@@ -1606,7 +1615,7 @@ const AdminDashboard = () => {
                     />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Catégorie</label>
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Catégorie</label>
                     <select
                       value={EVENT_CATEGORIES.includes(eventForm.category) ? eventForm.category : 'Autre'}
                       onChange={(e) => {
@@ -1618,7 +1627,7 @@ const AdminDashboard = () => {
                           setCustomEventCategory('');
                         }
                       }}
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                       data-testid="event-category-select"
                     >
                       {EVENT_CATEGORIES.map((cat) => (
@@ -1632,7 +1641,7 @@ const AdminDashboard = () => {
                         value={customEventCategory || (eventForm.category !== 'Autre' ? eventForm.category : '')}
                         onChange={(e) => setCustomEventCategory(e.target.value)}
                         placeholder="Tapez la catégorie..."
-                        className="w-full mt-2 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                        className="w-full mt-2 px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                         required
                       />
                     )}
@@ -1651,7 +1660,7 @@ const AdminDashboard = () => {
                     type="button"
                     onClick={() => setPreviewEvent(true)}
                     disabled={!eventForm.title || !eventForm.date}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
                     data-testid="event-preview-button"
                   >
                     <Eye className="w-4 h-4" />
@@ -1664,7 +1673,7 @@ const AdminDashboard = () => {
                         setEditingEvent(null);
                         setEventForm({ title: '', description: '', date: '', time: '', end_time: '', location: '', category: 'Communauté' });
                       }}
-                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="event-cancel-button"
                     >
                       Annuler
@@ -1684,12 +1693,12 @@ const AdminDashboard = () => {
                     <h2 className="font-serif text-2xl mt-2">{eventForm.title || 'Sans titre'}</h2>
                   </div>
                   <div className="p-6 space-y-4">
-                    <div className="flex items-center gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
                       <div className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-gold" />{eventForm.date ? new Date(eventForm.date + 'T00:00:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : '—'}</div>
                       <div className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-gold" />{eventForm.time || '—'}{eventForm.end_time ? ` - ${eventForm.end_time}` : ''}</div>
                     </div>
-                    {eventForm.location && <p className="text-sm text-slate-600"><span className="font-medium">Lieu :</span> {eventForm.location}</p>}
-                    {eventForm.description && <div className="prose prose-sm max-w-none text-slate-600" dangerouslySetInnerHTML={{ __html: eventForm.description }}></div>}
+                    {eventForm.location && <p className="text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400"><span className="font-medium">Lieu :</span> {eventForm.location}</p>}
+                    {eventForm.description && <div className="prose prose-sm max-w-none text-slate-600 dark:text-slate-400 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: eventForm.description }}></div>}
                     {!eventForm.description && <p className="text-slate-400 italic text-sm">Aucune description</p>}
                   </div>
                 </div>
@@ -1698,20 +1707,20 @@ const AdminDashboard = () => {
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl text-slate-800">Tous les événements</h3>
-                {q && <span className="text-sm text-slate-500">{filteredEvents.length}/{events.length} résultat(s)</span>}
+                <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Tous les événements</h3>
+                {q && <span className="text-sm text-slate-500 dark:text-slate-400">{filteredEvents.length}/{events.length} résultat(s)</span>}
               </div>
               {loading ? (
                 <p>Chargement...</p>
               ) : filteredEvents.length === 0 ? (
-                <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucun événement'}</p>
+                <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucun événement'}</p>
               ) : (
                 <>
                 <BulkBar selected={selectedEvents} setSelected={setSelectedEvents} items={filteredEvents} endpoint="events" label="événements" />
                 {filteredEvents.map((item) => (
                   <div
                     key={item.id}
-                    className={`bg-white rounded-xl p-4 border flex justify-between items-start ${selectedEvents.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-start ${selectedEvents.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`event-item-${item.id}`}
                   >
                     <div className="flex items-start gap-3 flex-1 min-w-0 overflow-hidden">
@@ -1723,7 +1732,7 @@ const AdminDashboard = () => {
                       />
                       <div className="flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <h4 className="font-medium text-slate-900 truncate">{item.title}</h4>
+                          <h4 className="font-medium text-slate-900 dark:text-slate-100 truncate">{item.title}</h4>
                           <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded-full flex-shrink-0">{item.category}</span>
                           {item.date < new Date().toISOString().split('T')[0] ? (
                             <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-slate-200 rounded-full px-2 py-0.5 flex-shrink-0">Passé</span>
@@ -1731,7 +1740,7 @@ const AdminDashboard = () => {
                             <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2 py-0.5 flex-shrink-0">À venir</span>
                           )}
                         </div>
-                        {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.description; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>}
+                        {item.description && <p className="text-sm text-slate-600 dark:text-slate-400 mb-1 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.description; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>}
                         <p className="text-sm text-slate-500 truncate">
                           {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')} à {item.time}
                           {item.end_time ? ` - ${item.end_time}` : ''} • {item.location}
@@ -1741,14 +1750,14 @@ const AdminDashboard = () => {
                     <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleEditEvent(item)}
-                        className="text-slate-600 hover:text-gold transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                         data-testid={`event-edit-${item.id}`}
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDeleteEvent(item.id)}
-                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
                         data-testid={`event-delete-${item.id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1765,36 +1774,36 @@ const AdminDashboard = () => {
         {/* LETTERS TAB */}
         {activeTab === 'letters' && (
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <h2 className="font-serif text-2xl text-slate-800 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+              <h2 className="font-serif text-2xl text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-6">
                 {editingLetter ? 'Modifier la lettre' : 'Nouvelle lettre'}
               </h2>
               <form onSubmit={handleLetterSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Titre *</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Titre *</label>
                   <input
                     type="text"
                     required
                     value={letterForm.title}
                     onChange={(e) => setLetterForm({ ...letterForm, title: e.target.value })}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                     placeholder="Ex: Carême 2026 - Lettre aux paroissiens"
                     data-testid="letter-title-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Date *</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Date *</label>
                   <input
                     type="date"
                     required
                     value={letterForm.date}
                     onChange={(e) => setLetterForm({ ...letterForm, date: e.target.value })}
-                    className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                    className="w-full px-4 py-2 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-gold"
                     data-testid="letter-date-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Fichier PDF *</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Fichier PDF *</label>
                   {letterForm.file_url ? (
                     <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
                       <FileText className="w-8 h-8 text-emerald-600 flex-shrink-0" />
@@ -1840,7 +1849,7 @@ const AdminDashboard = () => {
                       ) : (
                         <>
                           <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-                          <p className="text-sm text-slate-500">Glissez un fichier PDF ou <span className="text-gold font-medium">parcourir</span></p>
+                          <p className="text-sm text-slate-500 dark:text-slate-400">Glissez un fichier PDF ou <span className="text-gold font-medium">parcourir</span></p>
                           <p className="text-xs text-slate-400 mt-1">PDF uniquement — max 10 Mo</p>
                         </>
                       )}
@@ -1860,7 +1869,7 @@ const AdminDashboard = () => {
                   )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Description (optionnel)</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Description (optionnel)</label>
                   <ReactQuill
                     theme="snow"
                     value={letterForm.content}
@@ -1895,7 +1904,7 @@ const AdminDashboard = () => {
                         setEditingLetter(null);
                         setLetterForm({ title: '', content: '', date: '', file_url: '' });
                       }}
-                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                      className="bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="letter-cancel-button"
                     >
                       Annuler
@@ -1907,20 +1916,20 @@ const AdminDashboard = () => {
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl text-slate-800">Lettres publiées</h3>
-                {q && <span className="text-sm text-slate-500">{filteredLetters.length}/{letters.length} résultat(s)</span>}
+                <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Lettres publiées</h3>
+                {q && <span className="text-sm text-slate-500 dark:text-slate-400">{filteredLetters.length}/{letters.length} résultat(s)</span>}
               </div>
               {loading ? (
                 <p>Chargement...</p>
               ) : filteredLetters.length === 0 ? (
-                <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucune lettre publiée'}</p>
+                <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucune lettre publiée'}</p>
               ) : (
                 <>
                 <BulkBar selected={selectedLetters} setSelected={setSelectedLetters} items={filteredLetters} endpoint="letters" label="lettres" />
                 {filteredLetters.map((item) => (
                   <div
                     key={item.id}
-                    className={`bg-white rounded-xl p-4 border flex justify-between items-start ${selectedLetters.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-start ${selectedLetters.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`letter-item-${item.id}`}
                   >
                     <div className="flex items-start gap-3 flex-1">
@@ -1931,7 +1940,7 @@ const AdminDashboard = () => {
                         className="mt-1 w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
                       />
                       <div className="flex-1">
-                        <h4 className="font-medium text-slate-900">{item.title}</h4>
+                        <h4 className="font-medium text-slate-900 dark:text-slate-100 dark:text-slate-100">{item.title}</h4>
                         <p className="text-sm text-slate-500 mt-1">
                           {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')}
                         </p>
@@ -1946,20 +1955,20 @@ const AdminDashboard = () => {
                             Voir le PDF
                           </a>
                         )}
-                        {item.content && <p className="text-sm text-slate-600 mt-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.content }}></p>}
+                        {item.content && <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.content }}></p>}
                       </div>
                     </div>
                     <div className="flex space-x-2 ml-4">
                       <button
                         onClick={() => handleEditLetter(item)}
-                        className="text-slate-600 hover:text-gold transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                         data-testid={`letter-edit-${item.id}`}
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDeleteLetter(item.id)}
-                        className="text-slate-600 hover:text-red-600 transition-colors"
+                        className="text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
                         data-testid={`letter-delete-${item.id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1977,26 +1986,26 @@ const AdminDashboard = () => {
         {activeTab === 'messages' && (
           <div className="space-y-4" data-testid="messages-tab-content">
             <div className="flex items-center justify-between">
-              <h3 className="font-serif text-xl text-slate-800">Messages de contact</h3>
-              <span className="text-sm text-slate-500">{q ? `${filteredMessages.length}/${contactMessages.length}` : contactMessages.length} message(s)</span>
+              <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Messages de contact</h3>
+              <span className="text-sm text-slate-500 dark:text-slate-400">{q ? `${filteredMessages.length}/${contactMessages.length}` : contactMessages.length} message(s)</span>
             </div>
             {loading ? (
               <p>Chargement...</p>
             ) : filteredMessages.length === 0 ? (
-              <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucun message reçu'}</p>
+              <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucun message reçu'}</p>
             ) : (
               <div className="space-y-3">
                 {filteredMessages.map(msg => (
-                  <div key={msg.id} className={`bg-white rounded-xl p-5 border transition-all hover:shadow-sm ${msg.read ? 'border-slate-100' : 'border-gold/40 bg-gold/5'}`} data-testid={`message-item-${msg.id}`}>
+                  <div key={msg.id} className={`bg-white dark:bg-slate-800 rounded-xl p-5 border transition-all hover:shadow-sm ${msg.read ? 'border-slate-100' : 'border-gold/40 bg-gold/5'}`} data-testid={`message-item-${msg.id}`}>
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <p className="font-medium text-slate-900">{msg.name}</p>
+                          <p className="font-medium text-slate-900 dark:text-slate-100 dark:text-slate-100">{msg.name}</p>
                           {!msg.read && <span className="text-[10px] font-bold text-white bg-red-500 rounded-full px-2 py-0.5">Nouveau</span>}
                         </div>
                         <p className="text-sm text-gold mb-1">{msg.email}</p>
-                        <p className="text-sm font-semibold text-slate-800 mb-2">{msg.subject}</p>
-                        <p className="text-sm text-slate-600 whitespace-pre-wrap" style={{ wordBreak: 'break-word' }}>{msg.message}</p>
+                        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">{msg.subject}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 whitespace-pre-wrap" style={{ wordBreak: 'break-word' }}>{msg.message}</p>
                         <p className="text-xs text-slate-400 mt-3">{formatDate(msg.created_at)}</p>
                       </div>
                       <div className="flex space-x-2 flex-shrink-0">
@@ -2031,9 +2040,9 @@ const AdminDashboard = () => {
         {activeTab === 'subscribers' && (
           <div className="space-y-4" data-testid="subscribers-tab-content">
             <div className="flex items-center justify-between flex-wrap gap-3">
-              <h3 className="font-serif text-xl text-slate-800">Abonnés newsletter</h3>
+              <h3 className="font-serif text-xl text-slate-800 dark:text-slate-100 dark:text-slate-100">Abonnés newsletter</h3>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-slate-500">{q ? `${filteredSubscribers.length}/${subscribers.length}` : subscribers.length} abonné(s)</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{q ? `${filteredSubscribers.length}/${subscribers.length}` : subscribers.length} abonné(s)</span>
                 {subscribers.length > 0 && (
                   <button
                     onClick={exportSubscribersCSV}
@@ -2049,12 +2058,12 @@ const AdminDashboard = () => {
             {loading ? (
               <p>Chargement...</p>
             ) : filteredSubscribers.length === 0 ? (
-              <p className="text-slate-500">{q ? 'Aucun résultat pour cette recherche' : 'Aucun abonné'}</p>
+              <p className="text-slate-500 dark:text-slate-400">{q ? 'Aucun résultat pour cette recherche' : 'Aucun abonné'}</p>
             ) : (
               <>
                 <BulkBar selected={selectedSubscribers} setSelected={setSelectedSubscribers} items={filteredSubscribers} endpoint="subscribers" label="abonnés" />
                 {filteredSubscribers.map(sub => (
-                  <div key={sub.id} className={`bg-white rounded-xl p-4 border flex justify-between items-center ${selectedSubscribers.includes(sub.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`} data-testid={`subscriber-item-${sub.id}`}>
+                  <div key={sub.id} className={`bg-white dark:bg-slate-800 rounded-xl p-4 border flex justify-between items-center ${selectedSubscribers.includes(sub.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`} data-testid={`subscriber-item-${sub.id}`}>
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <input
                         type="checkbox"
@@ -2063,8 +2072,8 @@ const AdminDashboard = () => {
                         className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
                       <div className="min-w-0">
-                        <p className="font-medium text-slate-900 truncate">{sub.email}</p>
-                        <p className="text-xs text-slate-500">{formatDate(sub.subscribed_at)}</p>
+                        <p className="font-medium text-slate-900 dark:text-slate-100 truncate">{sub.email}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{formatDate(sub.subscribed_at)}</p>
                       </div>
                     </div>
                     <button

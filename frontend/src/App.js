@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
+import { DarkModeProvider } from '@/contexts/DarkModeContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FloatingButtons } from '@/components/FloatingButtons';
@@ -35,9 +36,10 @@ import LegsEtDonsPage from '@/pages/LegsEtDonsPage';
 function App() {
   return (
     <>
+      <DarkModeProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-offwhite dark:bg-slate-900 transition-colors duration-300">
           <Routes>
             {/* Admin routes without header/footer */}
             <Route path="/admin/login" element={<AdminLogin />} />
@@ -110,6 +112,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
+      </DarkModeProvider>
       <Toaster richColors position="top-right" />
     </>
   );

@@ -173,16 +173,16 @@ const ServiceCard = ({ service, testIdPrefix = 'service' }) => {
   return (
     <Link
       to={service.path || '/servir'}
-      className="group block bg-white rounded-xl border border-slate-100 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 h-full"
+      className="group block bg-white rounded-xl border border-slate-100 dark:border-slate-700 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 h-full"
       data-testid={`${testIdPrefix}-card-${service.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
     >
       <div className={`w-12 h-12 rounded-xl ${service.color} flex items-center justify-center mb-4`}>
         <IconComp className="w-6 h-6" />
       </div>
-      <h3 className="font-medium text-slate-900 text-lg mb-2 group-hover:text-gold transition-colors">
+      <h3 className="font-medium text-slate-900 dark:text-slate-100 text-lg mb-2 group-hover:text-gold transition-colors">
         {service.title}
       </h3>
-      <p className="text-slate-600 text-sm leading-relaxed">{service.description}</p>
+      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{service.description}</p>
     </Link>
   );
 };
@@ -243,7 +243,7 @@ const ServirPage = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <FadeIn>
           <div className="text-center mb-12">
-            <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
               Chaque service est une manière de vivre sa foi concrètement et de contribuer à la vie de notre communauté.
             </p>
           </div>
@@ -251,7 +251,7 @@ const ServirPage = () => {
 
         {/* Regular Services */}
         <FadeIn>
-          <h2 className="font-serif text-2xl text-slate-deep mb-6 flex items-center gap-3">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-6 flex items-center gap-3">
             <span className="w-8 h-[2px] bg-gold rounded-full"></span>
             Services réguliers
           </h2>
@@ -266,7 +266,7 @@ const ServirPage = () => {
 
         {/* Occasional Services */}
         <FadeIn>
-          <h2 className="font-serif text-2xl text-slate-deep mb-2 flex items-center gap-3">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-2 flex items-center gap-3">
             <span className="w-8 h-[2px] bg-gold rounded-full"></span>
             Coups de main ponctuels
           </h2>
@@ -284,10 +284,10 @@ const ServirPage = () => {
 
         {/* Quiz Section */}
         <FadeIn>
-          <div className="bg-gradient-to-br from-slate-50 to-gold/5 rounded-2xl border border-slate-200 p-8 md:p-10 mb-16" data-testid="quiz-section">
+          <div className="bg-gradient-to-br from-slate-50 to-gold/5 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 md:p-10 mb-16" data-testid="quiz-section">
             <div className="text-center mb-8">
               <Sparkles className="w-8 h-8 text-gold mx-auto mb-3" />
-              <h2 className="font-serif text-2xl md:text-3xl text-slate-deep mb-2">
+              <h2 className="font-serif text-2xl md:text-3xl text-slate-deep dark:text-slate-100 mb-2">
                 Quel service est fait pour vous ?
               </h2>
               <p className="text-slate-500 text-sm">
@@ -327,7 +327,7 @@ const ServirPage = () => {
                 <p className="text-xs text-slate-400 text-center mb-2">
                   Question {quizStep + 1} sur {quizQuestions.length}
                 </p>
-                <h3 className="font-serif text-xl text-slate-deep text-center mb-6" data-testid="quiz-question">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 text-center mb-6" data-testid="quiz-question">
                   {quizQuestions[quizStep].question}
                 </h3>
 
@@ -339,11 +339,11 @@ const ServirPage = () => {
                       className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 hover:border-gold hover:shadow-sm ${
                         answers[quizQuestions[quizStep].id] === opt.value
                           ? 'border-gold bg-gold/5'
-                          : 'border-slate-200 bg-white'
+                          : 'border-slate-200 dark:border-slate-700 bg-white'
                       }`}
                       data-testid={`quiz-option-${opt.value}`}
                     >
-                      <span className="text-slate-700 text-sm leading-relaxed">{opt.label}</span>
+                      <span className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{opt.label}</span>
                     </button>
                   ))}
                 </div>
@@ -351,7 +351,7 @@ const ServirPage = () => {
                 {quizStep > 0 && (
                   <button
                     onClick={() => setQuizStep(quizStep - 1)}
-                    className="mt-6 text-sm text-slate-400 hover:text-slate-600 flex items-center gap-1 mx-auto transition-colors"
+                    className="mt-6 text-sm text-slate-400 hover:text-slate-600 dark:text-slate-400 flex items-center gap-1 mx-auto transition-colors"
                     data-testid="quiz-back-button"
                   >
                     <ArrowLeft className="w-3 h-3" />
@@ -364,7 +364,7 @@ const ServirPage = () => {
             {/* Results */}
             {results && (
               <div data-testid="quiz-results">
-                <p className="text-center text-slate-700 font-medium mb-6">
+                <p className="text-center text-slate-700 dark:text-slate-300 font-medium mb-6">
                   Merci pour votre participation ! D'après vos réponses, voici les services où vous pourriez vous épanouir :
                 </p>
 
@@ -375,14 +375,14 @@ const ServirPage = () => {
                       <Link
                         key={service.title}
                         to={service.path || '/servir'}
-                        className="flex items-start gap-4 bg-white rounded-xl border border-slate-100 p-4 hover:shadow-md transition-all group"
+                        className="flex items-start gap-4 bg-white rounded-xl border border-slate-100 dark:border-slate-700 p-4 hover:shadow-md transition-all group"
                         data-testid={`quiz-result-${service.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                       >
                         <div className={`w-10 h-10 rounded-lg ${service.color} flex items-center justify-center flex-shrink-0`}>
                           <IconComp className="w-5 h-5" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-slate-900 group-hover:text-gold transition-colors">
+                          <h4 className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-gold transition-colors">
                             {service.title}
                           </h4>
                           <p className="text-slate-500 text-sm mt-0.5">{service.description}</p>
@@ -418,8 +418,8 @@ const ServirPage = () => {
         {/* CTA */}
         <FadeIn>
           <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-            <h2 className="font-serif text-2xl text-slate-deep mb-3">Envie de vous engager ?</h2>
-            <p className="text-slate-600 mb-6 max-w-lg mx-auto">
+            <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-3">Envie de vous engager ?</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-lg mx-auto">
               Contactez le secrétariat pour être orienté vers le service qui vous correspond.
             </p>
             <Link

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown, Phone, Search, Calendar } from 'lucide-react';
+import { DarkModeToggle } from '@/components/DarkModeToggle';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -260,7 +261,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 bg-white border-b border-slate-200" style={{ zIndex: 50 }} data-testid="main-header">
+      <header className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 transition-colors duration-300" style={{ zIndex: 50 }} data-testid="main-header">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -270,7 +271,7 @@ export const Header = () => {
               alt="Notre Dame d'Autan"
               className="h-14 w-auto"
             />
-            <span className="font-serif text-xl md:text-2xl text-slate-deep hidden sm:block">
+            <span className="font-serif text-xl md:text-2xl text-slate-deep dark:text-slate-100 hidden sm:block">
               Notre Dame d'Autan
             </span>
           </Link>
@@ -299,7 +300,7 @@ export const Header = () => {
 
               {showJeVeuxMenu && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50"
                   onMouseEnter={() => {
                     if (closeTimeout) clearTimeout(closeTimeout);
                   }}
@@ -312,7 +313,7 @@ export const Header = () => {
                     <Link
                       key={option.path + option.label}
                       to={option.path}
-                      className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-gold transition-colors"
+                      className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-gold transition-colors"
                       onClick={() => setShowJeVeuxMenu(false)}
                     >
                       {option.label}
@@ -337,7 +338,7 @@ export const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className="px-4 py-2 text-slate-700 hover:text-gold font-medium transition-colors flex items-center space-x-2"
+                  className="px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-gold font-medium transition-colors flex items-center space-x-2"
                   data-testid={`menu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <item.icon className="w-4 h-4" />
@@ -346,7 +347,7 @@ export const Header = () => {
 
                 {activeDropdown === item.title && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50"
+                    className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50"
                     onMouseEnter={() => {
                       if (closeTimeout) clearTimeout(closeTimeout);
                     }}
@@ -359,7 +360,7 @@ export const Header = () => {
                       <Link
                         key={subItem.path}
                         to={subItem.path}
-                        className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-gold transition-colors"
+                        className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-gold transition-colors"
                         data-testid={`submenu-${subItem.path.substring(1)}`}
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -374,6 +375,9 @@ export const Header = () => {
 
           {/* CTA Buttons Desktop + Mobile action buttons */}
           <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Dark Mode Toggle - Desktop */}
+            <DarkModeToggle className="hidden lg:flex" />
+
             {/* Desktop: Horaires des messes button in header */}
             <Link
               to="/horaires-messes"
@@ -424,7 +428,7 @@ export const Header = () => {
             {/* Mobile Menu Toggle */}
 
             <button
-              className="lg:hidden text-slate-700 hover:text-gold p-2"
+              className="lg:hidden text-slate-700 dark:text-slate-300 hover:text-gold p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               data-testid="mobile-menu-toggle"
             >
@@ -437,7 +441,7 @@ export const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white shadow-2xl overflow-y-auto overscroll-contain" 
+          className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white dark:bg-slate-900 shadow-2xl overflow-y-auto overscroll-contain" 
           style={{ zIndex: 10000 }}
           data-testid="mobile-menu"
         >
@@ -476,7 +480,7 @@ export const Header = () => {
                 <div className="flex items-center justify-between">
                   <Link
                     to={item.path}
-                    className="flex items-center space-x-2 font-medium text-slate-700 hover:text-gold transition-colors flex-1 py-2"
+                    className="flex items-center space-x-2 font-medium text-slate-700 dark:text-slate-200 hover:text-gold transition-colors flex-1 py-2"
                     onClick={() => setIsMenuOpen(false)}
                     data-testid={`mobile-menu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
@@ -512,7 +516,11 @@ export const Header = () => {
             ))}
 
             {/* Quick contact link in mobile menu */}
-            <div className="mt-4 pt-4 border-t border-slate-200 space-y-1">
+            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 space-y-1">
+              <div className="flex items-center justify-between py-2">
+                <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">Mode sombre</span>
+                <DarkModeToggle />
+              </div>
               <Link
                 to="/agenda"
                 className="flex items-center space-x-2 text-gold hover:text-gold-dark font-medium py-2 transition-colors"
@@ -560,7 +568,7 @@ export const Header = () => {
           
           {/* Search Panel */}
           <div className="fixed left-1/2 transform -translate-x-1/2 top-[120px] z-[56] w-full max-w-lg px-4">
-            <div className="bg-white rounded-2xl shadow-2xl p-4 border border-slate-200">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-4 border border-slate-200 dark:border-slate-700">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
@@ -568,7 +576,7 @@ export const Header = () => {
                   placeholder="Rechercher une page, un service..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-slate-700"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-700"
                   autoFocus
                   data-testid="search-input"
                 />

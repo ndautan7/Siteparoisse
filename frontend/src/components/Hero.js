@@ -35,7 +35,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mx-auto w-fit">
             <Link
               to="/secretariat"
-              className="bg-white border-2 border-white text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+              className="bg-white dark:bg-slate-800 border-2 border-white text-slate-700 dark:text-slate-300 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               data-testid="contact-button"
             >
               Nous contacter

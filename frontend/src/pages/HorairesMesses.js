@@ -122,7 +122,7 @@ const HorairesMesses = () => {
   }, [massTimes]);
 
   return (
-    <div className="min-h-screen bg-paper" data-testid="mass-times-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="mass-times-page">
       <SEO title="Horaires des Messes" description="Horaires des messes et célébrations de la paroisse Notre Dame d'Autan - Castanet-Tolosan, Saint-Orens et environs." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -168,13 +168,13 @@ const HorairesMesses = () => {
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all ${
                   filtersOpen || activeFilterCount > 0
                     ? 'bg-gold text-white border-gold'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-gold/50'
+                    : 'bg-white text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-gold/50'
                 }`}
               >
                 <Filter className="w-4 h-4" />
                 <span>Filtres</span>
                 {activeFilterCount > 0 && (
-                  <span className="bg-white text-gold rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">{activeFilterCount}</span>
+                  <span className="bg-white dark:bg-slate-800 text-gold rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">{activeFilterCount}</span>
                 )}
                 {filtersOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
@@ -193,7 +193,7 @@ const HorairesMesses = () => {
             {/* Filter controls */}
             {filtersOpen && (
               <FadeIn>
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 mb-6">
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-700 mb-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* Location */}
                     <div>
@@ -201,7 +201,7 @@ const HorairesMesses = () => {
                       <select
                         value={filterLocation}
                         onChange={(e) => setFilterLocation(e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                        className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
                       >
                         <option value="">Tous les lieux</option>
                         {uniqueLocations.map(loc => (
@@ -216,7 +216,7 @@ const HorairesMesses = () => {
                       <select
                         value={filterType}
                         onChange={(e) => setFilterType(e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                        className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
                       >
                         <option value="">Tous les types</option>
                         {uniqueTypes.map(t => (
@@ -231,7 +231,7 @@ const HorairesMesses = () => {
                       <select
                         value={filterDay}
                         onChange={(e) => setFilterDay(e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
+                        className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-2 focus:ring-gold bg-white"
                       >
                         <option value="">Tous les jours</option>
                         {DAYS.map(d => (
@@ -247,7 +247,7 @@ const HorairesMesses = () => {
                         type="time"
                         value={filterFromTime}
                         onChange={(e) => setFilterFromTime(e.target.value)}
-                        className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-gold"
+                        className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-2 focus:ring-gold"
                       />
                     </div>
                   </div>
@@ -256,7 +256,7 @@ const HorairesMesses = () => {
             )}
 
             {/* Results count */}
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               {filteredMasses.length} {filteredMasses.length <= 1 ? 'célébration trouvée' : 'célébrations trouvées'}
               {!showBeyond30 && <span> — Horaires des 30 prochains jours</span>}
               {activeFilterCount > 0 && <span className="text-gold"> (filtrées)</span>}
@@ -265,14 +265,14 @@ const HorairesMesses = () => {
         )}
 
         {loading ? (
-          <p className="text-center text-slate-500">Chargement...</p>
+          <p className="text-center text-slate-500 dark:text-slate-400">Chargement...</p>
         ) : massTimes.length === 0 ? (
           <div className="text-center bg-white rounded-xl p-12 shadow-sm">
-            <p className="text-slate-500" data-testid="no-mass-times">Les horaires des messes seront bientôt disponibles.</p>
+            <p className="text-slate-500 dark:text-slate-400" data-testid="no-mass-times">Les horaires des messes seront bientôt disponibles.</p>
           </div>
         ) : filteredMasses.length === 0 ? (
           <div className="text-center bg-white rounded-xl p-12 shadow-sm">
-            <p className="text-slate-500">Aucune célébration ne correspond à vos filtres.</p>
+            <p className="text-slate-500 dark:text-slate-400">Aucune célébration ne correspond à vos filtres.</p>
             <button
               onClick={clearFilters}
               className="mt-4 text-gold hover:text-gold-dark font-medium text-sm"
@@ -297,18 +297,18 @@ const HorairesMesses = () => {
                   </div>
                 )}
               <div
-                className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow"
                 data-testid={`mass-time-${mass.id}`}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <div className="mb-4 md:mb-0">
-                    <div className="flex items-center space-x-2 text-slate-deep">
+                    <div className="flex items-center space-x-2 text-slate-deep dark:text-slate-100 dark:text-slate-100">
                       <Clock className="w-4 h-4 text-gold" />
                       <span className="font-serif text-xl font-medium">{mass.time}</span>
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end space-y-1">
-                    <div className="flex items-center space-x-2 text-slate-600">
+                    <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 dark:text-slate-400">
                       <LocationLink location={mass.location} iconClassName="w-4 h-4" />
                     </div>
                     <span className="text-sm text-gold font-medium">{mass.mass_type}</span>
@@ -349,7 +349,7 @@ const HorairesMesses = () => {
       {/* Citation biblique */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Quelle joie quand on m'a dit : Nous irons à la maison du Seigneur !"
           </blockquote>
           <p className="text-gold font-medium">Psaume 121, 1</p>

@@ -45,7 +45,7 @@ const sections = [
 
 const GrandirFoiPage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="grandir-foi-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="grandir-foi-page">
       <SEO title="Grandir dans la Foi" description="Parcours Alpha, cat\u00e9chum\u00e9nat, groupes de partage, m\u00e9ditation et ressources spirituelles de la paroisse Notre Dame d'Autan." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -101,10 +101,10 @@ const GrandirFoiPage = () => {
 
                   {/* Content */}
                   <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                  <h3 className="font-serif text-xl text-slate-deep mb-3 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3 group-hover:text-gold transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                     {section.description}
                   </p>
                   
@@ -122,7 +122,7 @@ const GrandirFoiPage = () => {
 
         {/* Citation */}
         <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Je suis le chemin, la vérité et la vie"
           </blockquote>
           <p className="text-gold font-medium">Jean 14, 6</p>

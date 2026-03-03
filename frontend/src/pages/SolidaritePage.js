@@ -60,7 +60,7 @@ const subActions = [
 
 const SolidaritePage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="solidarite-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="solidarite-page">
       <SEO title="Solidarit\u00e9 et \u00c9coute" description="Services de solidarit\u00e9 de la paroisse Notre Dame d'Autan - Service d'\u00e9coute, visite des malades, entraide, Secours Catholique." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -116,10 +116,10 @@ const SolidaritePage = () => {
 
                   {/* Content */}
                   <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                  <h3 className="font-serif text-xl text-slate-deep mb-3 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3 group-hover:text-gold transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                     {section.description}
                   </p>
                   
@@ -136,8 +136,8 @@ const SolidaritePage = () => {
         </div>
 
         {/* Sub-actions */}
-        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-          <h2 className="font-serif text-2xl text-slate-deep mb-6 text-center">Nos actions de solidarité</h2>
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-6 text-center">Nos actions de solidarité</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {subActions.map((action, index) => {
               const IconComponent = action.icon;
@@ -146,7 +146,7 @@ const SolidaritePage = () => {
                   <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
                     <IconComponent className="w-7 h-7 text-gold" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-medium text-slate-deep mb-1">{action.title}</h3>
+                  <h3 className="font-medium text-slate-deep dark:text-slate-100 mb-1">{action.title}</h3>
                   <p className="text-slate-500 text-sm">{action.description}</p>
                 </div>
               );
@@ -156,8 +156,8 @@ const SolidaritePage = () => {
 
         {/* Call to Action */}
         <div className="mt-12 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center mb-16">
-          <h2 className="font-serif text-2xl text-slate-deep mb-4">Rejoindre une équipe</h2>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Rejoindre une équipe</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
             Vous souhaitez vous engager au service des autres ? Rejoignez une de nos équipes de bénévoles.
           </p>
           <Link
@@ -170,7 +170,7 @@ const SolidaritePage = () => {
 
         {/* Citation */}
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Tout ce que vous avez fait à l'un de ces plus petits, c'est à moi que vous l'avez fait."
           </blockquote>
           <p className="text-gold font-medium">Matthieu 25, 40</p>

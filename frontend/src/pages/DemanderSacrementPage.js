@@ -71,7 +71,7 @@ const sacrements = [
 
 const DemanderSacrementPage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="demander-sacrement-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="demander-sacrement-page">
       <SEO title="Demander un Sacrement" description="Demandez un sacrement \u00e0 la paroisse Notre Dame d'Autan - Bapt\u00eame, premi\u00e8re communion, confirmation, mariage et sacrement des malades." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -117,7 +117,7 @@ const DemanderSacrementPage = () => {
                 className="group"
                 data-testid={`sacrement-card-${sacrement.id}`}
               >
-                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col">
+                <article className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 dark:border-slate-700 flex flex-col">
                   {/* Image with overlay */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
@@ -136,11 +136,11 @@ const DemanderSacrementPage = () => {
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-serif text-2xl text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                    <h3 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-1 group-hover:text-gold transition-colors">
                       {sacrement.title}
                     </h3>
                     <p className="text-gold font-medium text-sm mb-3">{sacrement.subtitle}</p>
-                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                       {sacrement.description}
                     </p>
                     
@@ -160,8 +160,8 @@ const DemanderSacrementPage = () => {
         {/* Contact Section */}
         <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 mb-16">
           <div className="text-center">
-            <h2 className="font-serif text-2xl text-slate-deep mb-4">Comment faire une demande ?</h2>
-            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Comment faire une demande ?</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
               Pour toute demande de sacrement, nous vous invitons à contacter le secrétariat paroissial. 
               Notre équipe vous orientera vers la préparation adaptée.
             </p>
@@ -174,7 +174,7 @@ const DemanderSacrementPage = () => {
               </Link>
               <Link
                 to="/horaires-messes"
-                className="inline-flex items-center justify-center bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-full font-medium transition-colors border border-slate-200"
+                className="inline-flex items-center justify-center bg-white hover:bg-slate-50 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-full font-medium transition-colors border border-slate-200 dark:border-slate-700 dark:border-slate-700"
               >
                 Horaires des messes
               </Link>
@@ -184,7 +184,7 @@ const DemanderSacrementPage = () => {
 
         {/* Citation */}
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Si tu savais le don de Dieu..."
           </blockquote>
           <p className="text-gold font-medium">Jean 4, 10</p>

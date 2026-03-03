@@ -250,9 +250,9 @@ const SacrementDetailPage = () => {
 
   if (!sacrement) {
     return (
-      <div className="min-h-screen bg-paper py-20 flex items-center justify-center">
+      <div className="min-h-screen bg-paper dark:bg-slate-900 py-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-serif text-3xl text-slate-deep mb-4">Page non trouvée</h1>
+          <h1 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-4">Page non trouvée</h1>
           <Link to="/demander-sacrement" className="text-gold hover:text-gold-dark">
             Retour aux sacrements
           </Link>
@@ -264,7 +264,7 @@ const SacrementDetailPage = () => {
   const IconComponent = sacrement.icon;
 
   return (
-    <div className="min-h-screen bg-paper" data-testid={`sacrement-detail-${sacrementId}`}>
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid={`sacrement-detail-${sacrementId}`}>
       {/* Hero Section */}
       <div className="relative h-[45vh] min-h-[350px]">
         <img
@@ -302,12 +302,12 @@ const SacrementDetailPage = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Intro Card */}
-        <div className="relative bg-white rounded-3xl p-8 shadow-lg border border-slate-100 mb-10 overflow-hidden">
+        <div className="relative bg-white rounded-3xl p-8 shadow-lg border border-slate-100 dark:border-slate-700 mb-10 overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/10 to-transparent rounded-bl-full"></div>
           <div className="relative">
-            <p className="text-lg text-slate-700 leading-relaxed">{sacrement.intro}</p>
+            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">{sacrement.intro}</p>
             {sacrement.introSecondary && (
-              <p className="text-slate-600 leading-relaxed mt-4">{sacrement.introSecondary}</p>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mt-4">{sacrement.introSecondary}</p>
             )}
           </div>
         </div>
@@ -330,7 +330,7 @@ const SacrementDetailPage = () => {
           {sacrement.sections.map((section, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               {/* Section Header */}
               <div className="px-6 py-4 bg-[#d0ada6]">
@@ -340,21 +340,21 @@ const SacrementDetailPage = () => {
               {/* Section Content */}
               <div className="p-6">
                 {section.paragraphs && section.paragraphs.map((para, pIndex) => (
-                  <p key={pIndex} className="text-slate-600 leading-relaxed mb-4 last:mb-0">
+                  <p key={pIndex} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 last:mb-0">
                     {para}
                   </p>
                 ))}
                 
                 {/* Bullet Points */}
                 {section.bulletTitle && (
-                  <p className="text-slate-700 font-medium mt-4 mb-3">{section.bulletTitle}</p>
+                  <p className="text-slate-700 dark:text-slate-300 font-medium mt-4 mb-3">{section.bulletTitle}</p>
                 )}
                 {section.bulletPoints && (
                   <ul className="space-y-2 mt-3">
                     {section.bulletPoints.map((point, bIndex) => (
                       <li key={bIndex} className="flex items-start">
                         <ChevronRight className="w-5 h-5 text-gold mt-0.5 mr-2 flex-shrink-0" />
-                        <span className="text-slate-600">{point}</span>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-400">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -363,7 +363,7 @@ const SacrementDetailPage = () => {
                 {/* Highlight Box */}
                 {section.highlight && (
                   <div className="mt-4 bg-gold/10 rounded-xl p-4 border-l-4 border-gold">
-                    <p className="text-slate-700 font-medium">{section.highlight}</p>
+                    <p className="text-slate-700 dark:text-slate-300 font-medium">{section.highlight}</p>
                   </div>
                 )}
                 
@@ -372,11 +372,11 @@ const SacrementDetailPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                     <div className="bg-gradient-to-br from-gold/10 to-gold/5 rounded-xl p-5 text-center">
                       <p className="text-sm text-slate-500 mb-1">Offrande à la paroisse</p>
-                      <p className="text-2xl font-serif text-slate-deep">{section.infoBox.offrande}</p>
+                      <p className="text-2xl font-serif text-slate-deep dark:text-slate-100 dark:text-slate-100">{section.infoBox.offrande}</p>
                     </div>
-                    <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-5 text-center border border-slate-100">
+                    <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-5 text-center border border-slate-100 dark:border-slate-700 dark:border-slate-700">
                       <p className="text-sm text-slate-500 mb-1">Responsables</p>
-                      <p className="text-slate-deep font-medium">{section.infoBox.responsables}</p>
+                      <p className="text-slate-deep dark:text-slate-100 font-medium">{section.infoBox.responsables}</p>
                     </div>
                   </div>
                 )}
@@ -408,14 +408,14 @@ const SacrementDetailPage = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="relative bg-white rounded-3xl p-8 shadow-lg border border-slate-100 text-center mb-12 overflow-hidden">
+        <div className="relative bg-white rounded-3xl p-8 shadow-lg border border-slate-100 dark:border-slate-700 text-center mb-12 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5"></div>
           <div className="relative">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center mx-auto mb-6 shadow-lg shadow-gold/20">
               <Users className="w-8 h-8 text-white" />
             </div>
-            <h2 className="font-serif text-2xl text-slate-deep mb-3">Prêt à commencer ?</h2>
-            <p className="text-slate-600 mb-6 max-w-md mx-auto">
+            <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-3">Prêt à commencer ?</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto">
               Pour toute demande concernant ce sacrement, notre équipe est là pour vous accompagner.
             </p>
             <Link

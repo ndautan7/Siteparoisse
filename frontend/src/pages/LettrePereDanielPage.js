@@ -96,8 +96,8 @@ const LettrePereDanielPage = () => {
                 <img src={CURE_IMG} alt="Père Daniel Brouard-Derval" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="font-serif text-xl text-slate-deep mb-1">Recevez la Lettre par email</h2>
-                <p className="text-slate-600 text-sm">
+                <h2 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-1">Recevez la Lettre par email</h2>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">
                   Inscrivez-vous pour recevoir les lettres du Père Daniel directement dans votre boîte mail.
                 </p>
               </div>
@@ -115,7 +115,7 @@ const LettrePereDanielPage = () => {
                       placeholder="Votre adresse email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 min-w-0 md:w-64 px-4 py-2.5 border border-slate-200 rounded-l-lg text-sm focus:outline-none focus:border-gold"
+                      className="flex-1 min-w-0 md:w-64 px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-l-lg text-sm focus:outline-none focus:border-gold"
                       data-testid="newsletter-email-input"
                     />
                     <button
@@ -135,7 +135,7 @@ const LettrePereDanielPage = () => {
 
         {/* Letters List */}
         <FadeIn>
-          <h2 className="font-serif text-2xl text-slate-deep mb-8 flex items-center gap-3">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-8 flex items-center gap-3">
             <FileText className="w-6 h-6 text-gold" />
             Toutes les lettres
           </h2>
@@ -159,7 +159,7 @@ const LettrePereDanielPage = () => {
               <FadeIn key={letter.id}>
                 <button
                   onClick={() => setSelectedLetter(selectedLetter?.id === letter.id ? null : letter)}
-                  className="w-full text-left bg-white rounded-xl border border-slate-100 hover:shadow-md transition-all duration-300 overflow-hidden"
+                  className="w-full text-left bg-white rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all duration-300 overflow-hidden"
                   data-testid={`letter-card-${letter.id}`}
                 >
                   <div className="p-5 flex items-center gap-4">
@@ -172,15 +172,15 @@ const LettrePereDanielPage = () => {
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-slate-900 leading-tight">{letter.title}</h3>
+                      <h3 className="font-medium text-slate-900 dark:text-slate-100 leading-tight">{letter.title}</h3>
                       <p className="text-xs text-slate-400 mt-1">{formatDate(letter.date)}</p>
                     </div>
                     <ChevronRight className={`w-5 h-5 text-slate-400 transition-transform flex-shrink-0 ${selectedLetter?.id === letter.id ? 'rotate-90' : ''}`} />
                   </div>
 
                   {selectedLetter?.id === letter.id && (
-                    <div className="px-5 pb-5 border-t border-slate-100 pt-4" onClick={(e) => e.stopPropagation()}>
-                      <div className="text-slate-600 text-sm leading-relaxed prose prose-sm max-w-none break-words overflow-hidden"
+                    <div className="px-5 pb-5 border-t border-slate-100 dark:border-slate-700 pt-4" onClick={(e) => e.stopPropagation()}>
+                      <div className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed prose prose-sm max-w-none break-words overflow-hidden"
                         dangerouslySetInnerHTML={{ __html: letter.content }}
                       />
                       <p className="text-right text-slate-500 text-sm italic mt-4">

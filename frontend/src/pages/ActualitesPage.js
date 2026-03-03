@@ -98,7 +98,7 @@ const ActualitesPage = () => {
             {news.map((item) => (
               <FadeIn key={item.id}>
                 <article
-                  className="bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer flex flex-col sm:flex-row"
+                  className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer flex flex-col sm:flex-row"
                   onClick={() => setSelectedArticle(item)}
                   data-testid={`archive-card-${item.id}`}
                 >
@@ -130,10 +130,10 @@ const ActualitesPage = () => {
                         {formatDate(item.created_at)}
                       </span>
                     </div>
-                    <h3 className="font-serif text-lg text-slate-deep mb-2 hover:text-gold transition-colors">
+                    <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2 hover:text-gold transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-1" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-2 flex-1" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
                       {stripHtml(item.content)}
                     </p>
                     <span className="text-gold text-sm font-medium mt-3 inline-block">
@@ -155,7 +155,7 @@ const ActualitesPage = () => {
           data-testid="archive-modal-backdrop"
         >
           <div
-            className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
+            className="bg-white dark:bg-slate-800 sm:rounded-2xl rounded-t-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
             data-testid="archive-modal"
           >
@@ -184,7 +184,7 @@ const ActualitesPage = () => {
                       {selectedArticle.category}
                     </span>
                   )}
-                  <h2 className="font-serif text-xl sm:text-2xl text-slate-deep leading-tight">{selectedArticle.title}</h2>
+                  <h2 className="font-serif text-xl sm:text-2xl text-slate-deep dark:text-slate-100 leading-tight">{selectedArticle.title}</h2>
                   <div className="flex items-center space-x-2 text-xs text-slate-500 mt-2">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{formatDate(selectedArticle.created_at)}</span>
@@ -202,15 +202,15 @@ const ActualitesPage = () => {
             </div>
 
             <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6">
-              <div className="text-slate-600 leading-relaxed prose prose-sm max-w-none"
+              <div className="text-slate-600 dark:text-slate-400 leading-relaxed prose prose-sm max-w-none"
                 dangerouslySetInnerHTML={{ __html: selectedArticle.content.replace(/&nbsp;/g, ' ') }}
               />
             </div>
 
-            <div className="flex-shrink-0 sm:rounded-b-2xl bg-slate-50 border-t border-slate-200 p-3 sm:p-4 flex justify-end">
+            <div className="flex-shrink-0 sm:rounded-b-2xl bg-slate-50 border-t border-slate-200 dark:border-slate-700 p-3 sm:p-4 flex justify-end">
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full font-medium transition-colors"
+                className="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 rounded-full font-medium transition-colors"
                 data-testid="archive-modal-close-footer"
               >
                 Fermer

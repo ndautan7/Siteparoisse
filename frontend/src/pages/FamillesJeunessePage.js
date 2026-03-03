@@ -55,7 +55,7 @@ const sections = [
 
 const FamillesJeunessePage = () => {
   return (
-    <div className="min-h-screen bg-paper" data-testid="familles-jeunesse-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="familles-jeunesse-page">
       <SEO title="Familles et Jeunesse" description="Activit\u00e9s pour les familles et les jeunes de la paroisse Notre Dame d'Autan - \u00c9veil \u00e0 la foi, cat\u00e9chisme, aum\u00f4nerie, mouvements de jeunesse." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -111,10 +111,10 @@ const FamillesJeunessePage = () => {
 
                   {/* Content */}
                   <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                  <h3 className="font-serif text-lg text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2 group-hover:text-gold transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                     {section.description}
                   </p>
                   
@@ -132,8 +132,8 @@ const FamillesJeunessePage = () => {
 
         {/* Contact */}
         <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center mb-16">
-          <h2 className="font-serif text-2xl text-slate-deep mb-4">Inscriptions</h2>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Inscriptions</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
             Les inscriptions au catéchisme et à l'aumônerie ont lieu en septembre. 
             Contactez le secrétariat pour plus d'informations.
           </p>
@@ -147,7 +147,7 @@ const FamillesJeunessePage = () => {
 
         {/* Citation */}
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Laissez les enfants venir à moi, ne les empêchez pas."
           </blockquote>
           <p className="text-gold font-medium">Marc 10, 14</p>

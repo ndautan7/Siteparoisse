@@ -223,7 +223,7 @@ const PillarPage = ({ pillarKey }) => {
           <p className="text-xl md:text-2xl text-gold font-medium mb-4">
             {data.subtitle}
           </p>
-          <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             {data.description}
           </p>
         </div>
@@ -249,7 +249,7 @@ const PillarPage = ({ pillarKey }) => {
                       {item.title}
                     </h3>
                     
-                    <p className="text-slate-600 leading-relaxed flex-grow">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed flex-grow">
                       {item.description}
                     </p>
                     

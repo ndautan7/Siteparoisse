@@ -89,7 +89,7 @@ const PriestDetailPage = ({ type }) => {
 
                 <div className="prose prose-slate max-w-none">
                   {cureData.description.split('\n\n').map((para, idx) => (
-                    <p key={idx} className="text-slate-600 leading-relaxed mb-4">
+                    <p key={idx} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                       {para}
                     </p>
                   ))}
@@ -98,7 +98,7 @@ const PriestDetailPage = ({ type }) => {
                 {/* Contact */}
                 <div className="mt-8 pt-8 border-t border-slate-100">
                   <h3 className="font-serif text-lg text-slate-deep mb-4">Prendre contact</h3>
-                  <p className="text-slate-600 mb-4">
+                  <p className="text-slate-600 dark:text-slate-400 mb-4">
                     Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
                   </p>
                   <Link
@@ -148,7 +148,7 @@ const PriestDetailPage = ({ type }) => {
                 <p className="text-[#93B5B7] font-medium">Au service de la communauté</p>
               </div>
             </div>
-            <p className="text-slate-600 leading-relaxed text-lg">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
               {pretresData.intro}
             </p>
           </div>
@@ -174,7 +174,7 @@ const PriestDetailPage = ({ type }) => {
                     <h2 className="font-serif text-2xl text-slate-deep mb-4">
                       {priest.name}
                     </h2>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                       {priest.description}
                     </p>
                   </div>
@@ -186,7 +186,7 @@ const PriestDetailPage = ({ type }) => {
           {/* Contact */}
           <div className="mt-8 bg-white rounded-2xl shadow-xl p-8 text-center">
             <h3 className="font-serif text-xl text-slate-deep mb-4">Prendre contact</h3>
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
               Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
             </p>
             <Link

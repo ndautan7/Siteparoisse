@@ -796,9 +796,9 @@ const ContentPage = ({ section }) => {
 
   if (!config) {
     return (
-      <div className="min-h-screen bg-paper py-20 flex items-center justify-center">
+      <div className="min-h-screen bg-paper dark:bg-slate-900 py-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-serif text-3xl text-slate-deep mb-4">Page en construction</h1>
+          <h1 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-4">Page en construction</h1>
           <Link to="/" className="text-gold hover:text-gold-dark">
             Retour à l'accueil
           </Link>
@@ -810,7 +810,7 @@ const ContentPage = ({ section }) => {
   const IconComponent = config.icon;
 
   return (
-    <div className="min-h-screen bg-paper" data-testid={`content-page-${section}`}>
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid={`content-page-${section}`}>
       <SEO title={config.title} description={`${config.title} - ${config.description} | Paroisse Notre Dame d'Autan`} />
       {/* Hero Section - if heroImage exists */}
       {config.heroImage && (
@@ -877,13 +877,13 @@ const ContentPage = ({ section }) => {
               <IconComponent className="w-10 h-10 text-white" strokeWidth={1.5} />
             </div>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-3">
+          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep dark:text-slate-100 mb-3">
             {config.title}
           </h1>
           {config.subtitle && (
             <p className="text-gold font-medium mb-4">{config.subtitle}</p>
           )}
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             {config.description}
           </p>
         </div>
@@ -893,8 +893,8 @@ const ContentPage = ({ section }) => {
         {section === 'malades' && config.semContent && (
           <div className="mb-12 flex flex-col" style={{ gap: '3rem' }}>
             {/* Introduction */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-              <p className="text-slate-600 leading-relaxed text-lg">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                 {config.semContent.intro}
               </p>
             </div>
@@ -902,12 +902,12 @@ const ContentPage = ({ section }) => {
             {/* Engagements */}
             {config.semContent.engagements && (
               <div className="bg-gold/5 rounded-2xl p-8 border border-gold/20">
-                <h3 className="font-serif text-xl text-slate-deep mb-4">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-4">
                   {config.semContent.engagements.title}
                 </h3>
                 <ul className="space-y-3">
                   {config.semContent.engagements.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start text-slate-600">
+                    <li key={idx} className="flex items-start text-slate-600 dark:text-slate-400 dark:text-slate-400">
                       <span className="text-gold mr-3 mt-1">•</span>
                       <span>{item}</span>
                     </li>
@@ -918,8 +918,8 @@ const ContentPage = ({ section }) => {
 
             {/* Contacts bénévoles */}
             {config.semContent.contacts && (
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                <h3 className="font-serif text-xl text-slate-deep mb-6">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-6">
                   Contacter nos bénévoles
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -929,7 +929,7 @@ const ContentPage = ({ section }) => {
                         <Phone className="w-5 h-5 text-gold" />
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-deep">À {contact.lieu}</p>
+                        <p className="font-semibold text-slate-deep dark:text-slate-100 dark:text-slate-100">À {contact.lieu}</p>
                         <p className="text-gold font-medium">{contact.phone}</p>
                       </div>
                     </div>
@@ -941,10 +941,10 @@ const ContentPage = ({ section }) => {
             {/* Aumôneries */}
             {config.semContent.aumoneries && (
               <div className="bg-slate-50 rounded-2xl p-8">
-                <h3 className="font-serif text-xl text-slate-deep mb-3">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3">
                   {config.semContent.aumoneries.title}
                 </h3>
-                <p className="text-slate-600 mb-4">{config.semContent.aumoneries.description}</p>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">{config.semContent.aumoneries.description}</p>
                 <a
                   href={config.semContent.aumoneries.url}
                   target="_blank"
@@ -974,7 +974,7 @@ const ContentPage = ({ section }) => {
                         setSelectedResource(item);
                         setIsModalOpen(true);
                       }}
-                      className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
+                      className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer"
                       data-testid={`item-card-${index}`}
                     >
                       <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4">
@@ -982,7 +982,7 @@ const ContentPage = ({ section }) => {
                           <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
+                          <h3 className="font-serif text-base sm:text-lg text-slate-deep dark:text-slate-100 mb-1 group-hover:text-gold transition-colors break-words">
                             {item.title}
                           </h3>
                           <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
@@ -1012,7 +1012,7 @@ const ContentPage = ({ section }) => {
                     <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-base sm:text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors break-words">
+                    <h3 className="font-serif text-base sm:text-lg text-slate-deep dark:text-slate-100 mb-1 group-hover:text-gold transition-colors break-words">
                       {item.title}
                     </h3>
                     <p className="text-slate-500 text-xs sm:text-sm leading-relaxed break-words">
@@ -1028,7 +1028,7 @@ const ContentPage = ({ section }) => {
                   <Link
                     key={index}
                     to={item.linkTo}
-                    className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 h-full"
+                    className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 hover:border-gold/30 transition-all duration-300 h-full"
                     data-testid={`item-card-${index}`}
                   >
                     {cardContent}
@@ -1044,7 +1044,7 @@ const ContentPage = ({ section }) => {
                       setSelectedResource(item);
                       setIsModalOpen(true);
                     }}
-                    className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer h-full"
+                    className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 hover:border-gold/30 transition-all duration-300 text-left cursor-pointer h-full"
                     data-testid={`item-card-${index}`}
                   >
                     {cardContent}
@@ -1055,7 +1055,7 @@ const ContentPage = ({ section }) => {
               return (
                 <div
                   key={index}
-                  className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 h-full"
+                  className="w-[calc(50%-0.75rem)] sm:w-auto group bg-white rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 hover:border-gold/30 transition-all duration-300 h-full"
                   data-testid={`item-card-${index}`}
                 >
                   {cardContent}
@@ -1073,7 +1073,7 @@ const ContentPage = ({ section }) => {
             
             {/* Infos Utiles - Contacts & Offrande */}
             {(config.detailedContent.contacts || config.detailedContent.offrande) && (
-              <div className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 overflow-hidden">
                 <div className="px-6 py-4 bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
                   <h2 className="font-serif text-xl text-white">Infos utiles</h2>
                 </div>
@@ -1084,7 +1084,7 @@ const ContentPage = ({ section }) => {
                         <p className="text-sm text-slate-500 mb-1">{contact.sector}</p>
                         <a 
                           href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                          className="text-slate-deep font-semibold text-lg flex items-center justify-center gap-2 hover:text-gold transition-colors"
+                          className="text-slate-deep dark:text-slate-100 font-semibold text-lg flex items-center justify-center gap-2 hover:text-gold transition-colors"
                         >
                           <Phone className="w-5 h-5 text-gold" />
                           {contact.phone}
@@ -1092,9 +1092,9 @@ const ContentPage = ({ section }) => {
                       </div>
                     ))}
                     {config.detailedContent.offrande && (
-                      <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-5 text-center border border-slate-100">
+                      <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-5 text-center border border-slate-100 dark:border-slate-700 dark:border-slate-700">
                         <p className="text-sm text-slate-500 mb-1">Offrande à la paroisse</p>
-                        <p className="text-2xl font-serif text-slate-deep">180 €</p>
+                        <p className="text-2xl font-serif text-slate-deep dark:text-slate-100 dark:text-slate-100">180 €</p>
                       </div>
                     )}
                   </div>
@@ -1109,13 +1109,13 @@ const ContentPage = ({ section }) => {
 
             {/* Introduction */}
             {config.detailedContent.intro && (
-              <div className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 overflow-hidden">
                 <div className="px-6 py-4 bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
                   <h2 className="font-serif text-xl text-white">Les obsèques à l'église</h2>
                 </div>
                 <div className="p-6">
                   {config.detailedContent.intro.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="text-slate-600 leading-relaxed mb-4 last:mb-0">
+                    <p key={idx} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 last:mb-0">
                       {paragraph}
                     </p>
                   ))}
@@ -1125,12 +1125,12 @@ const ContentPage = ({ section }) => {
 
             {/* Contact Info */}
             {config.detailedContent.contact && (
-              <div className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 overflow-hidden">
                 <div className="px-6 py-4 bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
                   <h2 className="font-serif text-xl text-white">Prendre contact</h2>
                 </div>
                 <div className="p-6">
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                     {config.detailedContent.contact}
                   </p>
                 </div>
@@ -1139,7 +1139,7 @@ const ContentPage = ({ section }) => {
 
             {/* Equipe Tasks */}
             {config.detailedContent.equipeTitle && (
-              <div className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 overflow-hidden">
                 <div className="px-6 py-4 bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
                   <h2 className="font-serif text-xl text-white">{config.detailedContent.equipeTitle}</h2>
                 </div>
@@ -1148,7 +1148,7 @@ const ContentPage = ({ section }) => {
                     {config.detailedContent.equipeTasks.map((task, idx) => (
                       <li key={idx} className="flex items-start">
                         <span className="text-gold mr-3 mt-1">•</span>
-                        <span className="text-slate-600">{task}</span>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-400">{task}</span>
                       </li>
                     ))}
                   </ul>
@@ -1176,13 +1176,13 @@ const ContentPage = ({ section }) => {
             {/* Phone Contacts - First */}
             {config.detailedContent.contacts && (
               <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-xl p-8 border border-gold/20">
-                <h3 className="font-serif text-xl text-slate-deep mb-6 text-center">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-6 text-center">
                   Numéros de contact pour les obsèques
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   {config.detailedContent.contacts.map((contact, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-6 text-center shadow-sm">
-                      <p className="font-medium text-slate-deep mb-2">{contact.sector}</p>
+                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg p-6 text-center shadow-sm">
+                      <p className="font-medium text-slate-deep dark:text-slate-100 mb-2">{contact.sector}</p>
                       <a 
                         href={`tel:${contact.phone.replace(/\s/g, '')}`}
                         className="text-gold hover:text-gold-dark text-lg font-semibold flex items-center justify-center gap-2"
@@ -1194,7 +1194,7 @@ const ContentPage = ({ section }) => {
                   ))}
                 </div>
                 {config.detailedContent.contactNote && (
-                  <p className="text-slate-600 text-sm text-center italic">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm text-center italic">
                     {config.detailedContent.contactNote}
                   </p>
                 )}
@@ -1203,8 +1203,8 @@ const ContentPage = ({ section }) => {
 
             {/* Offrande - After contacts */}
             {config.detailedContent.offrande && (
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
-                <p className="text-slate-700 font-medium">
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 dark:border-slate-700 text-center">
+                <p className="text-slate-700 dark:text-slate-300 font-medium">
                   {config.detailedContent.offrande}
                 </p>
               </div>
@@ -1212,10 +1212,10 @@ const ContentPage = ({ section }) => {
 
             {/* Introduction */}
             {config.detailedContent.intro && (
-              <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
                 <div className="prose prose-slate max-w-none">
                   {config.detailedContent.intro.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="text-slate-600 leading-relaxed mb-4 last:mb-0">
+                    <p key={idx} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 last:mb-0">
                       {paragraph}
                     </p>
                   ))}
@@ -1226,7 +1226,7 @@ const ContentPage = ({ section }) => {
             {/* Contact Info */}
             {config.detailedContent.contact && (
               <div className="bg-gold/5 rounded-xl p-8 border border-gold/20">
-                <p className="text-slate-700 leading-relaxed">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                   {config.detailedContent.contact}
                 </p>
               </div>
@@ -1234,15 +1234,15 @@ const ContentPage = ({ section }) => {
 
             {/* Equipe Tasks */}
             {config.detailedContent.equipeTitle && (
-              <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100">
-                <h3 className="font-serif text-xl text-slate-deep mb-4">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-4">
                   {config.detailedContent.equipeTitle}
                 </h3>
                 <ul className="space-y-3">
                   {config.detailedContent.equipeTasks.map((task, idx) => (
                     <li key={idx} className="flex items-start">
                       <span className="text-gold mr-3 mt-1">•</span>
-                      <span className="text-slate-600">{task}</span>
+                      <span className="text-slate-600 dark:text-slate-400 dark:text-slate-400">{task}</span>
                     </li>
                   ))}
                 </ul>
@@ -1263,9 +1263,9 @@ const ContentPage = ({ section }) => {
 
             {/* Paragraphes descriptifs - pour Éveil à la Foi */}
             {config.detailedContent.paragraphes && (
-              <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100 space-y-4">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 space-y-4">
                 {config.detailedContent.paragraphes.map((para, idx) => (
-                  <p key={idx} className="text-slate-600 leading-relaxed">
+                  <p key={idx} className="text-slate-600 dark:text-slate-400 leading-relaxed">
                     {para}
                   </p>
                 ))}
@@ -1275,12 +1275,12 @@ const ContentPage = ({ section }) => {
             {/* Lieux et horaires - pour Éveil à la Foi */}
             {config.detailedContent.lieux && (
               <div className="space-y-6">
-                <h3 className="font-serif text-2xl text-slate-deep text-center">
+                <h3 className="font-serif text-2xl text-slate-deep dark:text-slate-100 text-center">
                   Rencontres 2025-2026
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {config.detailedContent.lieux.map((lieu, idx) => (
-                    <div key={idx} className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
                       <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-6 py-4">
                         <h4 className="font-serif text-lg text-white flex items-center">
                           <MapPin className="w-5 h-5 mr-2" />
@@ -1290,15 +1290,15 @@ const ContentPage = ({ section }) => {
                       <div className="p-6 space-y-4">
                         <div className="flex items-start space-x-3">
                           <Clock className="w-5 h-5 text-[#93B5B7] mt-0.5 flex-shrink-0" />
-                          <p className="text-slate-600 text-sm">{lieu.horaire}</p>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm">{lieu.horaire}</p>
                         </div>
                         <div className="flex items-start space-x-3">
                           <MapPin className="w-5 h-5 text-[#93B5B7] mt-0.5 flex-shrink-0" />
-                          <p className="text-slate-600 text-sm">{lieu.adresse}</p>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm">{lieu.adresse}</p>
                         </div>
-                        <div className="pt-4 border-t border-slate-100">
+                        <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
                           <p className="text-slate-500 text-xs font-medium uppercase tracking-wide mb-2">Dates</p>
-                          <p className="text-slate-700 text-sm font-medium">{lieu.dates}</p>
+                          <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">{lieu.dates}</p>
                         </div>
                       </div>
                     </div>
@@ -1312,15 +1312,15 @@ const ContentPage = ({ section }) => {
         {/* Funerals Agenda - Only for funerailles section */}
         {section === 'funerailles' && (
           <div className="mb-16">
-            <h2 id="funerals-agenda" className="font-serif text-3xl text-slate-deep mb-6 text-center scroll-mt-40">Agenda des célébrations</h2>
+            <h2 id="funerals-agenda" className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-6 text-center scroll-mt-40">Agenda des célébrations</h2>
             <FuneralsAgenda />
           </div>
         )}
 
         {/* Contact Section */}
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center mb-16">
-          <h2 className="font-serif text-2xl text-slate-deep mb-4">Vous souhaitez en savoir plus ?</h2>
-          <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Vous souhaitez en savoir plus ?</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
             Contactez le secrétariat paroissial pour toute information complémentaire ou pour rejoindre une équipe.
           </p>
           <Link
@@ -1335,7 +1335,7 @@ const ContentPage = ({ section }) => {
         {/* Citation biblique */}
         {biblicalQuotes[section] && (
           <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-            <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+            <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
               "{biblicalQuotes[section].quote}"
             </blockquote>
             <p className="text-gold font-medium">{biblicalQuotes[section].reference}</p>

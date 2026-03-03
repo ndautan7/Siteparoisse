@@ -9,9 +9,9 @@ const ClocherDetailPage = () => {
 
   if (!clocher) {
     return (
-      <div className="min-h-screen bg-paper py-20 flex items-center justify-center">
+      <div className="min-h-screen bg-paper dark:bg-slate-900 py-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-serif text-3xl text-slate-deep mb-4">Église non trouvée</h1>
+          <h1 className="font-serif text-3xl text-slate-deep dark:text-slate-100 mb-4">Église non trouvée</h1>
           <Link to="/nos-clochers" className="text-gold hover:text-gold-dark">
             Retour à la liste des clochers
           </Link>
@@ -27,7 +27,7 @@ const ClocherDetailPage = () => {
       if (part.startsWith('**') && part.endsWith('**')) {
         const title = part.slice(2, -2);
         return (
-          <h3 key={index} className="font-serif text-xl text-slate-deep mt-8 mb-3 first:mt-0">
+          <h3 key={index} className="font-serif text-xl text-slate-deep dark:text-slate-100 mt-8 mb-3 first:mt-0">
             {title}
           </h3>
         );
@@ -35,7 +35,7 @@ const ClocherDetailPage = () => {
       // Split by double newlines for paragraphs
       return part.split('\n\n').map((paragraph, pIndex) => (
         paragraph.trim() && (
-          <p key={`${index}-${pIndex}`} className="text-slate-600 leading-relaxed mb-4">
+          <p key={`${index}-${pIndex}`} className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
             {paragraph}
           </p>
         )
@@ -77,7 +77,7 @@ const ClocherDetailPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-paper" data-testid={`clocher-detail-${clocherId}`}>
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid={`clocher-detail-${clocherId}`}>
       {/* Hero Section */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
         {/* Background Image */}
@@ -113,7 +113,7 @@ const ClocherDetailPage = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link
           to="/nos-clochers"
-          className="inline-flex items-center text-slate-600 hover:text-gold transition-colors group"
+          className="inline-flex items-center text-slate-600 dark:text-slate-400 hover:text-gold transition-colors group"
           data-testid="back-to-clochers"
         >
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -124,11 +124,11 @@ const ClocherDetailPage = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mass Schedule Section - Placeholder for CMS */}
         <section className="mb-12" data-testid="mass-schedule-section">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
             <div className="bg-gradient-to-r from-gold/10 to-gold/5 px-6 py-4 border-b border-gold/20">
               <div className="flex items-center">
                 <Calendar className="w-6 h-6 text-gold mr-3" />
-                <h2 className="font-serif text-xl text-slate-deep">Prochaines messes</h2>
+                <h2 className="font-serif text-xl text-slate-deep dark:text-slate-100 dark:text-slate-100">Prochaines messes</h2>
               </div>
             </div>
             <div className="p-6">
@@ -139,8 +139,8 @@ const ClocherDetailPage = () => {
                       <div className="flex items-center">
                         <Clock className="w-5 h-5 text-gold mr-3" />
                         <div>
-                          <p className="font-medium text-slate-deep">{schedule.day}</p>
-                          <p className="text-sm text-slate-500">{schedule.time}</p>
+                          <p className="font-medium text-slate-deep dark:text-slate-100 dark:text-slate-100">{schedule.day}</p>
+                          <p className="text-sm text-slate-500 dark:text-slate-400">{schedule.time}</p>
                         </div>
                       </div>
                       {schedule.type && (
@@ -177,8 +177,8 @@ const ClocherDetailPage = () => {
               <div className="flex items-start">
                 <Clock className="w-6 h-6 text-gold mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h3 className="font-serif text-lg text-slate-deep mb-2">Horaires d'ouverture</h3>
-                  <p className="text-slate-600">{clocher.openingHours}</p>
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2">Horaires d'ouverture</h3>
+                  <p className="text-slate-600 dark:text-slate-400 dark:text-slate-400">{clocher.openingHours}</p>
                 </div>
               </div>
             </div>
@@ -187,8 +187,8 @@ const ClocherDetailPage = () => {
 
         {/* Description Section */}
         <section className="mb-12" data-testid="description-section">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
-            <h2 className="font-serif text-2xl text-slate-deep mb-6">Histoire et patrimoine</h2>
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 p-8">
+            <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-6">Histoire et patrimoine</h2>
             <div className="prose prose-slate max-w-none">
               {parseDescription(clocher.description)}
             </div>
@@ -197,18 +197,18 @@ const ClocherDetailPage = () => {
 
         {/* Location & Map Section */}
         <section className="mb-12" data-testid="map-section">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div className="p-6 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+            <div className="p-6 border-b border-slate-100 dark:border-slate-700 dark:border-slate-700">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-start">
                   <MapPin className="w-6 h-6 text-gold mr-3 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h2 className="font-serif text-xl text-slate-deep mb-1">Localisation</h2>
+                    <h2 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-1">Localisation</h2>
                     <a 
                       href={getGoogleMapsPlaceUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-600 hover:text-gold transition-colors"
+                      className="text-slate-600 dark:text-slate-400 hover:text-gold transition-colors"
                     >
                       {clocher.address}
                     </a>
@@ -246,10 +246,10 @@ const ClocherDetailPage = () => {
         {/* Contact Section */}
         <section className="mb-8">
           <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl p-8 text-center">
-            <h3 className="font-serif text-xl text-slate-deep mb-3">
+            <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-3">
               Une question sur cette église ?
             </h3>
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
               Contactez le secrétariat paroissial pour toute information complémentaire.
             </p>
             <Link
@@ -265,7 +265,7 @@ const ClocherDetailPage = () => {
       {/* Biblical Quote */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-xl md:text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-xl md:text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Comme il est bon, comme il est doux pour des frères de vivre ensemble !"
           </blockquote>
           <p className="text-gold font-medium">Psaume 132, 1</p>

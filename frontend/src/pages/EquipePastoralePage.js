@@ -279,7 +279,7 @@ const EquipePastoralePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-paper" data-testid="equipe-pastorale-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900" data-testid="equipe-pastorale-page">
       <SEO title="\u00c9quipe Pastorale" description="L'\u00e9quipe pastorale de la paroisse Notre Dame d'Autan - Pr\u00eatres, diacres et la\u00efcs au service de la communaut\u00e9." />
       {/* Hero Section with Image */}
       <section className="relative h-[40vh] sm:h-[55vh] flex items-center justify-center">
@@ -326,7 +326,7 @@ const EquipePastoralePage = () => {
                 className="group text-left"
                 data-testid={`team-card-${member.id}`}
               >
-                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
+                <article className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 dark:border-slate-700 flex flex-col hover:-translate-y-1">
                   {member.id === 'pretres' ? (
                     // Carousel for priests
                     <div className="aspect-square overflow-hidden relative">
@@ -447,7 +447,7 @@ const EquipePastoralePage = () => {
 
                   <div className="p-4 flex flex-col flex-grow">
                     <span className="text-gold text-xs font-medium mb-1 uppercase tracking-wide">{member.role}</span>
-                    <h3 className="font-serif text-base text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                    <h3 className="font-serif text-base text-slate-deep dark:text-slate-100 mb-1 group-hover:text-gold transition-colors">
                       {member.title}
                     </h3>
                     <p className="text-slate-500 text-xs mb-2 line-clamp-2">{member.description}</p>
@@ -466,7 +466,7 @@ const EquipePastoralePage = () => {
         </div>
 
         {/* Mot de bienvenue du Père Daniel */}
-        <div className="mt-12 mb-4 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+        <div className="mt-12 mb-4 bg-white rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
           <div className="flex flex-col md:flex-row">
             {/* Photo gauche */}
             <div className="md:w-64 lg:w-72 flex-shrink-0 relative">
@@ -484,7 +484,7 @@ const EquipePastoralePage = () => {
                 <div className="w-1 h-12 bg-gradient-to-b from-[#d0ada6] to-[#c49a93] rounded-full"></div>
                 <div>
                   <p className="text-[#d0ada6] text-xs font-semibold uppercase tracking-widest mb-0.5">Mot du curé</p>
-                  <h2 className="font-serif text-2xl text-slate-deep leading-tight">Bienvenue dans notre ensemble paroissial</h2>
+                  <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 leading-tight">Bienvenue dans notre ensemble paroissial</h2>
                 </div>
               </div>
 
@@ -494,7 +494,7 @@ const EquipePastoralePage = () => {
                 <span className="font-sans text-sm not-italic text-slate-400 ml-2">(Jn 1, 39)</span>
               </blockquote>
 
-              <div className="space-y-4 text-slate-600 text-sm leading-[1.8] max-w-3xl">
+              <div className="space-y-4 text-slate-600 dark:text-slate-400 text-sm leading-[1.8] max-w-3xl">
                 <p>
                   Telle est l'invitation que Jésus lance aux premiers « curieux » qui s'intéressent à Lui. En quête de sens et de vérité, croyants en chemin, ils deviendront ses premiers disciples.
                 </p>
@@ -502,10 +502,10 @@ const EquipePastoralePage = () => {
                   Telle est l'invitation que lance la communauté de l'ensemble paroissial Notre Dame d'Autan aux habitants de nos quartiers, de nos villages, à tous ceux également qui en ont franchi la porte intentionnellement ou par hasard, aux visiteurs de notre église, à tous les chercheurs de Dieu… à ceux qui pour la première fois visiteront ce nouveau site !
                 </p>
                 <p>
-                  <span className="font-medium text-slate-deep">Pourquoi venir ? Qui verrons-nous ?</span><br />
+                  <span className="font-medium text-slate-deep dark:text-slate-100 dark:text-slate-100">Pourquoi venir ? Qui verrons-nous ?</span><br />
                   Jésus, la joie d'une communauté qui vit et témoigne de son amour, qui célèbre l'eucharistie, prie, annonce l'Évangile, prend soin des plus vulnérables, crée des liens entre tous…
                 </p>
-                <p className="font-serif text-base text-slate-deep">
+                <p className="font-serif text-base text-slate-deep dark:text-slate-100 dark:text-slate-100">
                   Soyez les bienvenus !
                 </p>
                 <p className="text-slate-500 text-xs">
@@ -514,7 +514,7 @@ const EquipePastoralePage = () => {
               </div>
 
               {/* Signature */}
-              <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3">
+              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-700 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#d0ada6]/30">
                   <img
                     src="https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp"
@@ -523,7 +523,7 @@ const EquipePastoralePage = () => {
                   />
                 </div>
                 <div>
-                  <p className="font-medium text-slate-deep text-sm">Père Daniel Brouard-Derval</p>
+                  <p className="font-medium text-slate-deep dark:text-slate-100 text-sm">Père Daniel Brouard-Derval</p>
                   <p className="text-[#d0ada6] text-xs">Curé de Notre Dame d'Autan</p>
                 </div>
               </div>
@@ -532,9 +532,9 @@ const EquipePastoralePage = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
-          <h2 className="font-serif text-2xl text-slate-deep mb-4">Contacter l'équipe pastorale</h2>
-          <p className="text-slate-600 mb-6">
+        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 text-center">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Contacter l'équipe pastorale</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">
             Pour toute question ou demande, n'hésitez pas à nous contacter via le secrétariat paroissial.
           </p>
           <Link
@@ -549,7 +549,7 @@ const EquipePastoralePage = () => {
       {/* Citation biblique */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
-          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+          <blockquote className="font-serif text-2xl text-slate-deep dark:text-slate-100 italic mb-4">
             "Comme le Père m'a envoyé, moi aussi, je vous envoie."
           </blockquote>
           <p className="text-gold font-medium">Jean 20, 21</p>
@@ -585,21 +585,21 @@ const EquipePastoralePage = () => {
                   <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-sm font-medium mb-3">
                     Curé de la paroisse
                   </span>
-                  <h3 className="font-serif text-2xl text-slate-deep mb-2">{cureData.name}</h3>
+                  <h3 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-2">{cureData.name}</h3>
                   <p className="text-[#93B5B7] font-medium">{cureData.role}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 {cureData.description.split('\n\n').map((para, idx) => (
-                  <p key={idx} className="text-slate-600 leading-relaxed">
+                  <p key={idx} className="text-slate-600 dark:text-slate-400 leading-relaxed">
                     {para}
                   </p>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-600 mb-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
                   Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
                 </p>
                 <Link
@@ -633,7 +633,7 @@ const EquipePastoralePage = () => {
           
           <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
             <div className="space-y-6">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 {pretresData.intro}
               </p>
 
@@ -648,8 +648,8 @@ const EquipePastoralePage = () => {
                       />
                     </div>
                     <div className="flex-grow">
-                      <h4 className="font-serif text-lg text-slate-deep mb-2">{priest.name}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">
+                      <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2">{priest.name}</h4>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                         {priest.description}
                       </p>
                     </div>
@@ -657,8 +657,8 @@ const EquipePastoralePage = () => {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-600 mb-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
                   Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
                 </p>
                 <Link
@@ -692,7 +692,7 @@ const EquipePastoralePage = () => {
           
           <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
             <div className="space-y-6">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 {diacresData.intro}
               </p>
 
@@ -707,8 +707,8 @@ const EquipePastoralePage = () => {
                       />
                     </div>
                     <div className="flex-grow">
-                      <h4 className="font-serif text-lg text-slate-deep mb-2">{deacon.name}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">
+                      <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-2">{deacon.name}</h4>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                         {deacon.description}
                       </p>
                     </div>
@@ -716,8 +716,8 @@ const EquipePastoralePage = () => {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-600 mb-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
                   Pour contacter nos diacres, vous pouvez passer par le secrétariat paroissial.
                 </p>
                 <Link
@@ -751,7 +751,7 @@ const EquipePastoralePage = () => {
           
           <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
             <div className="space-y-6">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 {eapData.intro}
               </p>
 
@@ -759,7 +759,7 @@ const EquipePastoralePage = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-[#93B5B7]"></div>
-                  <h3 className="font-serif text-lg text-slate-deep">{eapData.castanet.title}</h3>
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 dark:text-slate-100">{eapData.castanet.title}</h3>
                 </div>
                 {eapData.castanet.members.map((member, idx) => (
                   <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
@@ -771,7 +771,7 @@ const EquipePastoralePage = () => {
                       />
                     </div>
                     <div className="flex-grow">
-                      <h4 className="font-serif text-lg text-slate-deep mb-1">{member.name}</h4>
+                      <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-1">{member.name}</h4>
                       <p className="text-slate-500 text-sm">{member.role}</p>
                     </div>
                   </div>
@@ -782,7 +782,7 @@ const EquipePastoralePage = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-[#d0ada6]"></div>
-                  <h3 className="font-serif text-lg text-slate-deep">{eapData.saintOrens.title}</h3>
+                  <h3 className="font-serif text-lg text-slate-deep dark:text-slate-100 dark:text-slate-100">{eapData.saintOrens.title}</h3>
                 </div>
                 {eapData.saintOrens.members.map((member, idx) => (
                   <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
@@ -800,15 +800,15 @@ const EquipePastoralePage = () => {
                       )}
                     </div>
                     <div className="flex-grow">
-                      <h4 className="font-serif text-lg text-slate-deep mb-1">{member.name}</h4>
+                      <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-1">{member.name}</h4>
                       <p className="text-slate-500 text-sm">{member.role}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-600 mb-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
                   Pour contacter l'EAP, vous pouvez passer par le secrétariat paroissial.
                 </p>
                 <Link
@@ -842,7 +842,7 @@ const EquipePastoralePage = () => {
 
           <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
             <div className="space-y-6">
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 Notre paroisse a la joie d'accompagner des séminaristes dans leur cheminement vers le sacerdoce. Leur présence est une grâce et un signe d'espérance pour notre communauté.
               </p>
 
@@ -859,16 +859,16 @@ const EquipePastoralePage = () => {
                       </div>
                     </div>
                     <div className="flex-grow">
-                      <h4 className="font-serif text-lg text-slate-deep mb-1">{seminariste.prenom}</h4>
+                      <h4 className="font-serif text-lg text-slate-deep dark:text-slate-100 mb-1">{seminariste.prenom}</h4>
                       <span className="inline-block bg-[#93B5B7]/10 text-[#93B5B7] px-3 py-0.5 rounded-full text-xs font-medium mb-2">Séminariste</span>
-                      <p className="text-slate-600 text-sm leading-relaxed">{seminariste.description}</p>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{seminariste.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-600 mb-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
                   Pour en savoir plus, vous pouvez contacter le secrétariat paroissial.
                 </p>
                 <Link

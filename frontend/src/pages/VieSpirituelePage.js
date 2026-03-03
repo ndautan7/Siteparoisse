@@ -70,7 +70,7 @@ const sections = [
 
 const VieSpirituelePage = () => {
   return (
-    <div className="min-h-screen bg-paper py-20" data-testid="vie-spirituelle-page">
+    <div className="min-h-screen bg-paper dark:bg-slate-900 py-20" data-testid="vie-spirituelle-page">
       <SEO title="Vie Spirituelle et Sacrements" description="Les sacrements de la paroisse Notre Dame d'Autan - Bapt\u00eame, communion, confirmation, mariage, sacrement des malades." />
       <FadeIn>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,11 +81,11 @@ const VieSpirituelePage = () => {
               <Heart className="w-10 h-10 text-white" strokeWidth={1.5} />
             </div>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-4">
+          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep dark:text-slate-100 mb-4">
             Vie Spirituelle & Sacrements
           </h1>
           <p className="text-gold font-medium mb-4">Les grandes étapes de la vie chrétienne</p>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Recevoir les sacrements et vivre la liturgie en communauté
           </p>
         </div>
@@ -101,7 +101,7 @@ const VieSpirituelePage = () => {
                 className="group"
                 data-testid={`section-card-${section.id}`}
               >
-                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col">
+                <article className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 dark:border-slate-700 flex flex-col">
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
@@ -121,10 +121,10 @@ const VieSpirituelePage = () => {
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
                     <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
-                    <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                    <h3 className="font-serif text-xl text-slate-deep dark:text-slate-100 mb-2 group-hover:text-gold transition-colors">
                       {section.title}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
                       {section.description}
                     </p>
                     
@@ -142,9 +142,9 @@ const VieSpirituelePage = () => {
         </div>
 
         {/* Horaires */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
-          <h2 className="font-serif text-2xl text-slate-deep mb-4">Horaires des célébrations</h2>
-          <p className="text-slate-600 mb-6">
+        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 text-center">
+          <h2 className="font-serif text-2xl text-slate-deep dark:text-slate-100 mb-4">Horaires des célébrations</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">
             Retrouvez les horaires des messes et des permanences de confession
           </p>
           <Link

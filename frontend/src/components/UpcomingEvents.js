@@ -47,7 +47,7 @@ export const UpcomingEvents = () => {
           <span className="inline-block text-gold font-medium text-sm tracking-widest uppercase mb-3">
             A venir
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate-deep mb-4" data-testid="upcoming-events-title">
+          <h2 className="font-serif text-3xl md:text-4xl text-slate-deep dark:text-slate-100 mb-4" data-testid="upcoming-events-title">
             Prochains événements
           </h2>
           <div className="w-16 h-1 bg-gold mx-auto rounded-full"></div>
@@ -59,7 +59,7 @@ export const UpcomingEvents = () => {
             <button
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-4 text-left cursor-pointer"
+              className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-4 text-left cursor-pointer"
               data-testid={`upcoming-event-${event.id}`}
             >
               {/* Date badge */}
@@ -75,7 +75,7 @@ export const UpcomingEvents = () => {
               {/* Details */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-start gap-2 mb-1">
-                  <h3 className="font-medium text-slate-900 leading-tight line-clamp-2 flex-1 break-words">
+                  <h3 className="font-medium text-slate-900 dark:text-slate-100 leading-tight line-clamp-2 flex-1 break-words">
                     {event.title}
                   </h3>
                   <span className={`flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[event.category] || 'bg-slate-100 text-slate-600'}`}>
@@ -108,7 +108,7 @@ export const UpcomingEvents = () => {
         <div className="text-center">
           <Link
             to="/agenda"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-200 text-slate-600 hover:border-gold hover:text-gold transition-all duration-300 text-sm font-medium"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-gold hover:text-gold transition-all duration-300 text-sm font-medium"
             data-testid="see-all-events-link"
           >
             <Calendar className="w-4 h-4" />
@@ -124,7 +124,7 @@ export const UpcomingEvents = () => {
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden shadow-xl"
+            className="bg-white dark:bg-slate-800 rounded-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -146,25 +146,25 @@ export const UpcomingEvents = () => {
             {/* Modal Body */}
             <div className="p-5 overflow-y-auto overflow-x-hidden max-h-[50vh]">
               {/* Date & Time */}
-              <div className="flex flex-wrap gap-4 mb-4 pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-2 text-sm text-slate-600">
+              <div className="flex flex-wrap gap-4 mb-4 pb-4 border-b border-slate-100 dark:border-slate-700 dark:border-slate-700">
+                <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
                   <Calendar className="w-4 h-4 text-gold" />
                   <span className="capitalize">
                     {format(parseISO(selectedEvent.date), 'EEEE d MMMM yyyy', { locale: fr })}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-slate-600">
+                <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
                   <Clock className="w-4 h-4 text-gold" />
                   <span>{selectedEvent.time}{selectedEvent.end_time ? ` - ${selectedEvent.end_time}` : ''}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-slate-600">
+                <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 dark:text-slate-400">
                   <LocationLink location={selectedEvent.location} iconClassName="w-4 h-4 text-gold" showIcon={true} />
                 </div>
               </div>
 
               {/* Description */}
               {selectedEvent.description ? (
-                <div className="text-slate-600 leading-relaxed prose prose-sm max-w-none break-words"
+                <div className="text-slate-600 dark:text-slate-400 leading-relaxed prose prose-sm max-w-none break-words"
                   dangerouslySetInnerHTML={{ __html: selectedEvent.description.replace(/&nbsp;/g, ' ') }}
                 />
               ) : (
@@ -173,7 +173,7 @@ export const UpcomingEvents = () => {
             </div>
 
             {/* Modal Footer */}
-            <div className="bg-slate-50 border-t border-slate-100 p-4 flex justify-between items-center">
+            <div className="bg-slate-50 border-t border-slate-100 dark:border-slate-700 p-4 flex justify-between items-center">
               <Link
                 to="/agenda"
                 className="text-sm text-gold hover:text-gold-dark font-medium transition-colors"
@@ -183,7 +183,7 @@ export const UpcomingEvents = () => {
               </Link>
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full text-sm font-medium transition-colors"
+                className="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium transition-colors"
               >
                 Fermer
               </button>

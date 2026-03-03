@@ -55,6 +55,28 @@ div[style*="position: fixed"][style*="bottom"],
         --ring: 215 20% 40%;
         --radius: 0.5rem;
     }
+
+    .dark {
+        --background: 222 47% 11%;
+        --foreground: 210 40% 98%;
+        --card: 217 33% 17%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 47% 11%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222 47% 11%;
+        --secondary: 217 33% 17%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 5 35% 74%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 62% 30%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 217 33% 25%;
+        --input: 217 33% 25%;
+        --ring: 210 40% 60%;
+    }
 }
 
 @layer base {
@@ -62,7 +84,12 @@ div[style*="position: fixed"][style*="bottom"],
         @apply border-border;
     }
     body {
-        @apply bg-offwhite text-slate-deep;
+        @apply bg-offwhite text-slate-deep transition-colors duration-300;
+    }
+    .dark body,
+    html.dark body {
+        background-color: #0f172a;
+        color: #e2e8f0;
     }
 }
 
@@ -139,6 +166,55 @@ div[style*="position: fixed"][style*="bottom"],
 .ql-editor {
     min-height: 120px;
 }
+.dark .ql-toolbar {
+    background: #1e293b;
+    border-color: #334155;
+}
+.dark .ql-toolbar .ql-stroke { stroke: #94a3b8; }
+.dark .ql-toolbar .ql-fill { fill: #94a3b8; }
+.dark .ql-toolbar .ql-picker-label { color: #94a3b8; }
+.dark .ql-container {
+    border-color: #334155;
+    color: #e2e8f0;
+    background: #0f172a;
+}
+.dark .ql-editor.ql-blank::before {
+    color: #64748b;
+}
+
+/* ============ Dark Mode Global Form Overrides ============ */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="url"],
+.dark input[type="date"],
+.dark input[type="time"],
+.dark input[type="datetime-local"],
+.dark input[type="search"],
+.dark textarea,
+.dark select {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #64748b !important;
+}
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: #b8977e !important;
+    box-shadow: 0 0 0 2px rgba(184, 151, 126, 0.2) !important;
+}
+.dark label {
+    color: #cbd5e1;
+}
+.dark .text-slate-deep {
+    color: #f1f5f9;
+}
+
 
 /* ============ Prose styles for rendered rich text ============ */
 .prose { overflow-wrap: break-word; }
